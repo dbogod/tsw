@@ -7,7 +7,7 @@ const chunk = require(`lodash/chunk`)
 
 /**
  * exports.createPages is a built-in Gatsby Node API.
- * It's purpose is to allow you to create pages for your site! 💡
+ * Its purpose is to allow you to create pages for your site! 💡
  *
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
