@@ -6,7 +6,7 @@ const PageHeading = ({ title, intro }) => {
       <div className="[ content__page-heading ]">
         {
           title &&
-          <h2>
+          <h2 className="[ pb-4 border-b border-black ]">
             {title}
           </h2>
         }

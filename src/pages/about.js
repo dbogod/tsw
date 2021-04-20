@@ -8,13 +8,17 @@ const About = ({ data }) => {
   const { pageHeading } = data.allWpPage.nodes[0];
   return (
     <Layout>
-      <PageHeading
-        title={ pageHeading.title }
-        intro={ pageHeading.intro }/>
-      {
-        aboutPage.aboutText &&
-        <div className="[ mt-4 ]" dangerouslySetInnerHTML={{ __html:  aboutPage.aboutText }} />
-      }
+      <div className="[ max-w-screen-2xl px-4 mx-auto grid grid-cols-12 ]">
+        <div className="[ col-span-12 sm:col-span-10 sm:col-start-2 md:col-span-8 md:col-start-3 ]">
+          <PageHeading
+            title={ pageHeading.title }
+            intro={ pageHeading.intro }/>
+          {
+            aboutPage.aboutText &&
+            <div className="[ mt-4 ]" dangerouslySetInnerHTML={{ __html:  aboutPage.aboutText }} />
+          }
+        </div>
+      </div>
     </Layout>
   )
 };
