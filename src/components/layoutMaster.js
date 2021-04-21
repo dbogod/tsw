@@ -12,7 +12,7 @@ class LayoutMaster extends Component {
         <HtmlHead />
         <Header />
 
-        <main className="[ pt-16 pb-20 ]">
+        <main className="[ pt-18 pb-20 lg:pt-24 ]">
           {children}
 
           <section aria-hidden="true">

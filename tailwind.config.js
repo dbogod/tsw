@@ -12,6 +12,12 @@ module.exports = {
       fontFamily: {
         display: ['Merriweather', 'serif'],
         body: ['Roboto', 'sans-serif']
+      },
+      lineHeight: {
+        'heading': '1.2'
+      },
+      spacing: {
+        18: '4.5rem'
       }
     },
   },
