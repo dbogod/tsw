@@ -5,12 +5,30 @@ import Particles from "react-tsparticles";
 import particlesConfig from '../../static/particles.json'
 
 class LayoutMaster extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isNavOpen: false
+    }
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu = () => {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen
+    })
+  }
+
   render() {
     const { children } = this.props;
      return (
-      <div className="[ overflow-hidden font-body font-light ]">
+      <div className={`[ overflow-hidden font-body font-light ] ${this.state.isNavOpen ? 'is-nav-open' : ''}`}>
+
         <HtmlHead />
-        <Header />
+
+        <Header clickHandler={this.toggleMenu}/>
 
         <main className="[ pt-18 pb-20 lg:pt-24 ]">
           {children}
@@ -19,6 +37,7 @@ class LayoutMaster extends Component {
             <Particles options={particlesConfig} />
           </section>
         </main>
+
       </div>
     )
   }

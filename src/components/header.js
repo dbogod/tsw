@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-// import Img from 'gatsby-image';
 
-const Header = () => {
+const Header = ({ clickHandler }) => {
+  const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+  const handleClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+    clickHandler();
+  };
   const data = useStaticQuery(graphql`
-  query HeaderSettings {
-  wp {
-    themeSettings {
-      themeSettings {
-        header {
-          headerLogo {
-            localFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
+    query HeaderSettings {
+      wp {
+        themeSettings {
+          themeSettings {
+            header {
+              headerLogo {
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
             }
@@ -21,8 +27,6 @@ const Header = () => {
         }
       }
     }
-}
-}
   `);
   const { headerLogo } = data.wp.themeSettings.themeSettings.header;
   return (
@@ -43,14 +47,16 @@ const Header = () => {
           {/*  </ul>*/}
           {/*</div>*/}
         </div>
-        {/*<button className="lg:hidden"*/}
-        {/*        aria-label="Toggle menu"*/}
-        {/*        aria-controls="primary-menu"*/}
-        {/*        aria-expanded="false">*/}
-        {/*    <span>*/}
-        {/*      <span>B</span>*/}
-        {/*    </span>*/}
-        {/*</button>*/}
+        <button className="[ hamburger hamburger--stand ] [ lg:hidden ]"
+                type="button"
+                onClick={handleClick}
+                aria-label="Toggle menu"
+                aria-controls="primary-menu"
+                aria-expanded={isMenuOpen}>
+                        <span className="[ hamburger-box ]">
+                            <span className="[ hamburger-inner ]"></span>
+                        </span>
+        </button>
         {/*<nav className="[ absolute top-0 left-0 right-0 z-10 ]">*/}
         {/*  <div>*/}
         {/*    <ul>*/}
