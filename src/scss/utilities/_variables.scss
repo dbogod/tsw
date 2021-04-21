@@ -1,1 +1,30 @@
-//
+// Geoff Graham https://css-tricks.com/snippets/css/fluid-typography/
+$h-size_1: 1.2; // mobile
+$h-size_2: 1.5; // desktop
+$min_width: 1px;
+$max_width: 1300px;
+$min_font: 14px;
+$max_font: 17px;
+
+:root {
+  --body-color: var(--color-black);
+  --border-keyline: 1px solid rgba(85, 90, 93, 0.6);
+  --button-border-radius: 0.25rem;
+  --backdrop-blur: blur(3px);
+  --link-color: var(--color-jelly-bean);
+  --link-hover-color: var(--color-hot-pink);
+  --hero-title-color: var(--color-wild-strawberry);
+  --hero-frame-color: var(--color-onahau);
+  --nav-text-color: var(--color-wild-strawberry);
+  --nav-text-color-hover: var(--color-wild-strawberry);
+  --nav-mobile-bg-color: var(--color-white);
+  --cta-primary-fill: var(--color-scotch-mist);
+  --cta-primary-fill-hover: var(--color-wild-strawberry);
+  --cta-primary-text-color: var(--link-color);
+  --cta-primary-text-color-hover: var(--color-white);
+  --cta-primary-border-color: var(--color-black);
+  --cta-secondary-fill: var(--color-wild-strawberry);
+  --cta-secondary-fill-hover: var(--color-rose);
+  --cta-secondary-text-color: var(--color-white);
+  --cta-secondary-border-color: var(--color-rose);
+}

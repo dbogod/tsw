@@ -1,31 +1,29 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import PageHeading from "../components/pageHeading";
+import LayoutMaster from "../components/layoutMaster";
+import LayoutPage from "../components/layoutPage";
 
 const faqs = ({ data }) => {
   const { faq } = data.allWpPage.nodes[0].faqPage;
   const { pageHeading } = data.allWpPage.nodes[0];
   return (
-    <Layout>
-      <PageHeading
-        title={ pageHeading.title }
-        intro={ pageHeading.intro }
-      />
-      {
-        faq.length &&
-        faq.map((faq, index) => {
-          return (
-            <div key={index}>
-              <h3 className="[ h5 ] [ font-family-standard ]">
-                {faq.faqQuestion}
-              </h3>
-              <div dangerouslySetInnerHTML={{ __html: faq.faqAnswer }}/>
-            </div>
-          )
-        })
-      }
-    </Layout>
+    <LayoutMaster>
+      <LayoutPage pageHeading={pageHeading}>
+        {
+          faq.length &&
+          faq.map((faq, index) => {
+            return (
+              <div key={index}>
+                <h3 className="[ h5 ] [ font-family-standard ]">
+                  {faq.faqQuestion}
+                </h3>
+                <div dangerouslySetInnerHTML={{ __html: faq.faqAnswer }}/>
+              </div>
+            )
+          })
+        }
+      </LayoutPage>
+    </LayoutMaster>
   )
 };
 

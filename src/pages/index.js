@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
+import LayoutMaster from "../components/layoutMaster";
 
 export default function Home({ data }) {
   const { hero } = data.allWpPage.nodes[0];
   return (
-    <Layout>
+    <LayoutMaster>
       <section>
         {
           (hero.heroTitle || hero.heroBody) &&
@@ -39,7 +39,7 @@ export default function Home({ data }) {
           </div>
         }
       </section>
-    </Layout>
+    </LayoutMaster>
   )
 };
 

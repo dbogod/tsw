@@ -8,7 +8,7 @@ import "@wordpress/block-library/build-style/style.css"
 import "@wordpress/block-library/build-style/theme.css"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import LayoutMaster from "../components/layoutMaster"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   }
 
   return (
-    <Layout>
+    <LayoutMaster>
       <SEO title={post.title} description={post.excerpt} />
 
       <article
@@ -79,7 +79,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
           </li>
         </ul>
       </nav>
-    </Layout>
+    </LayoutMaster>
   )
 }
 

@@ -1,32 +1,27 @@
 import React, { Component } from "react";
 import HtmlHead from "./htmlHead";
-import { Link } from "gatsby";
+import Header from './header';
 import Particles from "react-tsparticles";
 import particlesConfig from '../../static/particles.json'
 
-class Layout extends Component {
+class LayoutMaster extends Component {
   render() {
     const { children } = this.props;
      return (
       <div className="[ overflow-hidden font-body font-light ]">
         <HtmlHead />
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/faq">Frequently Asked Questions</Link>
-          </nav>
-        </header>
+        <Header />
 
         <main className="[ pt-16 pb-20 ]">
           {children}
+
+          <section aria-hidden="true">
+            <Particles options={particlesConfig} />
+          </section>
         </main>
-
-        <Particles options={particlesConfig} />
-
       </div>
     )
   }
 }
 
-export default Layout;
+export default LayoutMaster;

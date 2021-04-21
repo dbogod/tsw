@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import parse from "html-react-parser"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import LayoutMaster from "../components/layoutMaster"
 import SEO from "../components/seo"
 
 const BlogIndex = ({
@@ -14,14 +14,14 @@ const BlogIndex = ({
 
   if (!posts.length) {
     return (
-      <Layout isHomePage>
+      <LayoutMaster isHomePage>
         <SEO title="All posts" />
         <Bio />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
           appear here!
         </p>
-      </Layout>
+      </LayoutMaster>
     )
   }
 

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.tsparticles-canvas-el {
-  opacity: 0.5;
-  filter: blur(1px);
-}
-
 @import "utilities";
 @import "base";
+@import "vendors";
