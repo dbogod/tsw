@@ -89,3 +89,9 @@ a {
 header button:focus {
   outline: none;
 }
+
+input,
+select,
+textarea {
+  @apply border border-black mt-2 p-2;
+}

@@ -2,6 +2,7 @@
   "name": "the-styling-works",
   "private": true,
   "dependencies": {
+    "@formspree/react": "^2.2.3",
     "@wordpress/block-library": "^2.27.0",
     "autoprefixer": "9",
     "gatsby": "^2.30.1",
