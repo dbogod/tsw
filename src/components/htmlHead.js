@@ -32,6 +32,7 @@ const HtmlHead = () => {
 
   return (
     <Helmet>
+      <meta name="robots" content="noindex" />
       <link rel="preconnect" href="https://fonts.gstatic.com"/>
       <style type="text/css">
         {fontFaceStyles}
