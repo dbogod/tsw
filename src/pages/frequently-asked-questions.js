@@ -4,7 +4,7 @@ import LayoutMaster from "../components/layoutMaster";
 import LayoutPage from "../components/layoutPage";
 import parse from 'html-react-parser';
 
-const faqs = ({ data }) => {
+const Faqs = ({ data }) => {
   const { faq } = data.allWpPage.nodes[0].faqPage;
   const { pageHeading } = data.allWpPage.nodes[0];
   return (
@@ -71,4 +71,4 @@ query FAQs {
 }
 `
 
-export default faqs;
+export default Faqs;

@@ -2,12 +2,13 @@ import React from "react";
 import parse from "html-react-parser";
 
 const LayoutPage = ({ pageHeading, children }) => {
-  const { title, intro } = pageHeading;
+  const title = pageHeading?.title;
+  const intro = pageHeading?.intro;
   return (
     <section className="[ max-w-screen-2xl px-4 mx-auto grid grid-cols-12 gap-4 ]">
       <div className="[ content ] [ relative col-span-12 sm:col-span-10 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4 ]">
         {
-          (title || intro) &&
+          pageHeading &&
           <div className="[ content__page-heading ]">
             {
               title &&

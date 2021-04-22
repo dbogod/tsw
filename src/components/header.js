@@ -67,7 +67,10 @@ const Header = ({ clickHandler }) => {
         {/*        <Link to="/about">About</Link>*/}
         {/*      </li>*/}
         {/*      <li>*/}
-        {/*        <Link to="/faq">Frequently Asked Questions</Link>*/}
+        {/*        <Link to="/frequently-asked-questions">FAQs</Link>*/}
+        {/*      </li>*/}
+        {/*      <li>*/}
+        {/*        <Link to="/contact">Contact</Link>*/}
         {/*      </li>*/}
         {/*    </ul>*/}
         {/*  </div>*/}
