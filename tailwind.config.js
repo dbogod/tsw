@@ -7,7 +7,16 @@ module.exports = {
         xs: '400px',
       },
       colors: {
-        body: 'rgba(0, 0, 0, 0.8)'
+        body: 'var(--body-color)',
+        'cta-fill': 'var(--cta-primary-fill)',
+        'cta-fill-hover': 'var(--cta-primary-fill-hover)',
+        'cta-text-color': 'var(--cta-primary-text-color)',
+        'cta-text-color-hover': 'var(--cta-primary-text-color-hover)',
+        'cta-border-color': 'var(--cta-primary-border-color)',
+        'cta-secondary-fill': 'var(--cta-secondary-fill)',
+        'cta-secondary-fill-hover': 'var(--cta-secondary-fill-hover)',
+        'cta-secondary-text-color': 'var(--cta-secondary-text-color)',
+        'cta-secondary-border-color': 'var(--cta-secondary-border-color)'
       },
       fontFamily: {
         display: ['Merriweather', 'serif'],
@@ -15,6 +24,9 @@ module.exports = {
       },
       lineHeight: {
         'heading': '1.2'
+      },
+      outline: {
+        standard: '3px dotted var(--outline-color)',
       },
       spacing: {
         18: '4.5rem'

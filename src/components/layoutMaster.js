@@ -9,7 +9,8 @@ class LayoutMaster extends Component {
     super(props);
 
     this.state = {
-      isNavOpen: false
+      isNavOpen: false,
+      isTab: false
     }
 
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -21,12 +22,32 @@ class LayoutMaster extends Component {
     })
   }
 
+  componentDidMount() {
+    window.addEventListener('keydown', e => {
+     if (e.key === 'Tab') {
+       this.setState({
+         isTab: true
+       })
+     }
+    })
+
+    window.addEventListener('click', () => {
+      this.setState({
+        isTab: false
+      })
+    });
+  }
+
   render() {
     const { children } = this.props;
-     return (
-      <div className={`[ overflow-hidden font-body font-light ] ${this.state.isNavOpen ? 'is-nav-open' : ''}`}>
+    return (
+      <div className={`
+      [ overflow-hidden font-body font-light ] 
+      ${this.state.isNavOpen ? 'is-nav-open' : ''}
+      ${this.state.isTab ? 'is-tab' : ''}
+      `}>
 
-        <HtmlHead />
+        <HtmlHead/>
 
         <Header clickHandler={this.toggleMenu}/>
 
@@ -34,7 +55,7 @@ class LayoutMaster extends Component {
           {children}
 
           <section aria-hidden="true">
-            <Particles options={particlesConfig} />
+            <Particles options={particlesConfig}/>
           </section>
         </main>
 

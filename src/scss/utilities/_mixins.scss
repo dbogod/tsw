@@ -25,3 +25,14 @@
     }
   }
 }
+
+@mixin focus-style {
+  &:focus {
+    @apply outline-none;
+  }
+
+  .is-tab &:focus {
+    @apply outline-standard;
+    outline-offset: 2px;
+  }
+}
