@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
 const Header = ({ clickHandler }) => {
-  const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleClick = () => {
     setIsMenuOpen(!isMenuOpen);
     clickHandler();
@@ -14,13 +14,14 @@ const Header = ({ clickHandler }) => {
           themeSettings {
             header {
               headerLogo {
+                altText
                 localFile {
                   childImageSharp {
                     fluid {
                       ...GatsbyImageSharpFluid
                     }
                   }
-                }
+                } 
               }
             }
           }

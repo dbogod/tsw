@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import HtmlHead from "./htmlHead";
 import Header from './header';
+import Footer from './footer';
 import Particles from "react-tsparticles";
 import particlesConfig from '../../static/particles.json'
 
@@ -59,6 +60,7 @@ class LayoutMaster extends Component {
           </section>
         </main>
 
+        <Footer />
       </div>
     )
   }
