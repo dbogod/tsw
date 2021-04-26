@@ -3,11 +3,10 @@ import React from "react";
 import LayoutMaster from "../components/layoutMaster";
 import LayoutPage from "../components/layoutPage";
 
-const Services = ({ data }) => {
-  const { servicesPage, pageHeading } = data.allWpPage.nodes[0];
+const Services = () => {
   return (
     <LayoutMaster>
-      <LayoutPage pageHeading={pageHeading}>
+      <LayoutPage>
         Services
       </LayoutPage>
     </LayoutMaster>
