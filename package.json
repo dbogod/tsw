@@ -19,7 +19,7 @@
     "gatsby-source-wordpress": "^4.0.0",
     "gatsby-transformer-sharp": "^2.9.0",
     "html-react-parser": "^1.1.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^1.3.5",
     "postcss": "7",
     "react": "^17.0.1",

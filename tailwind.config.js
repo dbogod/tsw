@@ -17,9 +17,11 @@ module.exports = {
         'cta-secondary-fill-hover': 'var(--cta-secondary-fill-hover)',
         'cta-secondary-text-color': 'var(--cta-secondary-text-color)',
         'cta-secondary-border-color': 'var(--cta-secondary-border-color)',
-        'hot-pink': 'var(--colours-hot-pink)',
+        'hot-pink': 'var(--color-hot-pink)',
         'emperor': 'var(--color-emperor)',
-        'nav-mobile-background': 'var(--nav-mobile-bg-color)'
+        'nav-mobile-background': 'var(--nav-mobile-bg-color)',
+        'nav-text-color': 'var(--nav-text-color)',
+        'nav-text-color-hover': 'var(--nav-text-color-hover)',
       },
       fontFamily: {
         display: ['Merriweather', 'serif'],

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import SocialLinks from './socialLinks';
+import MainNavigation from "./mainNavigation";
 
 const Header = ({ clickHandler }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,22 +56,9 @@ const Header = ({ clickHandler }) => {
                             <span className="[ hamburger-inner ]"></span>
                         </span>
         </button>
-        <nav className="[ absolute top-0 left-0 right-0 z-10 ]">
+        <nav className="[ absolute top-0 left-0 right-0 z-10 lg:static ]">
           <div className="[ main-nav ]">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/frequently-asked-questions">FAQs</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
+            <MainNavigation />
           </div>
         </nav>
       </div>

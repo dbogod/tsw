@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import debounce from 'lodash/debounce';
 import HtmlHead from "./htmlHead";
 import Header from './header';
 import Footer from './footer';
@@ -40,8 +41,12 @@ class LayoutMaster extends Component {
        })
      }
 
-     e.key === 'Escape' && this.state.isNavOpen && this.toggleMenu(e)
-    })
+     e.key === 'Escape' && this.state.isNavOpen && this.toggleMenu(e);
+    });
+
+    window.addEventListener('resize', debounce(e => {
+      this.state.isNavOpen && this.toggleMenu(e)
+    }, 100));
 
     window.addEventListener('click', () => {
       this.setState({
