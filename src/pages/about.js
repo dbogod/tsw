@@ -6,7 +6,6 @@ import Img from 'gatsby-image';
 
 const About = ({ data }) => {
   const { aboutPage, pageHeading } = data.allWpPage.nodes[0];
-  console.log(aboutPage.aboutImage)
   return (
     <LayoutMaster>
       <LayoutPage pageHeading={pageHeading}>

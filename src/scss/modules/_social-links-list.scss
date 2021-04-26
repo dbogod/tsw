@@ -1,0 +1,28 @@
+.social-links-list {
+  @apply fixed bottom-0 left-0 right-0 z-10 border-t-2 border-black flex justify-center bg-white lg:static lg:border-t-0 lg:border-l lg:ml-4 lg:pl-2 lg:bg-transparent;
+
+  li {
+    @apply p-3 m-0 lg:py-0 lg:px-2;
+  }
+
+  a,
+  a:visited {
+    @apply flex text-black;
+    display: flex;
+    text-decoration: none !important;
+    transition: color 200ms ease-out;
+
+    &::after {
+      @apply hidden;
+    }
+  }
+
+  svg {
+    @apply h-8 transition-colors;
+  }
+
+  a:hover svg,
+  .is-tab & a:focus svg {
+    fill: var(--color-hot-pink);
+  }
+}

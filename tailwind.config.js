@@ -16,7 +16,9 @@ module.exports = {
         'cta-secondary-fill': 'var(--cta-secondary-fill)',
         'cta-secondary-fill-hover': 'var(--cta-secondary-fill-hover)',
         'cta-secondary-text-color': 'var(--cta-secondary-text-color)',
-        'cta-secondary-border-color': 'var(--cta-secondary-border-color)'
+        'cta-secondary-border-color': 'var(--cta-secondary-border-color)',
+        'hot-pink': 'var(--colours-hot-pink)',
+        'emperor': 'var(--color-emperor)'
       },
       fontFamily: {
         display: ['Merriweather', 'serif'],

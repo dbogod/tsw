@@ -79,9 +79,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        postCssPlugins : [
+        postCssPlugins: [
           require('tailwindcss')
         ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.svg$/,
+        },
       }
     }
   ],

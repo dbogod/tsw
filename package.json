@@ -5,12 +5,14 @@
     "@formspree/react": "^2.2.3",
     "@wordpress/block-library": "^2.27.0",
     "autoprefixer": "9",
+    "css-loader": "^5.0.1",
     "gatsby": "^2.30.1",
     "gatsby-image": "^2.9.0",
     "gatsby-plugin-manifest": "^2.10.0",
     "gatsby-plugin-offline": "^3.8.0",
     "gatsby-plugin-postcss": "^4.3.0",
     "gatsby-plugin-react-helmet": "^3.8.0",
+    "gatsby-plugin-react-svg": "^3.0.1",
     "gatsby-plugin-sass": "^4.3.0",
     "gatsby-plugin-sharp": "^2.12.0",
     "gatsby-source-filesystem": "^2.9.0",
@@ -18,13 +20,15 @@
     "gatsby-transformer-sharp": "^2.9.0",
     "html-react-parser": "^1.1.1",
     "lodash": "^4.17.20",
+    "mini-css-extract-plugin": "^1.3.5",
     "postcss": "7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^5.2.1",
     "react-tsparticles": "^1.26.4",
     "sass": "^1.32.11",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "webfonts-loader": "7.1.1"
   },
   "devDependencies": {
     "dumper.js": "^1.3.1"

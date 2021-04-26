@@ -1,0 +1,44 @@
+footer {
+  --footer-link-color: rgba(255, 255, 255, 0.8);
+  --footer-link-hover-color: var(--color-white);
+
+  &[data-light-bg="true"] {
+    --footer-link-color: rgba(0, 0, 0, 0.8);
+    --footer-link-hover-color: var(--color-black);
+  }
+
+  color: var(--footer-link-color);
+
+  a,
+  a:visited {
+    @apply text-sm;
+
+    color: var(--footer-link-color) !important;
+  }
+
+  a:hover {
+    color: var(--footer-link-hover-color) !important;
+  }
+
+  .social-links-list {
+    @apply static bg-transparent border-0;
+
+    li {
+      @apply m-0 py-0 md:p-2;
+
+      &:first-child {
+        @apply md:pl-0;
+      }
+    }
+
+    svg {
+      @apply md:h-7;
+
+      fill: var(--footer-link-color) !important;
+    }
+
+    .social-link:hover svg {
+      fill: var(--footer-link-hover-color) !important;
+    }
+  }
+}

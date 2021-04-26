@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import SocialLinks from './socialLinks';
 
 const Header = ({ clickHandler }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,20 +34,16 @@ const Header = ({ clickHandler }) => {
   return (
     <header className="[ absolute left-0 right-0 flex flex-col justify-center z-10 ]">
       <div className="[ max-w-screen-2xl px-4 py-2 flex justify-between md:py-4 ]">
-        <div className="[ flex align-center ]">
+        <div className="[ flex items-center ]">
           <Link to="/">
             <img src={headerLogo.localFile.childImageSharp.fluid.src}
                  srcSet={headerLogo.localFile.childImageSharp.fluid.srcSet}
                  sizes="(min-width: 640px) 150px, 100px"
                  alt={headerLogo.altText}/>
           </Link>
-          {/*<div>*/}
-          {/*  <ul>*/}
-          {/*    <li>FB</li>*/}
-          {/*    <li>Insta</li>*/}
-          {/*    <li>Pin</li>*/}
-          {/*  </ul>*/}
-          {/*</div>*/}
+          <div>
+            <SocialLinks/>
+          </div>
         </div>
         <button className="[ hamburger hamburger--stand ] [ lg:hidden ]"
                 type="button"
