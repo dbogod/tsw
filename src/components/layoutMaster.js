@@ -17,10 +17,19 @@ class LayoutMaster extends Component {
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  toggleMenu = () => {
-    this.setState({
-      isNavOpen: !this.state.isNavOpen
-    })
+  toggleMenu = e => {
+    const isMenuOpen = this.state.isNavOpen;
+    if (e?.key && e.key === 'Escape') {
+      this.setState({
+        isNavOpen: false
+      })
+    } else {
+      this.setState({
+        isNavOpen: !isMenuOpen
+      })
+    }
+
+    document.body.setAttribute('data-nav-open', `${!isMenuOpen}`);
   }
 
   componentDidMount() {
@@ -30,6 +39,8 @@ class LayoutMaster extends Component {
          isTab: true
        })
      }
+
+     e.key === 'Escape' && this.state.isNavOpen && this.toggleMenu(e)
     })
 
     window.addEventListener('click', () => {

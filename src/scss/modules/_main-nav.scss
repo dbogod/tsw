@@ -1,0 +1,10 @@
+.main-nav {
+  @apply absolute -top-2 left-0 right-0 z-10 flex justify-center items-center w-full h-screen p-14 bg-nav-mobile-background overflow-hidden md:-top-4 lg:static lg:p-0;
+
+  clip-path: circle(0 at calc(100% - 2.5rem) 2.5rem);
+  transition: clip-path 500ms ease-out;
+
+  .is-nav-open & {
+    clip-path: circle(200% at calc(100% - 2.5rem) 2.5rem);
+  }
+}

@@ -32,7 +32,7 @@ const Header = ({ clickHandler }) => {
   `);
   const { headerLogo } = data.wp.themeSettings.themeSettings.header;
   return (
-    <header className="[ absolute left-0 right-0 flex flex-col justify-center z-10 ]">
+    <header className="[ absolute left-0 right-0 flex flex-col justify-center z-20 ]">
       <div className="[ max-w-screen-2xl px-4 py-2 flex justify-between md:py-4 ]">
         <div className="[ flex items-center ]">
           <Link to="/">
@@ -45,7 +45,7 @@ const Header = ({ clickHandler }) => {
             <SocialLinks/>
           </div>
         </div>
-        <button className="[ hamburger hamburger--stand ] [ lg:hidden ]"
+        <button className="[ hamburger hamburger--stand z-20 ] [ lg:hidden ]"
                 type="button"
                 onClick={handleClick}
                 aria-label="Toggle menu"
@@ -55,24 +55,24 @@ const Header = ({ clickHandler }) => {
                             <span className="[ hamburger-inner ]"></span>
                         </span>
         </button>
-        {/*<nav className="[ absolute top-0 left-0 right-0 z-10 ]">*/}
-        {/*  <div>*/}
-        {/*    <ul>*/}
-        {/*      <li>*/}
-        {/*        <Link to="/">Home</Link>*/}
-        {/*      </li>*/}
-        {/*      <li>*/}
-        {/*        <Link to="/about">About</Link>*/}
-        {/*      </li>*/}
-        {/*      <li>*/}
-        {/*        <Link to="/frequently-asked-questions">FAQs</Link>*/}
-        {/*      </li>*/}
-        {/*      <li>*/}
-        {/*        <Link to="/contact">Contact</Link>*/}
-        {/*      </li>*/}
-        {/*    </ul>*/}
-        {/*  </div>*/}
-        {/*</nav>*/}
+        <nav className="[ absolute top-0 left-0 right-0 z-10 ]">
+          <div className="[ main-nav ]">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/frequently-asked-questions">FAQs</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
     </header>
   )

@@ -33,7 +33,7 @@ const Footer = () => {
   const { footer } = data.wp.themeSettings.themeSettings;
   const { fluid } = footer.footerLogo.localFile.childImageSharp;
   return (
-    <footer className="[ absolute z-10 w-full ]"
+    <footer className="[ absolute z-20 w-full ]"
             style={{ backgroundColor: footer.colours.bgColour }}
             data-light-bg={!footer.colours.whiteText}>
       <div
