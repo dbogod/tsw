@@ -34,7 +34,7 @@ const Header = ({ clickHandler }) => {
   const { headerLogo } = data.wp.themeSettings.themeSettings.header;
   return (
     <header className="[ absolute left-0 right-0 flex flex-col justify-center z-20 ]">
-      <div className="[ max-w-screen-2xl px-4 py-2 flex justify-between md:py-4 ]">
+      <div className="[ max-w-screen-xl mxw-full -auto px-4 py-2 flex justify-between md:py-4 ]">
         <div className="[ flex items-center ]">
           <Link to="/">
             <img src={headerLogo.localFile.childImageSharp.fluid.src}

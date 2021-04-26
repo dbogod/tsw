@@ -37,7 +37,7 @@ const Footer = () => {
             style={{ backgroundColor: footer.colours.bgColour }}
             data-light-bg={!footer.colours.whiteText}>
       <div
-        className={`[ max-w-screen-2xl px-4 pb-6 flex flex-col items-center md:py-6 md:grid md:grid-cols-12 md:gap-4 ]`}>
+        className={`[ max-w-screen-xl w-full mx-auto px-4 pb-6 flex flex-col items-center md:py-6 md:grid md:grid-cols-12 md:gap-4 ]`}>
         <div className="[ pt-12 pb-6 md:col-span-3 ]">
           <Link to="/">
             <img className="[ max-w-max md:max-w-full ]"
