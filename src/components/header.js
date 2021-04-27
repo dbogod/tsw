@@ -58,7 +58,7 @@ const Header = ({ clickHandler }) => {
         </button>
         <nav className="[ absolute top-0 left-0 right-0 z-10 lg:static ]">
           <div className="[ main-nav ]">
-            <MainNavigation />
+            <MainNavigation clickHandler={clickHandler}/>
           </div>
         </nav>
       </div>

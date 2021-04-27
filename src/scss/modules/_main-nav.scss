@@ -24,11 +24,25 @@
   transition: all 200ms ease-out;
 }
 
-.main-nav a:hover,
-.is-tab .main-nav a:focus {
-  @apply opacity-70 hover:text-nav-text-color-hover;
+.main-nav a:hover::after,
+.is-tab .main-nav a:focus::after,
+.main-nav a.is-active::after {
+  @apply opacity-100 transform translate-y-0;
+}
+
+.main-nav a.is-active {
+  @apply hover:text-nav-text-color cursor-default;
 
   &::after {
-    @apply opacity-70 transform translate-y-0 bg-nav-text-color-hover;
+    @apply bg-nav-text-color;
+  }
+}
+
+.main-nav a:hover:not(.is-active),
+.is-tab .main-nav a:focus:not(.is-active) {
+  @apply opacity-70 text-nav-text-color-hover;
+
+  &::after {
+    @apply bg-nav-text-color-hover;
   }
 }
