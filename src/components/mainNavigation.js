@@ -29,7 +29,8 @@ const MainNavigation = ({ clickHandler }) => {
               <Link to={menuItem.path}
                     onClick={() => clickHandler()}
                     activeClassName="is-active"
-                    className="[ inline-block py-2 text-nav-text-color no-underline transition-all duration-200 ease-out lg:relative lg:font-medium lg:p-0 lg:my-4 ]">
+                    className="[ inline-block py-2 text-nav-text-color no-underline transition-all duration-200 ease-out lg:relative lg:font-medium lg:p-0 lg:my-4 ]"
+                    data-main-nav-link>
                 {menuItem.label}
               </Link>
             </li>

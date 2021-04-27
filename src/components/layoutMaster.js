@@ -48,10 +48,12 @@ class LayoutMaster extends Component {
       this.state.isNavOpen && this.toggleMenu(e)
     }, 100));
 
-    window.addEventListener('click', () => {
+    window.addEventListener('click', e => {
       this.setState({
         isTab: false
       })
+
+      e.target.hasAttribute('data-main-nav-link') && this.state.isNavOpen && this.toggleMenu(e);
     });
   }
 
