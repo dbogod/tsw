@@ -3,22 +3,24 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 
 const MainNavigation = ({ clickHandler }) => {
   const data = useStaticQuery(graphql`
-  query MainNavigation {
-  allWpMenu(filter: {name: {eq: "Main navigation"}}) {
-    nodes {
-      menuItems {
+    query MainNavigation {
+      allWpMenu(filter: {name: {eq: "Main navigation"}}) {
         nodes {
-          label
-          path
+          menuItems {
+            nodes {
+              label
+              path
+            }
+          }
         }
       }
-    }
-  }
-}`)
+    }`
+  );
 
   const { nodes } = data.allWpMenu.nodes[0].menuItems;
   return (
-    <ul className="[ flex flex-col justify-center items-center font-display font-bold text-4xl tracking-wider sm:text-6xl lg:flex-row lg:text-sm lg:font-body lg:uppercase lg:leading-6 ]">
+    <ul
+      className="[ flex flex-col justify-center items-center font-display font-bold text-4xl tracking-wider sm:text-6xl lg:flex-row lg:text-sm lg:font-body lg:uppercase lg:leading-6 ]">
       {
         nodes.map((menuItem, i) => {
           return (
