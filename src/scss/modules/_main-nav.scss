@@ -1,14 +1,14 @@
 .main-nav {
-  @apply absolute -top-2 left-0 right-0 z-10 flex justify-center items-center w-full h-screen p-14 bg-nav-mobile-background overflow-hidden md:-top-4 lg:static lg:p-0 lg:h-auto lg:bg-transparent;
+  @apply absolute -top-2 left-0 right-0 z-10 flex justify-center items-center w-full h-screen p-14 bg-nav-mobile-background overflow-hidden transition duration-500 ease-out md:-top-4 lg:static lg:p-0 lg:h-auto lg:bg-transparent;
 
   clip-path: circle(0 at calc(100% - 2.5rem) 2.5rem);
-  transition: clip-path 500ms ease-out;
+  transition-property: clip-path;
 
   .is-nav-open & {
     clip-path: circle(200% at calc(100% - 2.5rem) 2.5rem);
   }
 
-  @media (min-width: 1024px) {
+  @include media-breakpoint-up(lg) {
     --nav-text-color: var(--color-black);
 
     clip-path: none;
@@ -16,30 +16,20 @@
 }
 
 .main-nav a::after {
-  @apply absolute left-0 bottom-0 opacity-0 bg-white w-full;
+  @apply absolute left-0 bottom-0 opacity-0 bg-white w-full transition duration-200 ease-out;
 
   content: "";
   height: 0.1rem;
   transform: translateY(10px);
-  transition: all 200ms ease-out;
 }
 
 .main-nav a:hover::after,
-.is-tab .main-nav a:focus::after,
-.main-nav a.is-active::after {
+.is-tab .main-nav a:focus::after {
   @apply opacity-100 transform translate-y-0;
 }
 
-.main-nav a.is-active {
-  @apply hover:text-nav-text-color cursor-default;
-
-  &::after {
-    @apply bg-nav-text-color;
-  }
-}
-
-.main-nav a:hover:not(.is-active),
-.is-tab .main-nav a:focus:not(.is-active) {
+.main-nav a:hover,
+.is-tab .main-nav a:focus {
   @apply opacity-70 text-nav-text-color-hover;
 
   &::after {

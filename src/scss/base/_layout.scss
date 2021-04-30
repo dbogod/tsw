@@ -1,3 +1,7 @@
+.tsw-container {
+  @apply max-w-screen-xl w-full mx-auto px-4;
+}
+
 .content::before {
   content: "";
   position: absolute;
@@ -10,28 +14,4 @@
 
 .form-checkboxes-wrapper {
   columns: 2;
-}
-
-.cta {
-  @apply relative inline-block mt-8 ml-2 font-medium rounded bg-cta-fill text-cta-text-color border border-cta-border-color transform duration-200;
-
-  &:hover,
-  .is-tab &:focus {
-    @apply bg-cta-fill-hover text-cta-text-color-hover;
-  }
-}
-
-.cta--secondary {
-  @apply self-start inline-flex justify-center items-center border border-8 mt-4 ml-0 py-3 px-4 bg-cta-secondary-fill text-cta-secondary-text-color border-cta-secondary-border-color shadow-2xl;
-
-  border-width: 2px !important;
-
-  &:hover,
-  .is-tab &:focus {
-    @apply bg-cta-secondary-fill-hover shadow-none -translate-y-0.5;
-  }
-}
-
-.is-tab *:focus {
-
 }

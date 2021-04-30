@@ -6,12 +6,10 @@ import HomepageSections from '../components/homepage/homepageSections';
 export default function Home() {
   return (
     <LayoutMaster>
-      <section>
 
         <Hero />
         <HomepageSections />
 
-      </section>
     </LayoutMaster>
   )
 };

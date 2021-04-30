@@ -4,7 +4,7 @@ import HtmlHead from "./htmlHead";
 import Header from './header';
 import Footer from './footer';
 import Particles from "react-tsparticles";
-import particlesConfig from '../../static/particles.json'
+import particlesConfig from '../../static/particles.json';
 
 class LayoutMaster extends Component {
   constructor(props) {
@@ -70,7 +70,7 @@ class LayoutMaster extends Component {
 
         <Header clickHandler={this.toggleMenu}/>
 
-        <main className="[ pt-18 pb-20 lg:pt-24 ]">
+        <main className="[ pt-18 pb-20 md:pt-22 lg:pt-24 ]">
           {children}
 
           <section aria-hidden="true">

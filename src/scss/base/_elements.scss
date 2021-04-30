@@ -6,7 +6,7 @@ button {
 body {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 
-  @apply text-body;
+  @apply text-body leading-body;
 
   &[data-nav-open="true"] {
     @apply overflow-hidden;
@@ -15,6 +15,10 @@ body {
 
 main {
   min-height: calc(100vh - 446px);
+
+  @include media-breakpoint-up(lg) {
+    min-height: calc(100vh - 912px);
+  }
 }
 
 h1,

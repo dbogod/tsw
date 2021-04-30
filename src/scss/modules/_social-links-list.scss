@@ -7,10 +7,9 @@
 
   a,
   a:visited {
-    @apply flex text-black;
+    @apply flex text-black transition duration-200 ease-out;
     display: flex;
     text-decoration: none !important;
-    transition: color 200ms ease-out;
 
     &::after {
       @apply hidden;
