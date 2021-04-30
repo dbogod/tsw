@@ -1,6 +1,8 @@
 *,
 button {
   @include focus-style;
+
+  backface-visibility: hidden;
 }
 
 body {

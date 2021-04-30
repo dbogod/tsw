@@ -78,7 +78,7 @@ const Hero = () => {
                 hero.heroImage &&
                 <div className="[ hero__content ]">
                   <div className="[ hero__content-inner-wrapper ]">
-                    <div className="[ hero__image-wrapper ]">
+                    <div className="[ hero__image-wrapper ml-4 ]">
                       <img src={hero.heroImage.localFile.childImageSharp.fluid.src}
                            srcSet={hero.heroImage.localFile.childImageSharp.fluid.srcSet}
                            sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"
