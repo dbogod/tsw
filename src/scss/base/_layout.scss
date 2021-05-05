@@ -15,3 +15,9 @@
 .form-checkboxes-wrapper {
   columns: 2;
 }
+
+.section-shadow-wrapper {
+  @apply relative -mt-8 sm:-mt-11 md:mt-0;
+
+  filter: drop-shadow(0 -1rem 1.5rem rgba(0, 0, 0, 0.15));
+}

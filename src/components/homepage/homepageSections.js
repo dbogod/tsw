@@ -70,7 +70,7 @@ const HomepageSections = () => {
     };
 
     return (
-      <div>
+      <>
 
         {
           featureSectionSpeechBubble?.showFeatureSection &&
@@ -97,7 +97,7 @@ const HomepageSections = () => {
             )
           })
         }
-      </div>
+      </>
 
     );
   }

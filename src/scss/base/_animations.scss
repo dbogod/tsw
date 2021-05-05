@@ -1,0 +1,25 @@
+@keyframes word-slider {
+  0%,
+  19% {
+    transform: translateY(0%);
+  }
+
+  25%,
+  44% {
+    transform: translateY(-100%);
+  }
+
+  50%,
+  69% {
+    transform: translateY(-200%);
+  }
+
+  75%,
+  93% {
+    transform: translateY(-300%);
+  }
+
+  100% {
+    transform: translateY(-400%);
+  }
+}

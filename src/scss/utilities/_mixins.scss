@@ -62,3 +62,25 @@
     backdrop-filter: var(--backdrop-blur);
   }
 }
+
+@mixin section-colours {
+  --section-text-color: var(--body-color);
+  --section-link-color: var(--link-color);
+  --section-link-hover-color: var(--link-hover-color);
+
+  &[data-light-text] {
+    --section-text-color: var(--color-white);
+    --section-link-color: var(--color-broom);
+    --section-link-hover-color: var(--color-broom);
+  }
+
+  color: var(--section-text-color);
+
+  a {
+    color: var(--section-link-color);
+  }
+
+  a:hover {
+    color: var(--section-link-hover-color);
+  }
+}
