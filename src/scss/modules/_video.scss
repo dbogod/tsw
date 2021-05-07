@@ -1,0 +1,56 @@
+.video {
+  @apply relative w-full h-0;
+
+  padding-bottom: 56.25%;
+}
+
+.video__link,
+.video__iframe {
+  @apply absolute top-0 left-0 w-full h-full border-0;
+}
+
+.video__link {
+  @apply no-underline;
+}
+
+.video__play-button {
+  @apply absolute text-2xl text-white h-16 w-20 text-center bg-white;
+
+  top: calc(50% - 2rem);
+  left: calc(50% - 2.5rem);
+  border-radius: 50% / 10%;
+
+  &::before,
+  &::after {
+    @apply absolute;
+  }
+
+  &::before {
+    @apply bg-white;
+
+    content: "";
+    border-radius: 5% / 50%;
+    bottom: 9%;
+    left: -5%;
+    right: -5%;
+    top: 9%;
+  }
+
+  &::after {
+    @apply transition duration-200 ease-out;
+
+    content: ' ';
+    top: 50%;
+    width: 0;
+    height: 0;
+    margin: -1em 0 0 -0.75em;
+    border-style: solid;
+    border-width: 1em 0 1em 1.732em;
+    border-color: transparent transparent transparent var(--link-color);
+    font-size: 0.75em;
+  }
+
+  .video__link:hover &::after {
+    border-left-color: var(--link-hover-color);
+  }
+}

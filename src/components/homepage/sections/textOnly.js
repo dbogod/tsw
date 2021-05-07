@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-const HomepageSectionText = () => {
+const HomepageSectionText = ({ index }) => {
   const data = useStaticQuery(graphql`
     query SectionText {
       allWpPage(filter: {isFrontPage: {eq: true}}) {
@@ -28,7 +28,7 @@ const HomepageSectionText = () => {
 
   return (
     <div>
-      Text section!
+      Text section! Index = {index}
     </div>
   )
 }

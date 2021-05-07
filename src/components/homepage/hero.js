@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Cta from '../cta';
+import Cta from '../shared/cta';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
@@ -30,8 +30,6 @@ const Hero = () => {
       }
     }`
   );
-
-  console.log(data);
 
   const { hero } = data.allWpPage.nodes[0];
   if (hero.heroTitle || hero.heroBody) {

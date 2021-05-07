@@ -54,16 +54,31 @@ const HomepageSections = () => {
     }`
     );
 
+  const sectionsByType = sectionsObj => {
+    if (sectionsObj) {
+      return {
+        'page_Homepagesections_Section_FwMedia': sectionsObj.filter(section => section.fieldGroupName === 'page_Homepagesections_Section_FwMedia'),
+        'page_Homepagesections_Section_Text': sectionsObj.filter(section => section.fieldGroupName === 'page_Homepagesections_Section_Text')
+      }
+    }
+  }
+
     const { featureSectionSpeechBubble } = data.allWpPage.nodes[0].homePageSections;
     const preTestimonialsSections = data.allWpPage.nodes[0].homePageSections.section;
     const postTestimonialsSections = data.allWpPage.nodes[0].homePageSections.sectionPostTestimonials;
+    const preTestimonialsSectionsByType = sectionsByType(preTestimonialsSections);
+    const postTestimonialsSectionsByType = sectionsByType(postTestimonialsSections);
 
-    const renderSection = section => {
+
+    const renderSection = (section, isPreTestimonialsSection = true) => {
+      const obj = isPreTestimonialsSection ? preTestimonialsSectionsByType : postTestimonialsSectionsByType;
+      const index = obj && obj[section.fieldGroupName]?.indexOf(section);
+
       switch (section.fieldGroupName) {
         case 'page_Homepagesections_Section_FwMedia':
-          return <HomepageSectionFullWidth/>;
+          return <HomepageSectionFullWidth index={index} />;
         case 'page_Homepagesections_Section_Text':
-          return <HomepageSectionText/>;
+          return <HomepageSectionText index={index} />;
         default:
           return false;
       }
@@ -74,7 +89,7 @@ const HomepageSections = () => {
 
         {
           featureSectionSpeechBubble?.showFeatureSection &&
-            <FeatureSectionSpeechBubble />
+          <FeatureSectionSpeechBubble/>
         }
         {
           preTestimonialsSections?.map((section, i) => {

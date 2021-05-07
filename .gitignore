@@ -70,5 +70,8 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-#intellij
+# IntelliJ
 .idea
+
+# Auto-generated report
+report.*.json

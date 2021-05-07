@@ -26,6 +26,8 @@ module.exports = {
         'cta-secondary-text-color': 'var(--cta-secondary-text-color)',
         'cta-secondary-border-color': 'var(--cta-secondary-border-color)',
         'hero-title-color': 'var(--hero-title-color)',
+        'link-color': 'var(--link-color)',
+        'link-hover-color': 'var(--link-hover-color)',
         'nav-mobile-background': 'var(--nav-mobile-bg-color)',
         'nav-text-color': 'var(--nav-text-color)',
         'nav-text-color-hover': 'var(--nav-text-color-hover)',

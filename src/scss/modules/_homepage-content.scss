@@ -1,5 +1,6 @@
 .homepage-content {
   @apply flex flex-col justify-center w-full py-20 px-0;
+
   @include section-colours;
 
   @include media-breakpoint-up(xl) {
@@ -15,5 +16,13 @@
 
   @include media-breakpoint-up(md) {
     clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15vmin);
+  }
+}
+
+.homepage__content--media-fw {
+  @apply max-w-screen-xl mx-auto;
+
+  img {
+    @apply shadow-none;
   }
 }
