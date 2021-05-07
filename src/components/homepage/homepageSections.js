@@ -94,9 +94,9 @@ const HomepageSections = () => {
         {
           preTestimonialsSections?.map((section, i) => {
             return (
-              <div key={i}>
+              <section key={i}>
                 {renderSection(section)}
-              </div>
+              </section>
             )
           })
         }
@@ -106,9 +106,9 @@ const HomepageSections = () => {
         {
           postTestimonialsSections?.map((section, i) => {
             return (
-              <div key={i}>
+              <section key={i}>
                 {renderSection(section)}
-              </div>
+              </section>
             )
           })
         }

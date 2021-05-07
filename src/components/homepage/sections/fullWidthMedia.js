@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import ColourWrapper from "../../shared/colourWrapper";
 import Video from '../../shared/video';
 
 const HomepageSectionFullWidth = ({ index }) => {
@@ -32,45 +33,39 @@ const HomepageSectionFullWidth = ({ index }) => {
   const sectionToRender = fullWidthSections[index];
 
   return (
-    <section>
-      <div
-        className="[ homepage-content homepage-content--fw-media ]"
-        style={{
-          backgroundColor: sectionToRender.colours.bgColour ?? '',
-          color: sectionToRender.colours.whiteText ? '#fff' : ''
-        }}
-      >
-        <div className="[ tsw-container sm:grid sm:grid-cols-12 sm:gap-x-8 ]">
-          {
-            sectionToRender.title &&
-            <div className="[ sm:col-span-11 sm:col-start-2 md:col-span-10 md:col-start-3 ]">
-              <h2 className="[ mt-0 ]"
-                  dangerouslySetInnerHTML={{ __html: sectionToRender.title }}/>
-            </div>
-          }
 
-          {
-            sectionToRender.intro &&
-            <div
-              className="[ sm:col-span-10 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-3 ]">
-              <div className="[ mt-4 ]" dangerouslySetInnerHTML={{ __html: sectionToRender.intro }}/>
-            </div>
-          }
-          {
-            sectionToRender.video &&
-            <div className={`[ ${sectionToRender.video2 ? 'col-span-6' : 'col-span-12'} mt-3 sm:mt-4 md:mt-5 ]`}>
-              <Video videoUrl={sectionToRender.video}/>
-            </div>
-          }
-          {
-            sectionToRender.video2 &&
-            <div className="[ col-span-6 mt-3 sm:mt-4 md:mt-5 ]">
-              <Video videoUrl={sectionToRender.video2}/>
-            </div>
-          }
-        </div>
+    <ColourWrapper classNames="homepage-content homepage-content--fw-media"
+                   colours={sectionToRender.colours}>
+      <div className="[ tsw-container sm:grid sm:grid-cols-12 sm:gap-x-8 ]">
+        {
+          sectionToRender.title &&
+          <div className="[ sm:col-span-11 sm:col-start-2 md:col-span-10 md:col-start-3 ]">
+            <h2 className="[ mt-0 ]"
+                dangerouslySetInnerHTML={{ __html: sectionToRender.title }}/>
+          </div>
+        }
+
+        {
+          sectionToRender.intro &&
+          <div
+            className="[ sm:col-span-10 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-3 ]">
+            <div className="[ mt-4 ]" dangerouslySetInnerHTML={{ __html: sectionToRender.intro }}/>
+          </div>
+        }
+        {
+          sectionToRender.video &&
+          <div className={`[ ${sectionToRender.video2 ? 'col-span-6' : 'col-span-12'} mt-3 sm:mt-4 md:mt-5 ]`}>
+            <Video videoUrl={sectionToRender.video}/>
+          </div>
+        }
+        {
+          sectionToRender.video2 &&
+          <div className="[ col-span-6 mt-3 sm:mt-4 md:mt-5 ]">
+            <Video videoUrl={sectionToRender.video2}/>
+          </div>
+        }
       </div>
-    </section>
+    </ColourWrapper>
   )
 }
 
