@@ -20,7 +20,6 @@ const IntersectionObserved = (
     observer.current && observer.current.disconnect();
     observer.current = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
-      entry.isIntersecting && console.log(entry);
     }, {
       root,
       rootMargin,
