@@ -2,14 +2,17 @@
 import React, { useRef, useState, useEffect } from "react";
 
 const IntersectionObserved = (
-  { root = null,
+  {
+    root = null,
     threshold = 0,
     rootMargin = '0px',
+    updateFunc,
     wrapperId,
     wrapperClasses,
     activeClass,
-    children }
-  ) => {
+    children
+  }
+) => {
   const [isVisible, setIsVisible] = useState(false);
   const observer = useRef(null);
   const ref = useRef(null);
@@ -18,6 +21,10 @@ const IntersectionObserved = (
     observer.current && observer.current.disconnect();
     observer.current = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
+
+      if (updateFunc && entry.isIntersecting) {
+        updateFunc(entry);
+      }
     }, {
       root,
       rootMargin,
@@ -27,7 +34,7 @@ const IntersectionObserved = (
     const { current: currentObserver } = observer;
     ref.current && currentObserver.observe(ref.current);
     return () => currentObserver.disconnect();
-  }, [ref, root, rootMargin, threshold]);
+  }, [ref, root, rootMargin, threshold, updateFunc]);
 
   return (
     <div id={wrapperId}
