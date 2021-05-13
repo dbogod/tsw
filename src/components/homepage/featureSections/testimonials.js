@@ -53,10 +53,13 @@ const Testimonials = () => {
         targetLinkIndex = activeLinkIndex + target;
       }
 
-      const linkDifference = targetLinkIndex - activeLinkIndex
+      const targetLink = links[targetLinkIndex];
+      const linkDifference = targetLinkIndex - activeLinkIndex;
 
-      links[activeLinkIndex].classList.remove('is-active');
-      links[targetLinkIndex].classList.add('is-active');
+      if (activeLink && targetLink) {
+        activeLink.classList.remove('is-active');
+        targetLink.classList.add('is-active');
+      }
 
       return linkDifference;
     }
