@@ -60,7 +60,7 @@ const HomepageSectionFullWidth = ({ index }) => {
         }
         {
           sectionToRender.video2 &&
-          <div className="[ col-span-6 mt-3 sm:mt-4 md:mt-5 ]">
+          <div className={`[ ${sectionToRender.video ? 'col-span-6' : 'col-span-12'} mt-3 sm:mt-4 md:mt-5 ]`}>
             <Video videoUrl={sectionToRender.video2}/>
           </div>
         }

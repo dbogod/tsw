@@ -17,110 +17,105 @@
     --first-last-testimonial-slide-factor: 2.05;
   }
 
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  width: 100%;
-  padding-bottom: 1rem;
+  @apply relative overflow-hidden flex w-full pb-4;
 
   @include media-breakpoint-up(sm) {
     &::before,
     &::after {
+      @apply absolute top-0 h-full;
+
       content: "";
-      position: absolute;
-      top: 0;
       width: 7%;
-      height: 100%;
       pointer-events: none;
     }
 
     &::before {
-      left: 0;
-      z-index: 10;
+      @apply left-0 z-10;
+
       background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
     }
 
     &::after {
-      right: 0;
-      z-index: 1;
+      @apply right-0 z-1;
+
       background: linear-gradient(to left, rgb(255, 255, 255), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
     }
   }
 }
 
 .testimonials-slider__button {
-  position: absolute;
+  @apply absolute z-10 border-0 w-12 h-12 flex justify-center items-center transition duration-300 ease-out;
+
   top: calc(50% - 2.75rem);
-  z-index: 10;
-  border: none;
-  color: var(--color-white);
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
 
-  .icon:focus {
-    outline: none;
+  @include media-breakpoint-up(md) {
+    @apply w-20 h-24;
   }
 
-  .icon::before {
-    padding: 1rem;
-    font-size: 1rem;
-    color: var(--color-white);
-    background-color: rgba(0, 0, 0, 0.7);
-
-    @include media-breakpoint-up(md) {
-      padding: 2rem 1.5rem;
-      font-size: 2rem;
-    }
-  }
-
-  &:hover .icon::before {
+  &:hover {
     background: rgba(0, 0, 0, 0.8);
   }
 
   &--prev {
-    left: calc((var(--container-padding) * -1) / 2);
+    @apply left-0;
+
+    svg {
+      @apply -ml-1;
+    }
   }
 
   &--next {
-    right: calc((var(--container-padding) * -1) / 2);
+    @apply right-0;
+
+    svg {
+      @apply -mr-1;
+    }
   }
 
-  &:focus,
-  .icon:focus {
+  svg {
+    @apply w-4 h-4 text-white;
+
+    @include media-breakpoint-up(md) {
+      @apply w-8 h-8;
+    }
+  }
+
+  svg:focus {
     outline: none;
   }
 
-  .is-tab &:focus .icon::before {
+  .is-tab &:focus {
     outline: 3px dotted var(--color-blue-chill);
     outline-offset: 2px;
   }
 }
 
 .testimonials-slider__slides-container {
+  @apply flex;
+
   overflow-x: auto;
-  display: flex;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
-    display: none;
+    @apply hidden;
   }
 }
 
 
 .testimonials-slider__slide {
-  display: flex;
+  @apply flex justify-center items-center;
+
   flex-shrink: 0;
   scroll-snap-align: center;
-  justify-content: center;
-  align-items: center;
   width: var(--testimonial-slide-width);
   padding: 2rem var(--container-padding);
 
   &:first-child,
   &:last-child {
-    width: 100%;
-    max-width: 100%;
+    @apply w-full max-w-full;
   }
 
   &:first-child {
@@ -133,18 +128,12 @@
 }
 
 .testimonials-slider__slide-content {
-  position: relative;
-  display: flex;
-  width: 100%;
+  @apply relative flex justify-center items-center w-full h-full py-28 px-12 opacity-50;
+
   max-width: var(--testimonial-slide-content-max-width);
-  height: 100%;
   border-radius: 1.5rem;
-  padding: 7rem 3rem;
   background-color: var(--color-white);
   box-shadow: 0 0.5rem 2rem -0.5rem rgb(0 0 0 / 20%);
-  align-items: center;
-  justify-content: center;
-  opacity: 0.5;
   transition: all 300ms ease-out;
 
   .icon {
@@ -173,12 +162,11 @@
   }
 
   cite {
-    bottom: 3rem;
-    left: 3rem;
+    @apply absolute bottom-12 left-12;
   }
 
   .testimonials-slider__slide.is-active & {
-    opacity: 1;
+    @apply opacity-100;
   }
 
   @include media-breakpoint-up(md) {
@@ -198,29 +186,26 @@
 }
 
 .testimonials-slider__pagination {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+  @apply absolute bottom-0 w-full text-center;
 
   a {
-    display: inline-block;
+    @apply inline-block opacity-20;
+
     width: 8px;
     height: 8px;
     border-radius: 50%;
     margin: 0 0.15rem;
     background-color: var(--color-black);
-    opacity: 0.2;
 
     &:hover {
+      @apply opacity-70;
       background-color: var(--color-jelly-bean);
-      opacity: 0.7;
     }
 
     &.is-active,
     &.is-active:hover {
+      @apply opacity-100;
       background-color: var(--color-jelly-bean);
-      opacity: 1;
     }
   }
 }

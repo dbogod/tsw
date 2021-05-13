@@ -67,6 +67,10 @@ module.exports = {
       },
       transitionTimingFunction: {
         'ease-out': 'ease-out'
+      },
+      zIndex: {
+        '1': '1',
+        '5': '5'
       }
     },
   },

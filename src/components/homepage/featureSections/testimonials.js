@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import TestimonialCard  from './testimonialCard';
+import TestimonialCard from './testimonialCard';
+import ChevronLeft from '../../../assets/svg/chevron-left.svg';
+import ChevronRight from '../../../assets/svg/chevron-right.svg';
 
 const Testimonials = () => {
   const slidesContainer = useRef(null);
+  const previousButton = useRef(null);
+  const nextButton = useRef(null);
+  const [activeSlide, updateActiveSlide] = useState('#slide-0');
   const data = useStaticQuery(graphql`
     query Testimonials {
       wp {
@@ -23,31 +28,56 @@ const Testimonials = () => {
     }
   `);
 
+  const clickHandler = e => {
+    e.preventDefault();
+    const container = slidesContainer.current;
+
+    if (container) {
+      const slidesContent = [...container.querySelectorAll('[data-slide-content]')];
+      const slideContentWidth = slidesContent[0]?.offsetWidth;
+      const isNextBtn = e.currentTarget === nextButton.current;
+      if (slideContentWidth) {
+        container.scrollLeft += slideContentWidth && isNextBtn ? slideContentWidth : slideContentWidth * -1;
+      }
+    }
+  };
+
   const { testimonials } = data.wp.testimonials;
 
   if (testimonials.showSectionTestimonials) {
     return (
-      <section>
+      <section data-active={activeSlide}>
         <div className="[ homepage-content flex-wrap ]">
           <div className="[ tsw-container ]">
-            <h2 className="[ mt-0 flex justify-center ]"
+            <h2 className="[ mt-0 flex justify-center text-center ]"
                 dangerouslySetInnerHTML={{ __html: testimonials.sectionTitleTestimonials }}/>
           </div>
-          <div className="[ tsw-container ]">
+          <div className="[ max-w-screen-xl w-full mx-auto ]">
             <div className="[ testimonials-slider mt-4 ]">
-              <button className="[ testimonials-slider__button testimonials-slider__button--prev ]"
-                      aria-label="Show previous slide"/>
-              <button className="[ testimonials-slider__button testimonials-slider__button--prev ]"
-                      aria-label="Show next slide"/>
+              <button ref={previousButton}
+                      className="[ testimonials-slider__button testimonials-slider__button--prev ]"
+                      onClick={clickHandler}
+                      aria-label="Show previous slide">
+                <ChevronLeft/>
+              </button>
+              <button ref={nextButton}
+                      className="[ testimonials-slider__button testimonials-slider__button--next ]"
+                      onClick={clickHandler}
+                      aria-label="Show next slide">
+                <ChevronRight/>
+              </button>
               <div ref={slidesContainer}
                    className="[ testimonials-slider__slides-container ]">
                 {
                   testimonials.testimonials &&
                   testimonials.testimonials.map((testimonial, i) => {
                     return (
-                      <TestimonialCard testimonial={testimonial}
-                                       container={slidesContainer}
-                                       key={i} />
+                      <TestimonialCard
+                        testimonial={testimonial}
+                        index={i}
+                        updateActiveSlide={updateActiveSlide}
+                        container={slidesContainer}
+                        key={i}/>
                     );
                   })
                 }

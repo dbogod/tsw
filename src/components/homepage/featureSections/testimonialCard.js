@@ -1,25 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import IntersectionObserved from '../../shared/intersectionObserved';
 
-const TestimonialCard = ({ testimonial, container }) => {
+const TestimonialCard = ({ testimonial, container, index }) => {
   const { quote, name, date } = testimonial;
-  const card = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(({ isIntersecting}) => {
-        setIsVisible(isIntersecting);
-      });
-    }, {
-      threshold: 0.75
-    });
-
-    card.current && observer.observe(card.current);
-  });
 
   return (
-    <div className={`[ testimonials-slider__slide ${isVisible ? 'is-active' : '' } ]`} ref={card}>
-      <div className="[ testimonials-slider__slide-content ]">
+    <IntersectionObserved
+      root={container.current}
+      threshold={0.75}
+      wrapperId={`slide-${index}`}
+      wrapperClasses={["testimonials-slider__slide"]}
+      activeClass="is-active">
+      <div className="[ testimonials-slider__slide-content ]"
+           data-slide-content>
         {
           quote &&
           <blockquote className="[ py-3 ]">
@@ -42,7 +35,7 @@ const TestimonialCard = ({ testimonial, container }) => {
           </cite>
         }
       </div>
-    </div>
+    </IntersectionObserved>
   )
 }
 
