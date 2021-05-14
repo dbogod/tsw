@@ -26,10 +26,7 @@ const Service = ({ service, hasPageTitle }) => {
 
   const serviceId = serviceTitle && serviceTitle.toLowerCase().replace(/[^a-zA-Z\d\s:]/g, '').replace(/\W/g, '-');
   const ctaText = cta ?? serviceTitle ? `Get in touch about ${serviceTitle}` : null;
-  let ctaUrl = '/contact/';
-  if (serviceId) {
-    ctaUrl = `/contact?service=${serviceId}`;
-  }
+  const ctaUrl = '/contact/';
 
 
   return (
@@ -37,11 +34,11 @@ const Service = ({ service, hasPageTitle }) => {
         className="[ service ]">
       {
         serviceTitle &&
-          <div className="[ relative w-full ]">
-            {
-              renderServiceTitle(serviceTitle)
-            }
-          </div>
+        <div className="[ relative w-full ]">
+          {
+            renderServiceTitle(serviceTitle)
+          }
+        </div>
 
       }
       <div className="[ flex flex-wrap items-start mt-2 ]">
@@ -97,7 +94,8 @@ const Service = ({ service, hasPageTitle }) => {
                 ctaUrl && ctaText &&
                 <Link
                   className="[ cta cta--secondary mt-4 ]"
-                  to={ctaUrl}>
+                  to={ctaUrl}
+                  state={{ serviceTitle }}>
                   {ctaText}
                 </Link>
               }

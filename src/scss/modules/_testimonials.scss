@@ -186,7 +186,11 @@
 }
 
 .testimonials-slider__pagination {
-  @apply absolute bottom-0 w-full text-center;
+  @apply absolute bottom-0 w-full text-center hidden;
+
+  @include media-breakpoint-up(lg) {
+    @apply block;
+  }
 
   a {
     @apply inline-block opacity-20;

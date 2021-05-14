@@ -1,6 +1,6 @@
 import React from "react";
 
-const Fieldset = ({ title, type, name, description, descriptionPostScript, inputs }) => {
+const Fieldset = ({ title, type, name, description, descriptionPostScript, inputs, checkedValue }) => {
   if (type && name) {
     return (
       <div className="[ flex flex-col items-start mt-6 ]">
@@ -24,11 +24,22 @@ const Fieldset = ({ title, type, name, description, descriptionPostScript, input
           }
           <div className="[ form-checkboxes-wrapper mt-2 ]">
             {
-              inputs.map((input, index) => {
+              inputs.map((input, i) => {
+                let checked;
+                if (type === 'checkbox' && checkedValue) {
+                  checked = checkedValue === input.value;
+                }
                 if (input.value) {
                   return (
-                    <label className="[ block flex items-center py-1 ]" key={index}>
-                      <input className="[ mr-4 ]" type={type} name={name} value={input.value}/>
+                    <label
+                      className="[ block flex items-center py-1 ]"
+                      key={i}>
+                      <input
+                        className="[ mr-4 ]"
+                        type={type}
+                        name={name}
+                        value={input.value}
+                        defaultChecked={checked}/>
                       {input.label ?? input.value}
                     </label>
                   )

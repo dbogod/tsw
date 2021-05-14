@@ -44,9 +44,9 @@ const SocialLinks = () => {
   return (
     <ul className="[ social-links-list ]">
       {
-        socialLink.map((link, index) => {
+        socialLink.map((link, i) => {
           return (
-            <li key={index}>
+            <li key={i}>
               <a href={link.url}
                  className="[ social-link ]">
                 {socialMediaIcon(link.socialNetwork)}

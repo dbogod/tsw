@@ -4,12 +4,14 @@ import LayoutPage from "../components/layoutPage";
 import ContactForm from '../components/forms/contactForm';
 import { graphql } from "gatsby";
 
-const Contact = ({ data }) => {
+const Contact = ({ data, location }) => {
   const { pageHeading, contactPage } = data.allWpPage.nodes[0];
   return (
     <LayoutMaster>
       <LayoutPage pageHeading={pageHeading}>
-        <ContactForm successMessage={contactPage.formSuccessMessage}/>
+        <ContactForm
+          location={location}
+          successMessage={contactPage.formSuccessMessage}/>
       </LayoutPage>
     </LayoutMaster>
   )

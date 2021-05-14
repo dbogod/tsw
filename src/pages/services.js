@@ -41,6 +41,8 @@ const Services = ({ data }) => {
                     </li>
                   )
                 }
+
+                return false;
               })
             }
           </ul>

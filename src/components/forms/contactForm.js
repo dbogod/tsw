@@ -3,7 +3,7 @@ import { useForm } from "@formspree/react";
 import FormItemGroup from "./form-components/formItemGroup";
 import FormFieldset from "./form-components/formFieldset";
 
-const ContactForm = ({ formSuccessMessage }) => {
+const ContactForm = ({ formSuccessMessage, location }) => {
   const [state, updateState] = useForm("myylzojl");
   const [isHuman, updateIsHuman] = useState(true);
 
@@ -60,7 +60,8 @@ const ContactForm = ({ formSuccessMessage }) => {
           { value: 'Personal Shopping' },
           { value: 'The Full Works' },
           { value: 'Style Socials' }
-        ]}/>
+        ]}
+        checkedValue={location?.state?.serviceTitle}/>
       <FormItemGroup
         id="message"
         labelText="Message"

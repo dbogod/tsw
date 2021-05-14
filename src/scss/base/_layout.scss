@@ -2,14 +2,8 @@
   @apply max-w-screen-xl w-full mx-auto px-4;
 }
 
-.content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  backdrop-filter: var(--backdrop-blur);
+.content {
+  @include backdrop-blur;
 }
 
 .form-checkboxes-wrapper {
