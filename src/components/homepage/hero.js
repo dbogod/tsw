@@ -44,7 +44,7 @@ const Hero = () => {
                     hero.heroTitle &&
 
                     <h2
-                      className="[ text-4xl py-1 text-hero-title-color text-hero-title-size xs:py-2 sm:text-hero-title-size-sm md:text-5xl md:py-0 md:mt-2 lg:mt-4 lg:text-hero-title-size-sm xl:text-hero-title-size-xl ]">
+                      className="[ hero__title ]">
                       {hero.heroTitle}
                     </h2>
 

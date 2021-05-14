@@ -209,6 +209,7 @@
     &.is-active,
     &.is-active:hover {
       @apply opacity-100;
+
       background-color: var(--color-jelly-bean);
     }
   }

@@ -46,19 +46,16 @@
 }
 
 @mixin backdrop-blur {
-  position: relative;
+  @apply relative;
 
   *::before {
     backdrop-filter: none;
   }
 
   &::before {
+    @apply absolute inset-0;
+
     content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     backdrop-filter: var(--backdrop-blur);
   }
 }
@@ -82,5 +79,16 @@
 
   a:hover {
     color: var(--section-link-hover-color);
+  }
+}
+
+@mixin delay-fade-up($delay: 0) {
+  &:not(.error404 &) {
+    opacity: 0;
+    transform: translateY(20px);
+    animation-name: fade-up;
+    animation-duration: 500ms;
+    animation-delay: #{$delay}ms;
+    animation-fill-mode: forwards;
   }
 }
