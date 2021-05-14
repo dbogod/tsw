@@ -1,0 +1,9 @@
+.service {
+  h2,
+  h3 {
+    @apply border-b pb-2 uppercase font-body;
+
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem;
+  }
+}
