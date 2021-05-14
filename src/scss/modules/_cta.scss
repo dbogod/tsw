@@ -1,5 +1,5 @@
 .cta {
-  @apply relative inline-block mt-8 ml-2 px-7 py-4 font-medium rounded bg-black text-cta-text-color border border-cta-border-color;
+  @apply relative inline-block mt-8 ml-2 px-7 py-4 font-medium rounded bg-black text-cta-text-color border border-cta-border-color no-underline;
 
   &::after {
     @apply absolute -top-2 -left-2 flex justify-center items-center w-full h-full border-2 border-cta-border-color rounded transition-all duration-100 ease-out bg-cta-fill;
@@ -18,8 +18,14 @@
 
   border-width: 2px !important;
 
+  &::after,
+  &:hover::after,
+  .is-tab &:focus::after {
+    @apply hidden;
+  }
+
   &:hover,
   .is-tab &:focus {
-    @apply bg-cta-secondary-fill-hover shadow-none -translate-y-0.5;
+    @apply bg-cta-secondary-fill-hover text-cta-text-color-hover shadow-none -translate-y-0.5;
   }
 }

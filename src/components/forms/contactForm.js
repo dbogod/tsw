@@ -54,7 +54,7 @@ const ContactForm = ({ formSuccessMessage }) => {
         description="Which service(s) are you interested in?"
         descriptionPostScript="(Tick all that apply)"
         inputs={[
-          { value: 'Style, Shapes and Shades' },
+          { value: 'Style, Shape and Shades' },
           { value: 'Colour Confidence' },
           { value: 'Edit My Wardrobe' },
           { value: 'Personal Shopping' },

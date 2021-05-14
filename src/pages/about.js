@@ -50,7 +50,6 @@ query AboutPage {
       }
     }
   }
-}
-`
+}`
 
 export default About;

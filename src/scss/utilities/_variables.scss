@@ -16,7 +16,7 @@ $breakpoints: (
 );
 
 :root {
-  --body-color: var(--color-black);
+  --body-color: rgba(0, 0, 0, 0.8);
   --border-keyline: rgba(85, 90, 93, 0.6);
   --button-border-radius: 0.25rem;
   --backdrop-blur: blur(3px);

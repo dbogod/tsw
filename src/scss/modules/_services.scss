@@ -1,9 +1,23 @@
 .service {
+  @apply mx-0 pb-6;
+
   h2,
   h3 {
-    @apply border-b pb-2 uppercase font-body;
+    @apply border-b pb-2 uppercase font-body text-2xl leading-heading;
 
     border-bottom-color: rgba(0, 0, 0, 0.1);
-    font-size: 1.5rem;
+  }
+}
+
+.service__sub-service {
+  @apply mt-8;
+
+  h3,
+  h4 {
+    @apply font-body text-xl leading-heading;
+  }
+
+  ul {
+    @apply pl-1;
   }
 }

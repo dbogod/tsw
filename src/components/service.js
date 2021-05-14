@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from "gatsby";
 import parse from 'html-react-parser';
+import SubService from "./subService";
 
 const Service = ({ service, hasPageTitle }) => {
   const [areDetailsVisible, setAreDetailsVisible] = useState(false);
@@ -19,37 +21,57 @@ const Service = ({ service, hasPageTitle }) => {
     serviceTitle,
     serviceWyg,
     servicePrice,
-    subServiceRequired
+    subService
   } = service;
 
+  const serviceId = serviceTitle && serviceTitle.toLowerCase().replace(/[^a-zA-Z\d\s:]/g, '').replace(/\W/g, '-');
   const ctaText = cta ?? serviceTitle ? `Get in touch about ${serviceTitle}` : null;
-  const ctaUrl = `/contact?service=${serviceTitle.toLowerCase().replace(' ', '-')}`;
+  let ctaUrl = '/contact/';
+  if (serviceId) {
+    ctaUrl = `/contact?service=${serviceId}`;
+  }
+
 
   return (
-    <li className="[ service mx-0 pb-4 ]">
+    <li id={serviceId}
+        className="[ service ]">
       {
         serviceTitle &&
-        renderServiceTitle(serviceTitle)
+          <div className="[ relative w-full ]">
+            {
+              renderServiceTitle(serviceTitle)
+            }
+          </div>
+
       }
       <div className="[ flex flex-wrap items-start mt-2 ]">
         {
           serviceDesc &&
           <div
-            className="[ relative w-full sm:w-10/12 md:w-8/12 lg:w-7/12 mx-auto ]"
+            className="[ relative w-full ]"
             dangerouslySetInnerHTML={{ __html: serviceDesc }}/>
         }
         {
-          (serviceLongDesc || subServiceRequired || servicePrice || servicePs) &&
-          <div className="[ relative w-full sm:w-10/12 md:w-8/12 lg:w-7/12 mx-auto flex flex-col ]">
-            <details
-              className="[ mt-1 ]"
-              onClick={() => setAreDetailsVisible(!areDetailsVisible)}>
-              <summary>
+          (serviceLongDesc || subService || servicePrice || servicePs) &&
+          <div className="[ relative w-full flex flex-col ]">
+            <details className="[ mt-1 ]">
+              <summary onClick={() => setAreDetailsVisible(!areDetailsVisible)}>
                 {areDetailsVisible ? 'Show less' : 'Show more...'}
               </summary>
               {
                 serviceLongDesc &&
                 parse(serviceLongDesc)
+              }
+              {
+                subService &&
+                subService.map((subServiceObj, i) => {
+                  return (
+                    <SubService
+                      key={i}
+                      subService={subServiceObj}
+                      hasPageTitle={hasPageTitle}/>
+                  )
+                })
               }
               {
                 serviceWyg &&
@@ -73,12 +95,11 @@ const Service = ({ service, hasPageTitle }) => {
               }
               {
                 ctaUrl && ctaText &&
-                <a
+                <Link
                   className="[ cta cta--secondary mt-4 ]"
-                  href={ctaUrl}
-                  data-value={ctaText}>
+                  to={ctaUrl}>
                   {ctaText}
-                </a>
+                </Link>
               }
             </details>
           </div>

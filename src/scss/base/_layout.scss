@@ -21,3 +21,13 @@
 
   filter: drop-shadow(0 -1rem 1.5rem rgba(0, 0, 0, 0.15));
 }
+
+.list-two-col {
+  > li {
+    @apply m-0 py-2 pr-0 pl-4;
+  }
+
+  @include media-breakpoint-up(xs) {
+    column-count: 2;
+  }
+}

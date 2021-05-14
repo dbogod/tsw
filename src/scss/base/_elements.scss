@@ -83,8 +83,16 @@ p {
   }
 }
 
+ul {
+  @apply m-0 mt-4 p-0;
+
+  ul {
+    list-style-type: circle;
+  }
+}
+
 li {
-  @apply mx-2 mb-4;
+  @apply my-2 ml-4 mr-0;
 }
 
 a {
@@ -136,4 +144,8 @@ details {
     @apply hidden;
     }
   }
+}
+
+small {
+  @apply font-normal;
 }
