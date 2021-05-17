@@ -1,5 +1,13 @@
 .hero__content {
-  @apply flex flex-col justify-center items-center h-full md:w-full lg:min-h-80vh lg:flex-row;
+  @apply flex flex-col justify-center items-center h-full;
+
+  @include media-breakpoint-up(md) {
+    @apply w-full;
+  }
+
+  @include media-breakpoint-up(lg) {
+    @apply min-h-80vh flex-row;
+  }
 }
 
 .hero__content-inner-wrapper {
@@ -50,9 +58,13 @@
 .hero__body {
   @include delay-fade-up(500);
 
-  @apply mt-6 lg:mt-8;
+  @apply mt-6;
 
   max-width: 650px;
+
+  @include media-breakpoint-up(lg) {
+    @apply mt-8;
+  }
 }
 
 .hero__image-wrapper {

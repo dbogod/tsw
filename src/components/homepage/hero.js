@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Cta from '../shared/cta';
+
+import Cta from '../molecules/cta';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`

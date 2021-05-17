@@ -9,13 +9,19 @@
 }
 
 .homepage-content--feature {
-  @apply pt-8 md:pt-12 lg:py-20 lg:px-0;
+  @apply pt-8;
 
   min-height: 30vh;
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 6vmin);
 
   @include media-breakpoint-up(md) {
+    @apply pt-12;
+
     clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15vmin);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @apply py-20 px-0;
   }
 }
 

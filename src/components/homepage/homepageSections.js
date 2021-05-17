@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+
 import FeatureSectionSpeechBubble from './featureSections/speechBubble';
 import Testimonials from "./featureSections/testimonials";
 import HomepageSectionFullWidth from "./sections/fullWidthMedia";

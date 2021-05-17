@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import ColourWrapper from "../../shared/colourWrapper";
+
+import ColourWrapper from "../../atoms/colourWrapper";
 
 const HomepageSectionText = ({ index }) => {
   const data = useStaticQuery(graphql`

@@ -1,12 +1,8 @@
 .social-links-list {
   @apply fixed bottom-0 left-0 right-0 z-20 border-t-2 border-black flex justify-center bg-white;
 
-  @include media-breakpoint-up(lg){
-    @apply static border-t-0 border-l ml-4 mt-0 pl-2 bg-transparent;
-  }
-
   li {
-    @apply p-3 m-0 lg:py-0 lg:px-2;
+    @apply p-3 m-0;
   }
 
   a,
@@ -27,5 +23,13 @@
   a:hover svg,
   .is-tab & a:focus svg {
     fill: var(--color-hot-pink);
+  }
+
+  @include media-breakpoint-up(lg){
+    @apply static border-t-0 border-l ml-4 mt-0 pl-2 bg-transparent;
+
+    li {
+      @apply py-0 px-2;
+    }
   }
 }

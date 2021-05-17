@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
+
+import IntersectionObserved from "../../atoms/intersectionObserved";
+
 import ChevronLeft from '../../../assets/svg/chevron-left.svg';
 import ChevronRight from '../../../assets/svg/chevron-right.svg';
-import IntersectionObserved from "../../shared/intersectionObserved";
 
 const Testimonials = () => {
   const slidesContainer = useRef(null);

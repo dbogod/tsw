@@ -1,5 +1,5 @@
 .main-nav {
-  @apply absolute -top-2 left-0 right-0 z-10 flex justify-center items-center w-full h-screen p-14 bg-nav-mobile-background overflow-hidden transition duration-500 ease-out md:-top-4 lg:static lg:p-0 lg:h-auto lg:bg-transparent;
+  @apply absolute -top-2 left-0 right-0 z-10 flex justify-center items-center w-full h-screen p-14 bg-nav-mobile-background overflow-hidden transition duration-500 ease-out;
 
   clip-path: circle(0 at calc(100% - 2.5rem) 2.5rem);
   transition-property: clip-path;
@@ -8,31 +8,62 @@
     clip-path: circle(200% at calc(100% - 2.5rem) 2.5rem);
   }
 
+  @include media-breakpoint-up(md) {
+    @apply -top-4;
+  }
+
   @include media-breakpoint-up(lg) {
     --nav-text-color: var(--color-black);
 
+    @apply static p-0 h-auto bg-transparent;
+
     clip-path: none;
   }
-}
 
-.main-nav a::after {
-  @apply absolute left-0 bottom-0 opacity-0 bg-white w-full transition duration-200 ease-out;
 
-  content: "";
-  height: 0.1rem;
-  transform: translateY(10px);
-}
+  ul {
+    @apply flex flex-col justify-center items-center font-display font-bold text-4xl tracking-wider;
 
-.main-nav a:hover::after,
-.is-tab .main-nav a:focus::after {
-  @apply opacity-100 transform translate-y-0;
-}
+    @include media-breakpoint-up(sm) {
+      @apply text-6xl;
+    }
 
-.main-nav a:hover,
-.is-tab .main-nav a:focus {
-  @apply opacity-70 text-nav-text-color-hover;
+    @include media-breakpoint-up(lg) {
+      @apply flex-row text-sm font-body uppercase leading-6;
+    }
+  }
 
-  &::after {
-    @apply bg-nav-text-color-hover;
+  a {
+    @apply inline-block py-2 text-nav-text-color no-underline transition-all duration-200 ease-out;
+
+    @include media-breakpoint-up(sm) {
+      @apply py-4;
+    }
+
+    @include media-breakpoint-up(lg) {
+      @apply relative font-medium p-0 my-4
+    }
+  }
+
+  a::after {
+    @apply absolute left-0 bottom-0 opacity-0 bg-white w-full transition duration-200 ease-out;
+
+    content: "";
+    height: 0.1rem;
+    transform: translateY(10px);
+  }
+
+  a:hover,
+  .is-tab & a:focus {
+    @apply opacity-70 text-nav-text-color-hover;
+
+    &::after {
+      @apply bg-nav-text-color-hover;
+    }
+  }
+
+  a:hover::after,
+  .is-tab & a:focus::after {
+    @apply opacity-100 transform translate-y-0;
   }
 }

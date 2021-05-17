@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "@formspree/react";
-import FormItemGroup from "./form-components/formItemGroup";
-import FormFieldset from "./form-components/formFieldset";
+
+import FormItemGroup from "../molecules/formItemGroup";
+import FormFieldset from "../molecules/formFieldset";
 
 const ContactForm = ({ formSuccessMessage, location }) => {
   const [state, updateState] = useForm("myylzojl");

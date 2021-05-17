@@ -1,3 +1,4 @@
+
 /**
  * 👋 Hey there!
  * This file is the starting point for your new WordPress/Gatsby site! 🚀
@@ -90,6 +91,12 @@ module.exports = {
         rule: {
           include: /\.svg$/,
         },
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-PDWZ6H3'
       }
     }
   ],

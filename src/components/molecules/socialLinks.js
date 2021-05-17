@@ -1,32 +1,31 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import FacebookIcon from '../assets/svg/social-media-icons/facebook.svg'
-import InstagramIcon from '../assets/svg/social-media-icons/instagram.svg'
-import PinterestIcon from '../assets/svg/social-media-icons/pinterest.svg'
-import TwitterIcon from '../assets/svg/social-media-icons/twitter.svg'
+import FacebookIcon from '../../assets/svg/social-media-icons/facebook.svg'
+import InstagramIcon from '../../assets/svg/social-media-icons/instagram.svg'
+import PinterestIcon from '../../assets/svg/social-media-icons/pinterest.svg'
+import TwitterIcon from '../../assets/svg/social-media-icons/twitter.svg'
 
 const SocialLinks = () => {
   const data = useStaticQuery(graphql`
   query SocialLinks {
-  allWp {
-    nodes {
-      themeSettings {
+    allWp {
+      nodes {
         themeSettings {
-          socialLinks {
-            socialLink {
-              socialNetwork
-              url
+          themeSettings {
+            socialLinks {
+              socialLink {
+                socialNetwork
+                url
+              }
             }
           }
         }
       }
     }
-  }
-}
-`)
+  }`);
 
   const { socialLink } = data.allWp.nodes[0].themeSettings.themeSettings.socialLinks;
-  const socialMediaIcon = socialNetwork => {
+  const renderSocialMediaIcon = socialNetwork => {
     switch (socialNetwork.toLowerCase()) {
       case 'facebook':
         return <FacebookIcon />;
@@ -49,7 +48,7 @@ const SocialLinks = () => {
             <li key={i}>
               <a href={link.url}
                  className="[ social-link ]">
-                {socialMediaIcon(link.socialNetwork)}
+                {renderSocialMediaIcon(link.socialNetwork)}
               </a>
             </li>
           )

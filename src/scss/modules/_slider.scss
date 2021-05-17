@@ -1,5 +1,21 @@
 .slider__text {
-  @apply relative pt-20 sm:pt-24 md:pt-28 lg:pt-36 xl:pt-28;
+  @apply relative pt-20;
+
+  @include media-breakpoint-up(sm) {
+    @apply pt-24;
+  }
+
+  @include media-breakpoint-up(md) {
+    @apply pt-28;
+  }
+
+  @include media-breakpoint-up(lg) {
+    @apply pt-36;
+  }
+
+  @include media-breakpoint-up(xl) {
+    @apply pt-28;
+  }
 }
 
 .slider__title-wrapper {

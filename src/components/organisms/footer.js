@@ -1,8 +1,9 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
-import FooterSiteNavMenu from './footerComponents/_footerSiteNavMenu';
-import FooterServicesMenu from './footerComponents/_footerServicesMenu';
-import SocialLinks from './socialLinks';
+
+import FooterSiteNavMenu from '../molecules/footerSiteNavMenu';
+import FooterServicesMenu from '../molecules/footerServicesMenu';
+import SocialLinks from '../molecules/socialLinks';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`

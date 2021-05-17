@@ -1,7 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import ColourWrapper from "../../shared/colourWrapper";
-import Video from '../../shared/video';
+
+import ColourWrapper from "../../atoms/colourWrapper";
+
+import Video from '../../molecules/video';
 
 const HomepageSectionFullWidth = ({ index }) => {
   const data = useStaticQuery(graphql`
