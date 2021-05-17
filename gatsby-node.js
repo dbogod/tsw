@@ -27,18 +27,18 @@ const pageHeadingFields = `
   }`;
 
 const query = `
-query {
-  allWpPage {
-    nodes {
-      uri
-      title
-      slug
-      ${pageHeadingFields}
-      ${seoFields}
+  query {
+    allWpPage {
+      nodes {
+        uri
+        title
+        slug
+        isFrontPage
+        ${pageHeadingFields}
+        ${seoFields}
+      }
     }
-  }
-}
-`;
+  }`;
 
 exports.createPages = async ({ actions, graphql }) => {
   const {data} = await graphql(`${query}`);
@@ -52,11 +52,7 @@ exports.createPages = async ({ actions, graphql }) => {
       path: page.uri,
       component: path.resolve('./src/components/templates/page.js'),
       context: {
-        ...page,
-        pageHeading: page.pageHeading,
-        title: page.title,
-        uri: page.uri,
-        slug: page.slug
+        ...page
       }
     })
   })

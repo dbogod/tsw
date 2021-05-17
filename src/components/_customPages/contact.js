@@ -2,7 +2,9 @@ import React from 'react';
 import ContactForm from '../organisms/contactForm';
 import { graphql, useStaticQuery } from "gatsby";
 
-const Contact = ({ location }) => {
+const Contact = ({props}) => {
+  const {location} = props;
+
   const data = useStaticQuery(graphql`
   query Contact {
     allWpPage(filter: {uri: {eq: "/contact/"}}) {

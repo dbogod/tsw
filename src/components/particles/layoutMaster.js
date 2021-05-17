@@ -10,7 +10,7 @@ import Header from '../organisms/header';
 import Footer from '../organisms/footer';
 
 
-const LayoutMaster = ({ children }) => {
+const LayoutMaster = ({ props, children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isTab, setIsTab] = useState(false);
   const toggleMenu = useRef(null);
@@ -62,7 +62,6 @@ const LayoutMaster = ({ children }) => {
     }
   }, [isNavOpen, toggleMenu, isTab])
 
-
   return (
     <div className={`
       [ overflow-hidden font-body font-light ] 
@@ -70,7 +69,8 @@ const LayoutMaster = ({ children }) => {
       ${isTab ? 'is-tab' : ''}
       `}>
 
-      <HtmlHead/>
+      <HtmlHead seo={props.pageContext.seo}/>
+
       <Header
         isNavOpen={isNavOpen}
         clickHandler={toggleMenu}/>

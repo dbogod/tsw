@@ -1,42 +1,77 @@
 import React from "react";
+import {useStaticQuery, graphql} from "gatsby";
 import { Helmet } from "react-helmet/es/Helmet";
 
-const HtmlHead = () => {
-  const fontFaceStyles = ' /* latin */\n' +
-    '            @font-face {\n' +
-    '            font-family: \'Merriweather\';\n' +
-    '            font-style: normal;\n' +
-    '            font-weight: 700;\n' +
-    '            font-display: swap;\n' +
-    '            src: url(https://fonts.gstatic.com/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l52xwNZWMf6.woff2) format(\'woff2\');\n' +
-    '            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n' +
-    '          }\n' +
-    '            /* latin */\n' +
-    '            @font-face {\n' +
-    '            font-family: \'Roboto\';\n' +
-    '            font-style: normal;\n' +
-    '            font-weight: 300;\n' +
-    '            font-display: swap;\n' +
-    '            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format(\'woff2\');\n' +
-    '            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n' +
-    '          }\n' +
-    '            /* latin */\n' +
-    '            @font-face {\n' +
-    '            font-family: \'Roboto\';\n' +
-    '            font-style: normal;\n' +
-    '            font-weight: 500;\n' +
-    '            font-display: swap;\n' +
-    '            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format(\'woff2\');\n' +
-    '            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n' +
-    '          }';
+import { fontFaceCss } from "./fontFaceCss";
+
+const HtmlHead = ({seo}) => {
+  const {
+    metaDesc,
+    // focuskw,
+    // cornerstone,
+    // fullHead,
+    // metaKeywords,
+    opengraphDescription,
+    opengraphImage,
+    opengraphTitle,
+    title,
+    twitterDescription,
+    twitterTitle,
+    twitterImage
+  } = seo;
+
+  const { wp } = useStaticQuery(
+    graphql`
+      query {
+        wp {
+          generalSettings {
+            title
+            description
+            language
+          }
+        }
+      }
+    `
+  )
+
+  const metaDescription = metaDesc || wp.generalSettings?.description
+  const defaultTitle = wp.generalSettings?.title
 
   return (
     <Helmet>
-      <meta name="robots" content="noindex" />
+      <html lang={wp.generalSettings?.language ?? 'en_GB'} />
+
+      {/* Fonts */}
       <link rel="preconnect" href="https://fonts.gstatic.com"/>
       <style type="text/css">
-        {fontFaceStyles}
+        {fontFaceCss}
       </style>
+
+      {/* SEO - General */}
+      <title>{title ?? defaultTitle}</title>
+      <meta name="robots" content="noindex" />
+      <meta name="description"
+            content={metaDescription}/>
+
+      {/* SEO - Open Graph */}
+      <meta property="og:title"
+            content={opengraphTitle ?? title}/>
+      <meta property="og:description"
+            content={opengraphDescription ?? metaDescription}/>
+      <meta property="og:image"
+            content={opengraphImage ?? null}/>
+      <meta property="og:type"
+            content="website"/>
+
+      {/* SEO - Twitter */}
+      <meta property="twitter:card"
+            content="summary"/>
+      <meta property="twitter:title"
+            content={twitterTitle ?? opengraphTitle ?? title}/>
+      <meta property="twitter:description"
+            content={twitterDescription ?? opengraphDescription ?? metaDescription}/>
+      <meta property="twitter:description"
+            content={twitterImage ?? opengraphImage ?? null}/>
     </Helmet>
   )
 }

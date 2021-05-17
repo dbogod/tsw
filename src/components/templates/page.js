@@ -3,6 +3,7 @@ import React from 'react';
 import LayoutMaster from "../particles/layoutMaster";
 import LayoutPage from "../particles/layoutPage";
 
+import Home from "../_customPages/home";
 import About from "../_customPages/about";
 import Services from "../_customPages/services";
 import Faqs from "../_customPages/frequently-asked-questions";
@@ -23,9 +24,11 @@ const DefaultPageLayout = ({ props }) => {
 }
 
 const Page = props => {
-  const { uri, pageHeading } = props.pageContext;
+  const { uri, isFrontPage, pageHeading } = props.pageContext;
   const renderPage = () => {
     switch (uri) {
+      case '/':
+        return <Home/>;
       case '/about/':
         return <About/>;
       case '/services/':
@@ -33,19 +36,23 @@ const Page = props => {
       case '/frequently-asked-questions/':
         return <Faqs/>;
       case '/contact/':
-        return <Contact/>;
+        return <Contact props={props}/>;
       default:
         return <DefaultPageLayout props={props}/>
     }
   }
 
-  console.log(props);
-
   return (
-    <LayoutMaster>
-      <LayoutPage pageHeading={pageHeading}>
-        {renderPage()}
-      </LayoutPage>
+    <LayoutMaster props={props}>
+      {
+        isFrontPage && renderPage()
+      }
+      {
+        !isFrontPage &&
+        <LayoutPage pageHeading={pageHeading}>
+          {renderPage()}
+        </LayoutPage>
+      }
     </LayoutMaster>
   )
 }
