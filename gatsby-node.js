@@ -49,12 +49,14 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   data.allWpPage.nodes.forEach(page => {
-    actions.createPage({
-      path: page.uri,
-      component: path.resolve('./src/components/templates/page.js'),
-      context: {
-        ...page
-      }
-    })
+    if (page.uri !== '/404/') {
+      actions.createPage({
+        path: page.uri,
+        component: path.resolve('./src/components/templates/page.js'),
+        context: {
+          ...page
+        }
+      })
+    }
   })
 }

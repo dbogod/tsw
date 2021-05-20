@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import parse from 'html-react-parser';
 import Service from "../organisms/service";
 
-const Services = () => {
+const Services = ({ hasPageTitle }) => {
   const data = useStaticQuery(graphql`
   query ServicesPage {
   allWpPage(filter: {uri: {eq: "/services/"}}) {
@@ -33,8 +33,6 @@ const Services = () => {
   }
 }`);
   const { mainCta, pageContents, service } = data?.allWpPage?.nodes[0].servicesPage;
-  const hasPageTitle = true;
-  // const hasPageTitle = pageHeading.title !== null;
 
   return (
     <>

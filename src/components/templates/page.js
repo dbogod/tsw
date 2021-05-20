@@ -31,7 +31,7 @@ const Page = props => {
       case '/about/':
         return <About/>;
       case '/services/':
-        return <Services/>;
+        return <Services hasPageTitle={pageHeading?.title}/>;
       case '/frequently-asked-questions/':
         return <Faqs/>;
       case '/contact/':
