@@ -10,21 +10,20 @@ import Faqs from "../_customPages/frequently-asked-questions";
 import Contact from '../_customPages/contact';
 
 const DefaultPageLayout = ({ props }) => {
-  const { title } = props.pageContext;
+  const { content } = props.pageContext;
   return (
     <>
-      <h1>
-        Default page layout
-      </h1>
-      <p>
-        Page title: {title}
-      </p>
+      {
+        content &&
+        <div className="[ content ]"
+             dangerouslySetInnerHTML={{ __html: content }}/>
+      }
     </>
   )
-}
+};
 
 const Page = props => {
-  const { uri, isFrontPage, pageHeading } = props.pageContext;
+  const { uri, isFrontPage, title, pageHeading } = props.pageContext;
   const renderPage = () => {
     switch (uri) {
       case '/':
@@ -49,7 +48,7 @@ const Page = props => {
       }
       {
         !isFrontPage &&
-        <LayoutPage pageHeading={pageHeading}>
+        <LayoutPage pageHeading={pageHeading.title && pageHeading.intro ? pageHeading : {title}}>
           {renderPage()}
         </LayoutPage>
       }

@@ -32,7 +32,7 @@ const Service = ({ service, hasPageTitle }) => {
 
   return (
     <li id={serviceId}
-        className="[ service ]">
+        className="[ services__service ]">
       {
         serviceTitle &&
         <div className="[ relative w-full ]">

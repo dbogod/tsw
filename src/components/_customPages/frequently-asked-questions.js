@@ -7,10 +7,6 @@ const Faqs = () => {
   query FAQs {
     allWpPage(filter: {uri: {eq: "/frequently-asked-questions/"}}) {
       nodes {
-        pageHeading {
-          title
-          intro
-        }
         faqPage {
           faq {
             faqAnswer
@@ -26,7 +22,7 @@ const Faqs = () => {
     <>
       {
         faq.length &&
-        <ul className="[ mt-6 relative ]">
+        <ul className="[ page-contents mt-6 relative ]">
           {
             faq.map((faq, index) => {
               return (

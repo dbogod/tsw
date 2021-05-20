@@ -30,6 +30,7 @@ const query = `
   query {
     allWpPage {
       nodes {
+        content
         uri
         title
         slug

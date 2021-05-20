@@ -48,6 +48,10 @@
 @mixin backdrop-blur {
   @apply relative;
 
+  > * {
+    @apply relative;
+  }
+
   *::before {
     backdrop-filter: none;
   }

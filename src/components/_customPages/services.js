@@ -54,7 +54,7 @@ const Services = () => {
       }
       {
         pageContents && service &&
-        <ul className="[ relative list-two-col mt-4 ]">
+        <ul className="[ page-contents relative list-two-col mt-4 ]">
           {
             service.map((service, i) => {
               if (service.serviceTitle) {
@@ -75,7 +75,7 @@ const Services = () => {
       }
       {
         service &&
-        <ul className="[ mt-4 ]">
+        <ul className="[ services mt-4 ]">
           {
             service.map((service, i) => {
               return (

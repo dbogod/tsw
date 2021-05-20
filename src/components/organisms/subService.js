@@ -17,7 +17,7 @@ const SubService = ({ subService, hasPageTitle }) => {
   }
 
   return (
-    <div className="[ service__sub-service ]">
+    <div className="[ services__sub-service ]">
       {
         subServiceTitle &&
         renderSubServiceTitle(subServiceTitle)

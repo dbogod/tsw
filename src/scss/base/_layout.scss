@@ -4,6 +4,19 @@
 
 .content {
   @include backdrop-blur;
+
+  h1,
+  .h1 {
+    @apply mt-8;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul:not(.services):not(.page-contents) {
+    @apply list-disc;
+  }
 }
 
 .form-checkboxes-wrapper {
