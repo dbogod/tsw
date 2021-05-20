@@ -22,11 +22,12 @@ const LayoutMaster = ({ props, children }) => {
 
     toggleMenu.current = e => {
       const isEscKeyEvent = e?.key && e.key === 'Escape';
+      const isMenuOpen = isNavOpen;
 
-      setIsNavOpen(isEscKeyEvent ? false : !isNavOpen)
+      setIsNavOpen(isEscKeyEvent ? false : !isMenuOpen)
 
       // Give body overflow-hidden
-      document.body.setAttribute('data-nav-open', `${isNavOpen}`);
+      document.body.setAttribute('data-nav-open', `${!isMenuOpen}`);
     }
 
     const clickHandler = e => {

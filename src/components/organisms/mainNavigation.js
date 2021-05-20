@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
 import debounce from 'lodash/debounce';
 
-const MainNavigation = ({ clickHandler, isMenuOpen }) => {
+const MainNavigation = ({ isMenuOpen }) => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(null);
   const data = useStaticQuery(graphql`
     query MainNavigation {
@@ -42,7 +42,6 @@ const MainNavigation = ({ clickHandler, isMenuOpen }) => {
               <li key={i}
                   className="[ block mx-4 my-0 ]">
                 <Link to={menuItem.path}
-                      onClick={() => clickHandler()}
                       data-main-nav-link
                       tabIndex={isMobileOrTablet ? isMenuOpen ? '0' : '-1' : '0'}>
                   {menuItem.label}
