@@ -70,7 +70,7 @@ const LayoutMaster = ({ props, children }) => {
       ${isTab ? 'is-tab' : ''}
       `}>
 
-      <HtmlHead seo={props.pageContext.seo}/>
+      <HtmlHead seo={props?.pageContext?.seo}/>
 
       <Header
         isNavOpen={isNavOpen}
