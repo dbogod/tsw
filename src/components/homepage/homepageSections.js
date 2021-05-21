@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import FeatureSectionSpeechBubble from './featureSections/speechBubble';
+import FeatureSectionMissionStatement from './featureSections/missionStatement';
 import Testimonials from "./featureSections/testimonials";
 import HomepageSectionFullWidth from "./sections/fullWidthMedia";
 import HomepageSectionText from "./sections/textOnly";
@@ -12,6 +13,9 @@ const HomepageSections = () => {
       allWpPage(filter: {isFrontPage: {eq: true}}) {
         nodes {
           homePageSections {
+             featureSectionMissionStatement {
+              showFeatureSection
+            }
             featureSectionSpeechBubble {
               showFeatureSection
             }
@@ -64,7 +68,7 @@ const HomepageSections = () => {
     }
   }
 
-    const { featureSectionSpeechBubble } = data.allWpPage.nodes[0].homePageSections;
+    const { featureSectionSpeechBubble, featureSectionMissionStatement } = data.allWpPage.nodes[0].homePageSections;
     const preTestimonialsSections = data.allWpPage.nodes[0].homePageSections.section;
     const postTestimonialsSections = data.allWpPage.nodes[0].homePageSections.sectionPostTestimonials;
     const preTestimonialsSectionsByType = sectionsByType(preTestimonialsSections);
@@ -87,7 +91,10 @@ const HomepageSections = () => {
 
     return (
       <>
-
+        {
+          featureSectionMissionStatement?.showFeatureSection &&
+          <FeatureSectionMissionStatement />
+        }
         {
           featureSectionSpeechBubble?.showFeatureSection &&
           <FeatureSectionSpeechBubble/>

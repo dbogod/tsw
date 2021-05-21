@@ -1,4 +1,4 @@
-.hero__content {
+.mission-statement__content {
   @apply flex flex-col justify-center items-center h-full;
 
   @include media-breakpoint-up(md) {
@@ -10,23 +10,23 @@
   }
 }
 
-.hero__content-inner-wrapper {
+.mission-statement__content-inner-wrapper {
   @apply w-full;
 
   @include backdrop-blur;
 }
 
-.hero__title {
+.mission-statement__title {
   @include delay-fade-up();
 
-  @apply py-1 text-hero-title-color text-hero-title-size;
+  @apply py-1 text-mission-statement-title-color text-mission-statement-title-size;
 
   @include media-breakpoint-up(xs) {
     @apply py-2;
   }
 
   @include media-breakpoint-up(sm) {
-    @apply text-hero-title-size-sm;
+    @apply text-mission-statement-title-size-sm;
   }
 
   @include media-breakpoint-up(md) {
@@ -34,28 +34,28 @@
   }
 
   @include media-breakpoint-up(lg) {
-    @apply mt-4 text-hero-title-size-sm;
+    @apply mt-4 text-mission-statement-title-size-sm;
   }
 
   @include media-breakpoint-up(xl) {
-    @apply text-hero-title-size-xl;
+    @apply text-mission-statement-title-size-xl;
   }
 }
 
-.hero__body-image-wrapper::before {
+.mission-statement__body-image-wrapper::before {
   @apply absolute top-36 -mx-4;
 
   content: "";
   width: calc(100% + 2rem);
   height: calc(100% - 9rem);
-  background-color: var(--hero-frame-color);
+  background-color: var(--mission-statement-frame-color);
 
   @include media-breakpoint-up(md) {
     @apply hidden;
   }
 }
 
-.hero__body {
+.mission-statement__body {
   @include delay-fade-up(500);
 
   @apply mt-6;
@@ -67,7 +67,7 @@
   }
 }
 
-.hero__image-wrapper {
+.mission-statement__image-wrapper {
   @apply transform rotate-10;
 
   [aria-hidden="true"] {
@@ -79,7 +79,7 @@
 
     @apply shadow-img mx-auto;
 
-    border: 1rem solid var(--hero-frame-color);
+    border: 1rem solid var(--mission-statement-frame-color);
 
     @include media-breakpoint-up(md) {
       @apply mt-0 mb-8;

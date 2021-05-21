@@ -25,7 +25,7 @@ module.exports = {
         'cta-secondary-fill-hover': 'var(--cta-secondary-fill-hover)',
         'cta-secondary-text-color': 'var(--cta-secondary-text-color)',
         'cta-secondary-border-color': 'var(--cta-secondary-border-color)',
-        'hero-title-color': 'var(--hero-title-color)',
+        'mission-statement-title-color': 'var(--mission-statement-title-color)',
         'keyline-color': 'var(--border-keyline)',
         'link-color': 'var(--link-color)',
         'link-hover-color': 'var(--link-hover-color)',
@@ -38,9 +38,9 @@ module.exports = {
         body: ['Roboto', 'sans-serif']
       },
       fontSize: {
-        'hero-title-size': ['2.5rem', { lineHeight: '1' }],
-        'hero-title-size-sm': ['3.5rem', { lineHeight: '1' }],
-        'hero-title-size-xl': ['4.25rem', { lineHeight: '1' }]
+        'mission-statement-title-size': ['2.5rem', { lineHeight: '1' }],
+        'mission-statement-title-size-sm': ['3.5rem', { lineHeight: '1' }],
+        'mission-statement-title-size-xl': ['4.25rem', { lineHeight: '1' }]
       },
       lineHeight: {
         'heading': '1.2',
