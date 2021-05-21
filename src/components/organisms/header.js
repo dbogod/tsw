@@ -48,7 +48,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
           </Link>
           <SocialLinks/>
         </div>
-        <button className="[ hamburger hamburger--stand z-20 ] [ lg:hidden ]"
+        <button className="[ hamburger hamburger--stand items-center z-20 ] [ lg:hidden ]"
                 type="button"
                 onClick={handleClick}
                 aria-label="Toggle menu"

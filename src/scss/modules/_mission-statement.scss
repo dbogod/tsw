@@ -16,32 +16,6 @@
   @include backdrop-blur;
 }
 
-.mission-statement__title {
-  @include delay-fade-up();
-
-  @apply py-1 text-mission-statement-title-color text-mission-statement-title-size;
-
-  @include media-breakpoint-up(xs) {
-    @apply py-2;
-  }
-
-  @include media-breakpoint-up(sm) {
-    @apply text-mission-statement-title-size-sm;
-  }
-
-  @include media-breakpoint-up(md) {
-    @apply  mt-2 py-0 text-5xl;
-  }
-
-  @include media-breakpoint-up(lg) {
-    @apply mt-4 text-mission-statement-title-size-sm;
-  }
-
-  @include media-breakpoint-up(xl) {
-    @apply text-mission-statement-title-size-xl;
-  }
-}
-
 .mission-statement__body-image-wrapper::before {
   @apply absolute top-36 -mx-4;
 

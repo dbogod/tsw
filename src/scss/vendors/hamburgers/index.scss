@@ -43,3 +43,7 @@ $hamburger-padding-y: 0;
 .hamburger-box {
   height: $hamburger-layer-width;
 }
+
+.hamburger {
+  display: flex;
+}

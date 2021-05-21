@@ -45,8 +45,7 @@ const FeatureSectionMissionStatement = () => {
                 <div className="[ mission-statement__content-inner-wrapper lg:mb-8 ]">
                   {
                     title &&
-                    <h2
-                      className="[ mission-statement__title ]">
+                    <h2>
                       {title}
                     </h2>
 
