@@ -33,7 +33,11 @@ const LayoutMaster = ({ props, children }) => {
     const clickHandler = e => {
       setIsTab(false);
 
-      if (e.target.hasAttribute('data-main-nav-link') && isNavOpen && toggleMenu.current) {
+      if (
+        e.target.hasAttribute('data-main-nav-link') &&
+        e.target.classList.contains('active') &&
+        isNavOpen &&
+        toggleMenu.current) {
         toggleMenu.current(e)
       }
     };
@@ -51,6 +55,8 @@ const LayoutMaster = ({ props, children }) => {
         toggleMenu.current(e)
       }
     }, 100);
+
+    document.body.setAttribute('data-nav-open', `${isNavOpen}`);
 
     window.addEventListener('keydown', keydownHandler);
     window.addEventListener('resize', resizeHandler);

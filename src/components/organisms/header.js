@@ -32,8 +32,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
           }
         }
       }
-    }
-  `);
+    }`);
   const { headerLogo } = data.wp.themeSettings.themeSettings.header;
 
   return (

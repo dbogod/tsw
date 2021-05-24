@@ -42,6 +42,7 @@ const MainNavigation = ({ isMenuOpen }) => {
               <li key={i}
                   className="[ block mx-4 my-0 ]">
                 <Link to={menuItem.path}
+                      activeClassName={'active'}
                       data-main-nav-link
                       tabIndex={isMobileOrTablet ? isMenuOpen ? '0' : '-1' : '0'}>
                   {menuItem.label}
