@@ -46,13 +46,12 @@ const FeatureSectionMissionStatement = () => {
                   <div className="[ mission-statement__body-image-wrapper relative pb-12 md:flex ]">
                     {
                       image &&
-                      <div className="[ mission-statement__image-wrapper ]">
+                      <div className="[ mission-statement__image-wrapper mission-statement__image-wrapper--sm ]">
                         <img src={image.localFile.childImageSharp.fluid.src}
                              srcSet={image.localFile.childImageSharp.fluid.srcSet}
                              sizes="(min-width: 640px) 470px, (min-width: 400px) 350px, 200px"
                              alt={image.altText}/>
                       </div>
-
                     }
                     {
                       content &&
@@ -70,21 +69,21 @@ const FeatureSectionMissionStatement = () => {
                 </div>
               </div>
             </div>
-            {/*<div className="[ md:col-span-5 md:col-start-8 lg:col-span-6 lg:col-start-7 hidden md:block ]">*/}
-            {/*  {*/}
-            {/*    image &&*/}
-            {/*    <div className="[ mission-statement__content ]">*/}
-            {/*      <div className="[ mission-statement__content-inner-wrapper ]">*/}
-            {/*        <div className="[ mission-statement__image-wrapper ml-4 ]">*/}
-            {/*          <img src={image.localFile.childImageSharp.fluid.src}*/}
-            {/*               srcSet={image.localFile.childImageSharp.fluid.srcSet}*/}
-            {/*               sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"*/}
-            {/*               alt={image.altText}/>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  }*/}
-            {/*</div>*/}
+            <div className="[ md:col-span-5 md:col-start-8 lg:col-span-6 lg:col-start-7 hidden md:block ]">
+              {
+                image &&
+                <div className="[ mission-statement__content ]">
+                  <div className="[ mission-statement__content-inner-wrapper ]">
+                    <div className="[ mission-statement__image-wrapper ml-4 ]">
+                      <img src={image.localFile.childImageSharp.fluid.src}
+                           srcSet={image.localFile.childImageSharp.fluid.srcSet}
+                           sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"
+                           alt={image.altText}/>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
           </div>
         </div>
       </section>

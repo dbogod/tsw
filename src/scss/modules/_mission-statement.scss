@@ -76,4 +76,8 @@
       border-width: 1.5rem;
     }
   }
+
+  &--sm {
+    @apply md:hidden;
+  }
 }
