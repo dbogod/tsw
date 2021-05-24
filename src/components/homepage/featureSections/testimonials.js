@@ -5,6 +5,7 @@ import IntersectionObserved from "../../atoms/intersectionObserved";
 
 import ChevronLeft from '../../../assets/svg/chevron-left.svg';
 import ChevronRight from '../../../assets/svg/chevron-right.svg';
+import SpeechMarks from '../../../assets/svg/quote.svg';
 
 const Testimonials = () => {
   const slidesContainer = useRef(null);
@@ -125,6 +126,11 @@ const Testimonials = () => {
                         key={i}>
                         <div className="[ testimonials-slider__slide-content ]"
                              data-slide-content>
+                          <span
+                            style={{fill: testimonials.colourSpeechMark }}
+                            className="[ absolute top-4 left-4 w-20 h-20 ]">
+                            <SpeechMarks />
+                          </span>
                           {
                             quote &&
                             <blockquote className="[ py-3 ]">
@@ -147,6 +153,11 @@ const Testimonials = () => {
                               }
                             </cite>
                           }
+                          <span
+                            style={{fill: testimonials.colourSpeechMark }}
+                            className="[ absolute bottom-4 right-4 w-20 h-20 transform rotate-180 ]">
+                            <SpeechMarks />
+                          </span>
                         </div>
                       </IntersectionObserved>
                     );
