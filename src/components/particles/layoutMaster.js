@@ -76,7 +76,7 @@ const LayoutMaster = ({ props, children }) => {
         isNavOpen={isNavOpen}
         clickHandler={toggleMenu}/>
 
-      <main className="[ pt-18 pb-20 md:pt-22 lg:pt-24 ]">
+      <main className="[ pt-16 pb-20 sm:pt-18 md:pt-22 ]">
         {children}
 
         <section aria-hidden="true">

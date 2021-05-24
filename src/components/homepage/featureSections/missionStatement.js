@@ -38,22 +38,15 @@ const FeatureSectionMissionStatement = () => {
   if (title || content) {
     return (
       <section>
-        <div className="[ lg:min-h-80vh ]">
+        <div className="[ homepage-content homepage-content--mission-statement ]">
           <div className="[ tsw-container md:grid md:grid-cols-12 md:gap-8 ]">
             <div className="[ md:col-span-7 lg:col-span-6 ]">
               <div className="[ mission-statement__content ]">
                 <div className="[ mission-statement__content-inner-wrapper lg:mb-8 ]">
-                  {
-                    title &&
-                    <h2>
-                      {title}
-                    </h2>
-
-                  }
                   <div className="[ mission-statement__body-image-wrapper relative pb-12 md:flex ]">
                     {
                       image &&
-                      <div className="[ mission-statement__image-wrapper mission-statement__image-wrapper--sm ]">
+                      <div className="[ mission-statement__image-wrapper ]">
                         <img src={image.localFile.childImageSharp.fluid.src}
                              srcSet={image.localFile.childImageSharp.fluid.srcSet}
                              sizes="(min-width: 640px) 470px, (min-width: 400px) 350px, 200px"
@@ -64,7 +57,12 @@ const FeatureSectionMissionStatement = () => {
                     {
                       content &&
                       <div className="[ mission-statement__body ]">
-                        <div dangerouslySetInnerHTML={{ __html: content }}/>
+                        {
+                          title &&
+                          <h2>{title}</h2>
+                        }
+                        <div className="[ mt-4 ]"
+                             dangerouslySetInnerHTML={{ __html: content }}/>
                         <Cta data={cta}/>
                       </div>
                     }
@@ -72,21 +70,21 @@ const FeatureSectionMissionStatement = () => {
                 </div>
               </div>
             </div>
-            <div className="[ md:col-span-5 md:col-start-8 lg:col-span-6 lg:col-start-7 hidden md:block ]">
-              {
-                image &&
-                <div className="[ mission-statement__content ]">
-                  <div className="[ mission-statement__content-inner-wrapper ]">
-                    <div className="[ mission-statement__image-wrapper ml-4 ]">
-                      <img src={image.localFile.childImageSharp.fluid.src}
-                           srcSet={image.localFile.childImageSharp.fluid.srcSet}
-                           sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"
-                           alt={image.altText}/>
-                    </div>
-                  </div>
-                </div>
-              }
-            </div>
+            {/*<div className="[ md:col-span-5 md:col-start-8 lg:col-span-6 lg:col-start-7 hidden md:block ]">*/}
+            {/*  {*/}
+            {/*    image &&*/}
+            {/*    <div className="[ mission-statement__content ]">*/}
+            {/*      <div className="[ mission-statement__content-inner-wrapper ]">*/}
+            {/*        <div className="[ mission-statement__image-wrapper ml-4 ]">*/}
+            {/*          <img src={image.localFile.childImageSharp.fluid.src}*/}
+            {/*               srcSet={image.localFile.childImageSharp.fluid.srcSet}*/}
+            {/*               sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"*/}
+            {/*               alt={image.altText}/>*/}
+            {/*        </div>*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*  }*/}
+            {/*</div>*/}
           </div>
         </div>
       </section>

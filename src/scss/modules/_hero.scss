@@ -1,0 +1,48 @@
+.hero {
+  @apply relative;
+
+  --hero-title-bg-colour: var(--color-white);
+
+  height: 50vh;
+
+  @include media-breakpoint-up(sm) {
+    height: 75vh;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: calc(100vh - 8.75rem);
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: calc(100vh - 5.5rem);
+  }
+
+  h2 {
+    @apply relative mt-0 text-hot-pink inline whitespace-pre-wrap;
+
+    border-color: var(--hero-title-bg-colour);
+    border-style: solid;
+    border-width: 0.25rem 0;
+    line-height: 1.15;
+    background-color: var(--hero-title-bg-colour);
+
+    &::after {
+      @apply absolute w-1 -inset-1 right-full;
+
+      content: "";
+      background-color: var(--hero-title-bg-colour);
+    }
+
+    span {
+      @apply relative z-10;
+    }
+
+    @include media-breakpoint-up(md) {
+      @apply text-hero-title-size-sm;
+    }
+
+    @include media-breakpoint-up(lg) {
+      @apply text-hero-title-size-lg;
+    }
+  }
+}

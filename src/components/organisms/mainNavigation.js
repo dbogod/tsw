@@ -35,7 +35,7 @@ const MainNavigation = ({ isMenuOpen }) => {
   }, [setIsMobileOrTablet]);
   return (
     <div className="[ main-nav ]">
-      <ul>
+      <ul className="[ lg:mt-0 ]">
         {
           nodes.map((menuItem, i) => {
             return (

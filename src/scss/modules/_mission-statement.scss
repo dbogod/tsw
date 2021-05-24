@@ -51,9 +51,20 @@
   img:not([aria-hidden="true"]) {
     @include delay-fade-up(500);
 
-    @apply shadow-img mx-auto;
+    @apply shadow-img mt-6 mx-auto;
 
     border: 1rem solid var(--mission-statement-frame-color);
+    max-height: 250px;
+
+    @include media-breakpoint-up(xs) {
+      max-height: 350px;
+    }
+
+    @include media-breakpoint-up(sm) {
+      @apply mt-10;
+
+      max-height: 450px;
+    }
 
     @include media-breakpoint-up(md) {
       @apply mt-0 mb-8;
@@ -63,26 +74,6 @@
 
     @include media-breakpoint-up(lg) {
       border-width: 1.5rem;
-    }
-  }
-
-  &--sm {
-    @apply md:hidden;
-
-    img:not([aria-hidden="true"]) {
-      @apply mt-6 mx-auto;
-
-      max-height: 250px;
-
-      @include media-breakpoint-up(xs) {
-        max-height: 350px;
-      }
-
-      @include media-breakpoint-up(sm) {
-        @apply mt-10;
-
-        max-height: 450px;
-      }
     }
   }
 }

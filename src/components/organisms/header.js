@@ -37,7 +37,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
   const { headerLogo } = data.wp.themeSettings.themeSettings.header;
 
   return (
-    <header className="[ absolute left-0 right-0 flex flex-col justify-center z-20 ]">
+    <header className="[ absolute left-0 right-0 flex flex-col justify-center h-16 sm:h-18 md:h-22 z-20 ]">
       <div className="[ tsw-container py-2 flex justify-between md:py-4 ]">
         <div className="[ flex items-center ]">
           <Link to="/" className="[ z-20 ]">

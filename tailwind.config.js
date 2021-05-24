@@ -38,9 +38,9 @@ module.exports = {
         body: ['Roboto', 'sans-serif']
       },
       fontSize: {
-        'mission-statement-title-size': ['2.5rem', { lineHeight: '1' }],
-        'mission-statement-title-size-sm': ['3.5rem', { lineHeight: '1' }],
-        'mission-statement-title-size-xl': ['4.25rem', { lineHeight: '1' }]
+        'hero-title-size': ['2.5rem', { lineHeight: '1.15' }],
+        'hero-title-size-sm': ['3.5rem', { lineHeight: '1.15' }],
+        'hero-title-size-lg': ['4.25rem', { lineHeight: '1.15' }]
       },
       lineHeight: {
         'heading': '1.2',
@@ -51,7 +51,10 @@ module.exports = {
       },
       spacing: {
         18: '4.5rem',
-        22: '5.5rem'
+        22: '5.5rem',
+        '1/20': '5%',
+        '2/20': '10%',
+        '3/20': '15%'
       },
       maxHeight: {
         88: '22rem'
