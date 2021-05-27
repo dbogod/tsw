@@ -4,7 +4,7 @@
   @include section-colours;
 
   @include media-breakpoint-up(xl) {
-    padding: 20vh 0;
+    padding: 10vh 0;
   }
 }
 
@@ -21,7 +21,7 @@
   }
 
   @include media-breakpoint-up(lg) {
-    @apply py-20 px-0;
+    @apply py-40 px-0;
   }
 }
 
