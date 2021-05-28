@@ -2,8 +2,8 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import ColourWrapper from "../../atoms/colourWrapper";
-import Video from '../../molecules/video';
 import Cta from '../../molecules/cta';
+import Video from '../../molecules/video';
 
 const HomepageSectionMediaTextLr = ({ index }) => {
   const data = useStaticQuery(graphql`
@@ -18,7 +18,10 @@ const HomepageSectionMediaTextLr = ({ index }) => {
                 mediaType
                 text
                 title
-                video
+                videoGroup {
+                  videoType
+                  videoId
+                }
                 image {
                   altText
                   localFile {
@@ -64,8 +67,8 @@ const HomepageSectionMediaTextLr = ({ index }) => {
         <div className="[ -mx-4 mt-4 flex flex-wrap ]">
           <div className="[ homepage__media-wrapper px-4 w-full mt-6 md:w-6/12 ]">
             {
-              isVideo && sectionToRender.video &&
-              <Video videoUrl={sectionToRender.video}/>
+              isVideo && sectionToRender.videoGroup &&
+              <Video video={sectionToRender.videoGroup}/>
             }
             {
               !isVideo && sectionToRender.image &&

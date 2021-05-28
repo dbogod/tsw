@@ -71,7 +71,7 @@ return (
           content={twitterTitle ?? opengraphTitle ?? title}/>
     <meta property="twitter:description"
           content={twitterDescription ?? opengraphDescription ?? metaDescription}/>
-    <meta property="twitter:description"
+    <meta property="twitter:image"
           content={twitterImage ?? opengraphImage ?? null}/>
   </Helmet>
 )
