@@ -21,9 +21,10 @@ const Video = ({ video }) => {
   };
 
   const isYouTubeVideo = video.videoType === 'youTube';
+  const isShopShareTvVideo = video.videoType === 'shopShareTv';
 
   useEffect(() => {
-    if (!isYouTubeVideo) {
+    if (isShopShareTvVideo) {
       if (!window.ssFrmHeightAdjustFunc) {
         window.ssFrmHeightAdjustFunc = e => {
           if (e.data.height) for (var t, n = document.getElementsByClassName("shopcastIframe"), s = 0; s < n.length; s++) if (((t = n[s]).contentWindow || t.contentDocument.defaultView) === e.source) {
@@ -70,7 +71,7 @@ const Video = ({ video }) => {
                 allowFullScreen/>
       }
       {
-        !isYouTubeVideo &&
+        isShopShareTvVideo &&
         <iframe
           className="shopcastIframe video__iframe"
           title="ShopShareTV video"
