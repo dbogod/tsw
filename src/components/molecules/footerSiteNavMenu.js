@@ -21,13 +21,16 @@ const FooterSiteNavMenu = () => {
   if (nodes.length > 0) {
     return (
       <div className="[ hidden md:block md:col-span-3 ]">
-        <ul>
+        <ul className="[ mt-0 ]">
           {
             nodes.map((menuItem, i) => {
               return(
-                <li className="[ mb-2 ]" key={i}>
-                  <Link to={menuItem.path}
-                        className="[ no-underline hover:underline ]">
+                <li
+                  className={`${i === 0 ? '[ mt-0 ]' : '[ mb-2 ]'}`}
+                  key={i}>
+                  <Link
+                    to={menuItem.path}
+                    className="[ no-underline hover:underline ]">
                     {menuItem.label}
                   </Link>
                 </li>

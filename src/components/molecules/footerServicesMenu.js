@@ -20,14 +20,17 @@ const FooterServicesMenu = () => {
   if (serviceNavMenuItems.length > 0) {
     return (
       <div className="[ hidden md:block md:col-span-3 ]">
-        <ul>
+        <ul className="[ mt-0 ]">
           {
             serviceNavMenuItems.map((menuItem, i) => {
               const serviceId = menuItem.serviceTitle.replace(' ', '-').toLowerCase();
               return(
-                <li className="[ mb-2 ]" key={i}>
-                  <Link to={`/services#${serviceId}/`}
-                        className="[ no-underline hover:underline ]">
+                <li
+                  className={`${i === 0 ? '[ mt-0 ]' : '[ mb-2 ]'}`}
+                  key={i}>
+                  <Link
+                    to={`/services#${serviceId}/`}
+                    className="[ no-underline hover:underline ]">
                     {menuItem.serviceTitle}
                   </Link>
                 </li>

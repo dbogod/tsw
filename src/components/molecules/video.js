@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Video = ({ video }) => {
   const [isVideoShowing, updateIsVideoShowing] = useState(false);
@@ -20,70 +20,65 @@ const Video = ({ video }) => {
     sizes: '100vw'
   };
 
-  const renderVideo = () => {
-    if (video.videoType === 'youTube') {
-      return (
-        <div className="[ video ]">
-          {
-            !isVideoShowing &&
-            <a className="[ video__link ]"
-               href="/"
-               aria-label="Show video"
-               onClick={handleClick}>
-              <picture>
-                <source type="image/webp"
-                        srcSet={youtubeThumbnails.srcSetWebp}
-                        sizes={youtubeThumbnails.sizes}/>
-                <source srcSet={youtubeThumbnails.srcSetJpg}
-                        sizes={youtubeThumbnails.sizes}/>
-                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                     alt="Video placeholder"/>
-              </picture>
-              <span className="[ video__play-button ]"/>
-            </a>
-          }
-          {
-            isVideoShowing &&
-            <iframe className="[ video__iframe ]"
-                    title="YouTube video"
-                    src={`https://www.youtube-nocookie.com/embed/${video.videoId}?rel=0`}
-                    width='640'
-                    height='390'
-                    allow="accelerometer; autoplay; gyroscope; picture-in-picture"
-                    allowFullScreen/>
-          }
-        </div>
-      )
-    } else if (video.videoType === 'shopShareTv') {
-      return (
-        <div className="[ video video--shopsharetv ]">
-          <iframe
-            className="shopcastIframe video__iframe"
-            title="ShopShareTV video"
-            src={`https://shopshare.tv/watch/${video.videoId}`}
-            style={{ background: 'transparent', width: '100%', maxWidth: '1280px', border: '0' }}
-          />
-          <script>
-            {
-              window.ssFrmHeightAdjustFunc || (window.ssFrmHeightAdjustFunc = function (e) {
-                if (e.data.height) for (var t, n = document.getElementsByClassName("shopcastIframe"), s = 0; s < n.length; s++) if (((t = n[s]).contentWindow || t.contentDocument.defaultView) === e.source) {
-                  t.style.height = e.data.height + "px";
-                  break
-                }
-              }, window.addEventListener("message", window.ssFrmHeightAdjustFunc))
-            }
-          </script>
+  const isYouTubeVideo = video.videoType === 'youTube';
 
-        </div>
-      )
+  useEffect(() => {
+    if (!isYouTubeVideo) {
+      if (!window.ssFrmHeightAdjustFunc) {
+        window.ssFrmHeightAdjustFunc = e => {
+          if (e.data.height) for (var t, n = document.getElementsByClassName("shopcastIframe"), s = 0; s < n.length; s++) if (((t = n[s]).contentWindow || t.contentDocument.defaultView) === e.source) {
+            t.style.height = e.data.height + "px";
+            break
+          }
+        };
+      }
+      window.addEventListener("message", window.ssFrmHeightAdjustFunc);
     }
-  }
+
+    return () => window.removeEventListener("message", window.ssFrmHeightAdjustFunc);
+  }, [isYouTubeVideo]);
+
 
   return (
-    <>
-      {renderVideo()}
-    </>
+    <div className={`[ video ${video.videoType === 'shopShareTv' ? 'video--shopsharetv' : ''} ]`}>
+      {
+        isYouTubeVideo && !isVideoShowing &&
+        <a className="[ video__link ]"
+           href="/"
+           aria-label="Show video"
+           onClick={handleClick}>
+          <picture>
+            <source type="image/webp"
+                    srcSet={youtubeThumbnails.srcSetWebp}
+                    sizes={youtubeThumbnails.sizes}/>
+            <source srcSet={youtubeThumbnails.srcSetJpg}
+                    sizes={youtubeThumbnails.sizes}/>
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                 alt="Video placeholder"/>
+          </picture>
+          <span className="[ video__play-button ]"/>
+        </a>
+      }
+      {
+        isYouTubeVideo && isVideoShowing &&
+        <iframe className="[ video__iframe ]"
+                title="YouTube video"
+                src={`https://www.youtube-nocookie.com/embed/${video.videoId}?rel=0`}
+                width='640'
+                height='390'
+                allow="accelerometer; autoplay; gyroscope; picture-in-picture"
+                allowFullScreen/>
+      }
+      {
+        !isYouTubeVideo &&
+        <iframe
+          className="shopcastIframe video__iframe"
+          title="ShopShareTV video"
+          src={`https://shopshare.tv/watch/${video.videoId}`}
+          style={{ background: 'transparent', width: '100%', maxWidth: '1280px', border: '0' }}/>
+      }
+    </div>
   )
-}
+};
 
 export default Video;
