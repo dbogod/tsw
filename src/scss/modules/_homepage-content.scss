@@ -6,6 +6,14 @@
   @include media-breakpoint-up(xl) {
     padding: 10vh 0;
   }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul {
+    @apply list-disc;
+  }
 }
 
 .homepage-content--feature {
@@ -22,6 +30,16 @@
 
   @include media-breakpoint-up(lg) {
     @apply py-40 px-0;
+  }
+}
+
+.homepage__content--media-text {
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+
+    &-right .homepage__media-wrapper {
+      order: 1;
+    }
   }
 }
 

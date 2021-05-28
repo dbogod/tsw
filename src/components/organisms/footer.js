@@ -53,7 +53,7 @@ const Footer = () => {
             style={{ backgroundColor: footer.colours.bgColour }}
             data-light-bg={!footer.colours.whiteText}>
       <div
-        className={`[ tsw-container px-4 pb-6 flex flex-col items-center md:pb-6 md:pt-12 md:grid md:grid-cols-12 md:gap-8 md:items-start ]`}>
+        className={`[ tsw-container pb-6 flex flex-col items-center md:pb-6 md:pt-12 md:grid md:grid-cols-12 md:gap-8 md:items-start ]`}>
         <div className="[ footer-separator pt-12 pb-6 md:col-span-3 md:p-0 ]">
           <Link to="/">
             <img className="[ max-w-max md:max-w-full ]"

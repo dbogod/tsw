@@ -6,9 +6,10 @@ import FeatureSectionMissionStatement from './featureSections/missionStatement';
 import Testimonials from "./featureSections/testimonials";
 import HomepageSectionFullWidth from "./sections/fullWidthMedia";
 import HomepageSectionText from "./sections/textOnly";
+import HomepageSectionMediaTextLr from "./sections/MediaTextLr";
 
 const HomepageSections = () => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query Sections {
       allWpPage(filter: {isFrontPage: {eq: true}}) {
         nodes {
@@ -26,7 +27,7 @@ const HomepageSections = () => {
               ... on WpPage_Homepagesections_Section_Columns {
                 fieldGroupName
               }
-              ... on WpPage_Homepagesections_Section_TextWithImage {
+              ... on WpPage_Homepagesections_Section_MediaTextLr {
                 fieldGroupName
               }
               ... on WpPage_Homepagesections_Section_Flexi {
@@ -43,9 +44,6 @@ const HomepageSections = () => {
               ... on WpPage_Homepagesections_SectionPostTestimonials_Columns {
                 fieldGroupName
               }
-              ... on WpPage_Homepagesections_SectionPostTestimonials_TextWithImage {
-                fieldGroupName
-              }
               ... on WpPage_Homepagesections_SectionPostTestimonials_Flexi {
                 fieldGroupName
               }
@@ -56,74 +54,81 @@ const HomepageSections = () => {
           }
         }
       }
-    }`
-    );
+    }`);
 
   const sectionsByType = sectionsObj => {
     if (sectionsObj) {
       return {
-        'page_Homepagesections_Section_FwMedia': sectionsObj.filter(section => section.fieldGroupName === 'page_Homepagesections_Section_FwMedia'),
-        'page_Homepagesections_Section_Text': sectionsObj.filter(section => section.fieldGroupName === 'page_Homepagesections_Section_Text')
+        'page_Homepagesections_Section_FwMedia': sectionsObj.filter(section => {
+          return section.fieldGroupName === 'page_Homepagesections_Section_FwMedia';
+        }),
+        'page_Homepagesections_Section_Text': sectionsObj.filter(section => {
+          return section.fieldGroupName === 'page_Homepagesections_Section_Text';
+        }),
+        'page_Homepagesections_Section_MediaTextLr': sectionsObj.filter(section => {
+          return section.fieldGroupName === 'page_Homepagesections_Section_MediaTextLr';
+        })
       }
     }
   }
 
-    const { featureSectionSpeechBubble, featureSectionMissionStatement } = data.allWpPage.nodes[0].homePageSections;
-    const preTestimonialsSections = data.allWpPage.nodes[0].homePageSections.section;
-    const postTestimonialsSections = data.allWpPage.nodes[0].homePageSections.sectionPostTestimonials;
-    const preTestimonialsSectionsByType = sectionsByType(preTestimonialsSections);
-    const postTestimonialsSectionsByType = sectionsByType(postTestimonialsSections);
+  const { featureSectionSpeechBubble, featureSectionMissionStatement } = data.allWpPage.nodes[0].homePageSections;
+  const preTestimonialsSections = data.allWpPage.nodes[0].homePageSections.section;
+  const postTestimonialsSections = data.allWpPage.nodes[0].homePageSections.sectionPostTestimonials;
+  const preTestimonialsSectionsByType = sectionsByType(preTestimonialsSections);
+  const postTestimonialsSectionsByType = sectionsByType(postTestimonialsSections);
 
 
-    const renderSection = (section, isPreTestimonialsSection = true) => {
-      const obj = isPreTestimonialsSection ? preTestimonialsSectionsByType : postTestimonialsSectionsByType;
-      const index = obj && obj[section.fieldGroupName]?.indexOf(section);
+  const renderSection = (section, isPreTestimonialsSection = true) => {
+    const obj = isPreTestimonialsSection ? preTestimonialsSectionsByType : postTestimonialsSectionsByType;
+    const index = obj && obj[section.fieldGroupName]?.indexOf(section);
 
-      switch (section.fieldGroupName) {
-        case 'page_Homepagesections_Section_FwMedia':
-          return <HomepageSectionFullWidth index={index} />;
-        case 'page_Homepagesections_Section_Text':
-          return <HomepageSectionText index={index} />;
-        default:
-          return false;
+    switch (section.fieldGroupName) {
+      case 'page_Homepagesections_Section_FwMedia':
+        return <HomepageSectionFullWidth index={index}/>;
+      case 'page_Homepagesections_Section_Text':
+        return <HomepageSectionText index={index}/>;
+        case 'page_Homepagesections_Section_MediaTextLr':
+        return <HomepageSectionMediaTextLr index={index}/>;
+      default:
+        return false;
+    }
+  };
+
+  return (
+    <>
+      {
+        featureSectionMissionStatement?.showFeatureSection &&
+        <FeatureSectionMissionStatement/>
       }
-    };
+      {
+        featureSectionSpeechBubble?.showFeatureSection &&
+        <FeatureSectionSpeechBubble/>
+      }
+      {
+        preTestimonialsSections?.map((section, i) => {
+          return (
+            <section key={i}>
+              {renderSection(section)}
+            </section>
+          )
+        })
+      }
 
-    return (
-      <>
-        {
-          featureSectionMissionStatement?.showFeatureSection &&
-          <FeatureSectionMissionStatement />
-        }
-        {
-          featureSectionSpeechBubble?.showFeatureSection &&
-          <FeatureSectionSpeechBubble/>
-        }
-        {
-          preTestimonialsSections?.map((section, i) => {
-            return (
-              <section key={i}>
-                {renderSection(section)}
-              </section>
-            )
-          })
-        }
+      <Testimonials/>
 
-        <Testimonials/>
+      {
+        postTestimonialsSections?.map((section, i) => {
+          return (
+            <section key={i}>
+              {renderSection(section)}
+            </section>
+          )
+        })
+      }
+    </>
 
-        {
-          postTestimonialsSections?.map((section, i) => {
-            return (
-              <section key={i}>
-                {renderSection(section)}
-              </section>
-            )
-          })
-        }
-      </>
-
-    );
-  }
-;
+  );
+};
 
 export default HomepageSections;

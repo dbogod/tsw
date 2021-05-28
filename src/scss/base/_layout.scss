@@ -1,5 +1,7 @@
 .tsw-container {
-  @apply max-w-screen-xl w-full mx-auto px-4;
+  @apply px-4 w-full mx-auto;
+
+  max-width: 82rem;
 }
 
 .content {
