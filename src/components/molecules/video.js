@@ -37,7 +37,7 @@ const Video = ({ video }) => {
     }
 
     return () => window.removeEventListener("message", window.ssFrmHeightAdjustFunc);
-  }, [isYouTubeVideo]);
+  }, [isShopShareTvVideo]);
 
 
   return (
