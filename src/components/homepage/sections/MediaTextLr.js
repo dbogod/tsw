@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import ColourWrapper from "../../atoms/colourWrapper";
 import Video from '../../molecules/video';
+import Cta from '../../molecules/cta';
 
 const HomepageSectionMediaTextLr = ({ index }) => {
   const data = useStaticQuery(graphql`
@@ -84,6 +85,10 @@ const HomepageSectionMediaTextLr = ({ index }) => {
             {
               sectionToRender.text &&
               <div dangerouslySetInnerHTML={{ __html: sectionToRender.text }}/>
+            }
+            {
+              sectionToRender.cta &&
+              <Cta data={sectionToRender.cta} />
             }
           </div>
         </div>

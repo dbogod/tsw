@@ -77,11 +77,11 @@
 
   color: var(--section-text-color);
 
-  a {
+  a:not(.cta) {
     color: var(--section-link-color);
   }
 
-  a:hover {
+  a:not(.cta):hover {
     color: var(--section-link-hover-color);
   }
 }
