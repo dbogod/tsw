@@ -80,7 +80,7 @@ const HomepageSectionMediaTextLr = ({ index }) => {
             {
               sectionToRender.mediaCaption &&
               <small
-                className="[ inline-block mt-4 font-light ]"
+                className={`[ inline-block ${isVideo && sectionToRender.videoGroup.videoType === 'shopShareTv' ? 'mt-2' : 'mt-4'} font-light ]`}
                 dangerouslySetInnerHTML={{ __html: sectionToRender.mediaCaption }}/>
             }
           </div>

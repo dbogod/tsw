@@ -4,13 +4,19 @@
   padding-bottom: 56.25%;
 
   &--shopsharetv {
-    padding-bottom: 97%;
+    @apply h-auto;
+
+    padding-bottom: 0;
   }
 }
 
 .video__link,
 .video__iframe {
   @apply absolute top-0 left-0 w-full h-full border-0;
+
+  .video--shopsharetv & {
+    @apply static;
+  }
 }
 
 .video__link {
