@@ -78,11 +78,18 @@ const LayoutMaster = ({ props, children }) => {
 
       <HtmlHead seo={props?.pageContext?.seo}/>
 
+      <a
+        className="[ skip-link ]"
+        href="#main">
+        Skip to main content
+      </a>
+
       <Header
         isNavOpen={isNavOpen}
         clickHandler={toggleMenu}/>
 
-      <main className="[ pt-16 pb-20 sm:pt-18 md:pt-22 ]">
+      <main id="main"
+            className="[ pt-16 pb-20 sm:pt-18 md:pt-22 ]">
         {children}
 
         <section aria-hidden="true">

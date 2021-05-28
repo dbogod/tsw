@@ -6,7 +6,8 @@ const ColourWrapper = ({ classNames, colours, children }) => {
          style={
            {
              backgroundColor: colours.bgColour ?? '',
-             color: colours.whiteText ? '#fff' : ''
+             color: colours.whiteText ? '#fff' : '',
+             '--link-color': colours.whiteText ? '#fff' : ''
            }
          }
     >
