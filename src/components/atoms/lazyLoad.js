@@ -15,12 +15,12 @@ const LazyLoad = ({ width = 'auto', height = 'auto', children }) => {
       }
       {
         !isInViewport &&
-        <div style={{width: width, height: height}}>
-          <IntersectionObserved parentFunc={() => updateIsInViewport(true)}/>
+        <div style={{ width: width, height: height }}>
+          <IntersectionObserved rootMargin={'100px'} parentFunc={() => updateIsInViewport(true)}/>
         </div>
       }
     </>
   );
-}
+};
 
 export default LazyLoad;
