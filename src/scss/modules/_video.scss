@@ -6,28 +6,28 @@
   &--shopsharetv {
     @apply h-auto;
 
-    --shopshare-padding-bottom: 125%;
+    --shopshare-padding-bottom: 122%;
 
     padding-bottom: var(--shopshare-padding-bottom);
 
     @media (min-width: 360px) {
-      --shopshare-padding-bottom: 119%;
+      --shopshare-padding-bottom: 116%;
     }
 
     @include media-breakpoint-up(xs) {
-      --shopshare-padding-bottom: 112%;
+      --shopshare-padding-bottom: 109%;
     }
 
     @media (min-width: 540px) {
-      --shopshare-padding-bottom: 95%;
-    }
-
-    @include media-breakpoint-up(sm) {
       --shopshare-padding-bottom: 92%;
     }
 
+    @include media-breakpoint-up(sm) {
+      --shopshare-padding-bottom: 89%;
+    }
+
     @include media-breakpoint-up(md) {
-      --shopshare-padding-bottom: 115%;
+      --shopshare-padding-bottom: 112%;
     }
 
     @include media-breakpoint-up(lg) {

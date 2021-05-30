@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -13,9 +13,7 @@ const About = () => {
             altText
             localFile {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
           }
@@ -29,8 +27,8 @@ const About = () => {
       {
         aboutImage &&
         <div className="[ mt-6 ]">
-          <Img
-            fluid={aboutImage.localFile.childImageSharp.fluid}
+          <GatsbyImage
+            image={aboutImage.localFile.childImageSharp.gatsbyImageData}
             alt={aboutImage.altText}
           />
         </div>
