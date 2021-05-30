@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import ColourWrapper from "../../atoms/colourWrapper";
 import Cta from '../../molecules/cta';
@@ -26,9 +27,7 @@ const HomepageSectionMediaTextLr = ({ index }) => {
                   altText
                   localFile {
                     childImageSharp {
-                      fluid {
-                        ...GatsbyImageSharpFluid
-                      }
+                      gatsbyImageData(sizes: "(min-width: 768px) 50vw, 100vw")
                     }
                   }
                 }
@@ -72,10 +71,9 @@ const HomepageSectionMediaTextLr = ({ index }) => {
             }
             {
               !isVideo && sectionToRender.image &&
-              <img src={sectionToRender.image.localFile.childImageSharp.fluid.src}
-                   srcSet={sectionToRender.image.localFile.childImageSharp.fluid.srcSet}
-                   sizes="(min-width: 768px) 50vw, 100vw"
-                   alt={sectionToRender.image.altText}/>
+                <GatsbyImage
+                  image={sectionToRender.image.localFile.childImageSharp.gatsbyImageData}
+                  alt={sectionToRender.image.altText}/>
             }
             {
               sectionToRender.mediaCaption &&
@@ -91,7 +89,7 @@ const HomepageSectionMediaTextLr = ({ index }) => {
             }
             {
               sectionToRender.cta &&
-              <Cta data={sectionToRender.cta} />
+              <Cta data={sectionToRender.cta}/>
             }
           </div>
         </div>

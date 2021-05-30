@@ -6,17 +6,47 @@
   &--shopsharetv {
     @apply h-auto;
 
-    padding-bottom: 0;
+    --shopshare-padding-bottom: 125%;
+
+    padding-bottom: var(--shopshare-padding-bottom);
+
+    @media (min-width: 360px) {
+      --shopshare-padding-bottom: 119%;
+    }
+
+    @include media-breakpoint-up(xs) {
+      --shopshare-padding-bottom: 112%;
+    }
+
+    @media (min-width: 540px) {
+      --shopshare-padding-bottom: 95%;
+    }
+
+    @include media-breakpoint-up(sm) {
+      --shopshare-padding-bottom: 92%;
+    }
+
+    @include media-breakpoint-up(md) {
+      --shopshare-padding-bottom: 115%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      --shopshare-padding-bottom: 97%;
+    }
+
+    @media (min-width: 1200px) {
+      --shopshare-padding-bottom: 92%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      --shopshare-padding-bottom: 91%;
+    }
   }
 }
 
 .video__link,
 .video__iframe {
   @apply absolute top-0 left-0 w-full h-full border-0;
-
-  .video--shopsharetv & {
-    @apply static;
-  }
 }
 
 .video__link {

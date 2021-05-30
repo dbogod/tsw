@@ -41,8 +41,8 @@
       @apply text-hero-title-size-sm;
     }
 
-    @include media-breakpoint-up(lg) {
-      @apply text-hero-title-size-lg;
+    @include media-breakpoint-up(xl) {
+      @apply text-hero-title-size-xl;
     }
   }
 }

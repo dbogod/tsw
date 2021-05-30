@@ -47,7 +47,7 @@ const FeatureSectionMissionStatement = () => {
                     {
                       image &&
                       <div className="[ mission-statement__image-wrapper mission-statement__image-wrapper--sm ]">
-                        <img src={image.localFile.childImageSharp.fluid.src}
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                              srcSet={image.localFile.childImageSharp.fluid.srcSet}
                              sizes="(min-width: 640px) 470px, (min-width: 400px) 350px, 200px"
                              alt={image.altText}/>
@@ -75,7 +75,7 @@ const FeatureSectionMissionStatement = () => {
                 <div className="[ mission-statement__content ]">
                   <div className="[ mission-statement__content-inner-wrapper ]">
                     <div className="[ mission-statement__image-wrapper ml-4 ]">
-                      <img src={image.localFile.childImageSharp.fluid.src}
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                            srcSet={image.localFile.childImageSharp.fluid.srcSet}
                            sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"
                            alt={image.altText}/>

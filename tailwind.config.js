@@ -40,7 +40,7 @@ module.exports = {
       fontSize: {
         'hero-title-size': ['2.5rem', { lineHeight: '1.15' }],
         'hero-title-size-sm': ['3.5rem', { lineHeight: '1.15' }],
-        'hero-title-size-lg': ['4.25rem', { lineHeight: '1.15' }]
+        'hero-title-size-xl': ['4.25rem', { lineHeight: '1.15' }]
       },
       lineHeight: {
         'heading': '1.2',

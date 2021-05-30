@@ -1,4 +1,3 @@
-
 /**
  * 👋 Hey there!
  * This file is the starting point for your new WordPress/Gatsby site! 🚀
@@ -28,7 +27,7 @@ module.exports = {
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
         url:
-          process.env.WPGRAPHQL_URL
+        process.env.WPGRAPHQL_URL
       },
     },
 
@@ -50,9 +49,17 @@ module.exports = {
      * See https://www.gatsbyjs.com/docs/gatsby-image/#setting-up-gatsby-image
      * if you're curious about it.
      */
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`, `avif`],
+          breakpoints: [400, 640, 768, 1024, 1366, 1920]
+        }
+      }
+    },
     {
       // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
@@ -97,6 +104,7 @@ module.exports = {
       options: {
         id: 'GTM-PDWZ6H3'
       }
-    }
+    },
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
 }

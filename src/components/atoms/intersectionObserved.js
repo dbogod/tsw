@@ -6,6 +6,7 @@ const IntersectionObserved = (
     root = null,
     threshold = 0,
     rootMargin = '0px',
+    parentFunc,
     wrapperId,
     wrapperClasses,
     activeClass,
@@ -20,6 +21,7 @@ const IntersectionObserved = (
     observer.current && observer.current.disconnect();
     observer.current = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
+      entry.isIntersecting && parentFunc && parentFunc();
     }, {
       root,
       rootMargin,
@@ -29,11 +31,11 @@ const IntersectionObserved = (
     const { current: currentObserver } = observer;
     ref.current && currentObserver.observe(ref.current);
     return () => currentObserver.disconnect();
-  }, [ref, root, rootMargin, threshold]);
+  }, [ref, root, rootMargin, threshold, parentFunc]);
 
   return (
     <div id={wrapperId}
-         className={`${wrapperClasses} ${isVisible ? activeClass : ''}`}
+         className={`${wrapperClasses} ${isVisible ? activeClass ?? '' : ''}`}
          ref={ref}>
       {children}
     </div>
