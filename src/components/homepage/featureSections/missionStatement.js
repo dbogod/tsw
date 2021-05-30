@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Cta from '../../molecules/cta';
 
@@ -21,9 +22,7 @@ const FeatureSectionMissionStatement = () => {
               altText
               localFile {
                 childImageSharp {
-                  fluid(srcSetBreakpoints: [200, 350, 490]) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(breakpoints: [200, 350, 490], sizes: "(min-width: 640px) 470px, (min-width: 400px) 350px, 200px")
                 }
               }
             }
@@ -47,10 +46,9 @@ const FeatureSectionMissionStatement = () => {
                     {
                       image &&
                       <div className="[ mission-statement__image-wrapper mission-statement__image-wrapper--sm ]">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                             srcSet={image.localFile.childImageSharp.fluid.srcSet}
-                             sizes="(min-width: 640px) 470px, (min-width: 400px) 350px, 200px"
-                             alt={image.altText}/>
+                        <GatsbyImage
+                          image={image.localFile.childImageSharp.gatsbyImageData}
+                          alt={image.altText}/>
                       </div>
                     }
                     {
@@ -75,10 +73,9 @@ const FeatureSectionMissionStatement = () => {
                 <div className="[ mission-statement__content ]">
                   <div className="[ mission-statement__content-inner-wrapper ]">
                     <div className="[ mission-statement__image-wrapper ml-4 ]">
-                      <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                           srcSet={image.localFile.childImageSharp.fluid.srcSet}
-                           sizes="(min-width: 1024px) 490px, (min-width: 640px) 470px, 0"
-                           alt={image.altText}/>
+                      <GatsbyImage
+                        image={image.localFile.childImageSharp.gatsbyImageData}
+                        alt={image.altText}/>
                     </div>
                   </div>
                 </div>
