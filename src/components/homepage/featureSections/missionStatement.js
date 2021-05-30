@@ -21,8 +21,9 @@ const FeatureSectionMissionStatement = () => {
             image {
               altText
               localFile {
+                publicURL
                 childImageSharp {
-                  gatsbyImageData(breakpoints: [200, 350, 490], sizes: "(min-width: 640px) 470px, (min-width: 400px) 350px, 200px")
+                gatsbyImageData(breakpoints: [200, 350, 490], sizes: "(min-width: 640px) 470px, (min-width: 400px) 350px, 200px", width: 490)
                 }
               }
             }
