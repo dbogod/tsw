@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import MainNavigation from "./mainNavigation";
 
@@ -22,9 +23,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
                 altText
                 localFile {
                   childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(breakpoints: [100, 150], sizes: "(min-width: 640px) 150px, 100px", width: 150)
                   }
                 } 
               }
@@ -40,10 +39,11 @@ const Header = ({ isNavOpen, clickHandler }) => {
       <div className="[ tsw-container py-2 flex justify-between md:py-4 ]">
         <div className="[ flex items-center ]">
           <Link to="/" className="[ z-20 ]">
-            <img src={headerLogo.localFile.childImageSharp.fluid.src}
-                 srcSet={headerLogo.localFile.childImageSharp.fluid.srcSet}
-                 sizes="(min-width: 640px) 150px, 100px"
-                 alt={headerLogo.altText}/>
+            <GatsbyImage
+              image={headerLogo.localFile.childImageSharp.gatsbyImageData}
+              loading="eager"
+              imageStyle={{height: 'auto'}}
+              alt={headerLogo.altText}/>
           </Link>
           <SocialLinks/>
         </div>

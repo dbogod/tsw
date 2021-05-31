@@ -112,8 +112,18 @@ a {
   }
 }
 
-header button:focus {
-  outline: none;
+header {
+  button:focus {
+    outline: none;
+  }
+
+  .gatsby-image-wrapper {
+    max-width: 100px;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 150px;
+    }
+  }
 }
 
 input,

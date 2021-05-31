@@ -29,6 +29,7 @@ const Hero = () => {
           hero.image &&
           <GatsbyImage
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            loading="eager"
             image={hero.image.localFile.childImageSharp.gatsbyImageData}
             alt={hero.image.altText}/>
         }

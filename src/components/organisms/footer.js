@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import FooterSiteNavMenu from '../molecules/footerSiteNavMenu';
 import FooterServicesMenu from '../molecules/footerServicesMenu';
@@ -17,9 +18,7 @@ const Footer = () => {
                 altText
                 localFile {
                   childImageSharp {
-                    fixed(width: 120) {
-                      ...GatsbyImageSharpFixed
-                    }
+                    gatsbyImageData(breakpoints: [80, 120], width: 120, sizes:"(min-width: 768px) 120px, 80px")                   
                   }
                 }
               }
@@ -32,9 +31,7 @@ const Footer = () => {
             footerLogo {
               localFile {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(breakpoints: [200, 300], sizes: "(min-width: 768px) 300px, 200px")
                 }
               }
             }
@@ -46,7 +43,7 @@ const Footer = () => {
   `);
 
   const { footer } = data.wp.themeSettings.themeSettings;
-  const footerLogoFluid = footer.footerLogo.localFile.childImageSharp.fluid;
+  const footerLogo = footer.footerLogo;
   const footerBadges = footer.footerBadges?.filter(item => item.footerBadge !== null);
   return (
     <footer className="[ absolute z-20 w-full ]"
@@ -56,17 +53,16 @@ const Footer = () => {
         className={`[ tsw-container pb-6 flex flex-col items-center md:pb-6 md:pt-12 md:grid md:grid-cols-12 md:gap-8 md:items-start ]`}>
         <div className="[ footer-separator pt-12 pb-6 md:col-span-3 md:p-0 ]">
           <Link to="/">
-            <img className="[ max-w-max md:max-w-full ]"
-                 src={footerLogoFluid.src}
-                 srcSet={footerLogoFluid.srcSet}
-                 sizes="(min-width: 768px) 300px, 200px"
-                 alt={footer.footerLogo.altText}/>
+            <GatsbyImage
+              className="footer__logo-wrapper"
+              image={footerLogo.localFile.childImageSharp.gatsbyImageData}
+              alt={footerLogo.altText}/>
           </Link>
         </div>
 
-        <FooterSiteNavMenu />
+        <FooterSiteNavMenu/>
 
-        <FooterServicesMenu />
+        <FooterServicesMenu/>
 
         <div className="[ footer-separator py-6 md:col-span-3 md:p-0 ]">
           <SocialLinks textWhite={footer.colours.whiteText}/>
@@ -77,10 +73,13 @@ const Footer = () => {
             <ul className="[ flex ]">
               {
                 footerBadges.map(({ footerBadge }, i) => {
-                  const { fixed } = footerBadge.localFile.childImageSharp;
+                  const badge = footerBadge.localFile.childImageSharp.gatsbyImageData;
                   return (
                     <li key={i} className="[ mb-0 ]">
-                      <img src={fixed.src} alt={footerBadge.altText}/>
+                      <GatsbyImage
+                        className="footer__badge-wrapper"
+                        image={badge}
+                        alt={footerBadge.altText}/>
                     </li>
                   )
                 })

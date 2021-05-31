@@ -43,6 +43,22 @@ footer {
   }
 }
 
+.footer__logo-wrapper {
+  max-width: 200px;
+
+  @include media-breakpoint-up(md) {
+    max-width: 300px;
+  }
+}
+
+.footer__badge-wrapper {
+  max-width: 80px;
+
+  @include media-breakpoint-up(md) {
+    max-width: 120px;
+  }
+}
+
 .footer-separator {
   @apply relative md:static;
 
