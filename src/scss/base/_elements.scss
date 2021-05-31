@@ -156,8 +156,7 @@ details {
       @apply text-link-hover-color;
     }
 
-    &::marker,
-    &::-webkit-details-marker {
+    &::marker {
     @apply hidden;
     }
   }

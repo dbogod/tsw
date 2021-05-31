@@ -56,7 +56,8 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`, `avif`],
-          breakpoints: [400, 640, 768, 1024, 1366, 1920]
+          breakpoints: [400, 640, 768, 1024, 1366, 1920],
+          placeholder: 'none'
         }
       }
     },
