@@ -42,7 +42,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
             <GatsbyImage
               image={headerLogo.localFile.childImageSharp.gatsbyImageData}
               loading="eager"
-              imageStyle={{height: 'auto'}}
+              imgStyle={{ height: 'auto' }}
               alt={headerLogo.altText}/>
           </Link>
           <SocialLinks/>

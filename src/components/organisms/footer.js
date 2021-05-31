@@ -29,6 +29,7 @@ const Footer = () => {
               whiteText
             }
             footerLogo {
+              altText
               localFile {
                 childImageSharp {
                   gatsbyImageData(breakpoints: [200, 300], sizes: "(min-width: 768px) 300px, 200px")
