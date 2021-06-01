@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import IntersectionObserved from "../../atoms/intersectionObserved";
+import IntersectionObserved from "../../../atoms/intersectionObserved";
 
-import ChevronLeft from '../../../assets/svg/chevron-left.svg';
-import ChevronRight from '../../../assets/svg/chevron-right.svg';
-import SpeechMarks from '../../../assets/svg/quote.svg';
+import ChevronLeft from '../../../../assets/svg/chevron-left.svg';
+import ChevronRight from '../../../../assets/svg/chevron-right.svg';
+import SpeechMarks from '../../../../assets/svg/quote.svg';
 
 const Testimonials = () => {
   const slidesContainer = useRef(null);
@@ -88,7 +88,7 @@ const Testimonials = () => {
   if (testimonials.showSectionTestimonials) {
     return (
       <section>
-        <div className="[ homepage-content flex-wrap ]">
+        <div className="[ homepage-content homepage-content--testimonials flex-wrap ]">
           <div className="[ tsw-container ]">
             <h2
               className="[ mt-0 flex justify-center text-center ]"

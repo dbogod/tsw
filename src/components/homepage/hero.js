@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
-import Helmet from 'react-helmet/es/Helmet';
+import { Helmet } from 'react-helmet/es/Helmet';
 
 const Hero = () => {
   const { allWpPage } = useStaticQuery(graphql`

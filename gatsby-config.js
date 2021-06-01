@@ -44,11 +44,6 @@ module.exports = {
         path: `${__dirname}/content/assets`,
       },
     },
-    /**
-     * The following two plugins are required if you want to use Gatsby image
-     * See https://www.gatsbyjs.com/docs/gatsby-image/#setting-up-gatsby-image
-     * if you're curious about it.
-     */
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     {
@@ -57,7 +52,7 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`, `avif`],
           breakpoints: [400, 640, 768, 1024, 1366, 1920],
-          placeholder: 'none'
+          placeholder: 'blurred'
         }
       }
     },
@@ -103,7 +98,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: 'GTM-PDWZ6H3'
+        id: process.env.GTM_ID
       }
     },
     `gatsby-plugin-webpack-bundle-analyser-v2`,

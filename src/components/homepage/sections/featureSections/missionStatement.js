@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import Cta from '../../molecules/cta';
+import Cta from '../../../molecules/cta';
 
 const FeatureSectionMissionStatement = () => {
   const data = useStaticQuery(graphql`

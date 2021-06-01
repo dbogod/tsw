@@ -1,8 +1,9 @@
+@use "sass:math";
 @use "sass:map";
 
 // Returns numerical value without unit (eg. px, em, rem)
 @function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1);
 }
 
 // Fluid type, credit: Mike Riethmuller (maths) & Geoff Graham (mixin)

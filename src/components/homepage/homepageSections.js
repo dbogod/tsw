@@ -1,12 +1,12 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import FeatureSectionSpeechBubble from './featureSections/speechBubble';
-import FeatureSectionMissionStatement from './featureSections/missionStatement';
-import Testimonials from "./featureSections/testimonials";
+import FeatureSectionSpeechBubble from './sections/featureSections/speechBubble';
+import FeatureSectionMissionStatement from './sections/featureSections/missionStatement';
+import Testimonials from "./sections/featureSections/testimonials";
 import HomepageSectionFullWidth from "./sections/fullWidthMedia";
 import HomepageSectionText from "./sections/textOnly";
-import HomepageSectionMediaTextLr from "./sections/MediaTextLr";
+import HomepageSectionMediaTextLr from "./sections/mediaTextLr";
 
 const HomepageSections = () => {
   const data = useStaticQuery(graphql`
@@ -44,6 +44,9 @@ const HomepageSections = () => {
               ... on WpPage_Homepagesections_SectionPostTestimonials_Columns {
                 fieldGroupName
               }
+              ... on WpPage_Homepagesections_SectionPostTestimonials_MediaTextLr {
+                fieldGroupName
+              }
               ... on WpPage_Homepagesections_SectionPostTestimonials_Flexi {
                 fieldGroupName
               }
@@ -58,17 +61,22 @@ const HomepageSections = () => {
 
   const sectionsByType = sectionsObj => {
     if (sectionsObj) {
-      return {
-        'page_Homepagesections_Section_FwMedia': sectionsObj.filter(section => {
-          return section.fieldGroupName === 'page_Homepagesections_Section_FwMedia';
-        }),
-        'page_Homepagesections_Section_Text': sectionsObj.filter(section => {
-          return section.fieldGroupName === 'page_Homepagesections_Section_Text';
-        }),
-        'page_Homepagesections_Section_MediaTextLr': sectionsObj.filter(section => {
-          return section.fieldGroupName === 'page_Homepagesections_Section_MediaTextLr';
-        })
-      }
+      const obj = {};
+      const firstItemFieldGroupName = sectionsObj[0]?.fieldGroupName;
+      const endOfSectionStringIndex = firstItemFieldGroupName?.lastIndexOf("_");
+      const sectionString = firstItemFieldGroupName?.substring(0, endOfSectionStringIndex);
+
+      obj[`${sectionString}_FwMedia`] = sectionsObj.filter(section => {
+        return section.fieldGroupName === `${sectionString}_FwMedia`;
+      });
+      obj[`${sectionString}_Text`] = sectionsObj.filter(section => {
+        return section.fieldGroupName === `${sectionString}_Text`;
+      });
+      obj[`${sectionString}_MediaTextLr`] = sectionsObj.filter(section => {
+        return section.fieldGroupName === `${sectionString}_MediaTextLr`;
+      });
+
+      return obj;
     }
   }
 
@@ -85,11 +93,26 @@ const HomepageSections = () => {
 
     switch (section.fieldGroupName) {
       case 'page_Homepagesections_Section_FwMedia':
-        return <HomepageSectionFullWidth index={index}/>;
+      case 'page_Homepagesections_SectionPostTestimonials_FwMedia':
+        return (
+          <HomepageSectionFullWidth
+            isPreTestimonialsSection={isPreTestimonialsSection}
+            index={index}/>
+        );
       case 'page_Homepagesections_Section_Text':
-        return <HomepageSectionText index={index}/>;
-        case 'page_Homepagesections_Section_MediaTextLr':
-        return <HomepageSectionMediaTextLr index={index}/>;
+      case 'page_Homepagesections_SectionPostTestimonials_Text':
+        return (
+          <HomepageSectionText
+            isPreTestimonialsSection={isPreTestimonialsSection}
+            index={index}/>
+        );
+      case 'page_Homepagesections_Section_MediaTextLr':
+      case 'page_Homepagesections_SectionPostTestimonials_MediaTextLr':
+        return (
+          <HomepageSectionMediaTextLr
+            isPreTestimonialsSection={isPreTestimonialsSection}
+            index={index}/>
+        );
       default:
         return false;
     }
@@ -121,7 +144,7 @@ const HomepageSections = () => {
         postTestimonialsSections?.map((section, i) => {
           return (
             <section key={i}>
-              {renderSection(section)}
+              {renderSection(section, false)}
             </section>
           )
         })

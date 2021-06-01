@@ -43,14 +43,14 @@
   }
 }
 
-.homepage__content--media-fw {
-  @apply max-w-screen-xl mx-auto;
-
-  img {
-    @apply shadow-none;
-  }
-}
-
 .homepage-content--mission-statement {
   @apply pb-0;
+}
+
+.homepage-content--testimonials {
+  @apply pt-10 pb-0;
+
+  @include media-breakpoint-up(xl) {
+    padding: 10vh 0;
+  }
 }

@@ -5,7 +5,7 @@ const LayoutPage = ({ pageHeading, children }) => {
   const pageHeadingObj = pageHeading || {};
   const {title, intro} = pageHeadingObj;
   return (
-    <section className="[ tsw-container sm:grid sm:grid-cols-12 sm:gap-8 lg:flex ]">
+    <section className="[ tsw-container pb-20 sm:grid sm:grid-cols-12 sm:gap-8 lg:flex ]">
       <div className="[ content ] [ relative sm:col-span-10 sm:col-start-2 md:col-span-8 md:col-start-3 lg:w-7/12 lg:mx-auto ]">
         {
           pageHeadingObj &&

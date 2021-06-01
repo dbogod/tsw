@@ -1,4 +1,6 @@
 /* stylelint-disable */
+@use "sass:math";
+
 .hamburger {
   overflow: visible;
   display: inline-block;
@@ -51,7 +53,7 @@
 .hamburger-inner {
   top: 50%;
   display: block;
-  margin-top: $hamburger-layer-height / -2;
+  margin-top: math.div($hamburger-layer-height, -2);
 
   &,
   &::before,
