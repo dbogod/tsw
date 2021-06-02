@@ -31,21 +31,33 @@ const { wp } = useStaticQuery(
             description
             language
           }
+          seo {
+            contentTypes {
+              page {
+                metaDesc
+              }
+            }
+          }
         }
       }
     `
 )
 
-const metaDescription = metaDesc || wp.generalSettings?.description
-const defaultTitle = wp.generalSettings?.title
+const metaDescription = metaDesc || wp.seo?.contentTypes?.page?.metaDesc || wp.generalSettings?.description;
+const defaultTitle = wp.generalSettings?.title;
 
 return (
   <Helmet>
     <html lang={wp.generalSettings?.language ?? 'en-GB'}/>
 
-    {/* Robots */}
-    <meta name="robots"
-          content={metaRobotsNoindex === 'noindex' ? 'noindex' : 'all'}/>
+    {
+      /* Robots */
+      metaRobotsNoindex === 'noindex' &&
+      <meta
+        name="robots"
+        content="noindex"/>
+    }
+
 
     {/* Fonts */}
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
@@ -56,7 +68,7 @@ return (
     {/* SEO - General */}
     <title>{title ?? defaultTitle}</title>
     <meta name="description"
-          content={metaDescription}/>
+          content={metaDescription ?? ''}/>
 
     {/* SEO - Open Graph */}
     <meta property="og:title"
