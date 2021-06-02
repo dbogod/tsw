@@ -5,7 +5,8 @@ import FormItemGroup from "../molecules/formItemGroup";
 import FormFieldset from "../molecules/formFieldset";
 
 const ContactForm = ({ formSuccessMessage, location }) => {
-  const [state, updateState] = useForm(process.env.FORMSPREE_ID_CONTACT_FORM);
+  const formKey = process.env.FORMSPREE_ID_CONTACT_FORM || 'myylzojl';
+  const [state, updateState] = useForm(formKey);
   const [isHuman, updateIsHuman] = useState(true);
 
   const handleSubmit = e => {

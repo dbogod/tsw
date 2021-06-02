@@ -32,10 +32,10 @@ const Fieldset = ({ title, type, name, description, descriptionPostScript, input
                 if (input.value) {
                   return (
                     <label
-                      className="[ block flex items-center py-1 ]"
+                      className="[ flex items-start py-1 ]"
                       key={i}>
                       <input
-                        className="[ mr-4 ]"
+                        className="[ mt-1 mr-4 ]"
                         type={type}
                         name={name}
                         value={input.value}

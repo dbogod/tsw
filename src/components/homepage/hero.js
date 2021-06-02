@@ -28,18 +28,6 @@ const Hero = () => {
   return (
     <section className="[ hero ]">
       {
-        hero.title &&
-        <div className="[ tsw-container ]">
-          <div className="[ absolute w-9/12 bottom-2/20 sm:w-7/12 lg:bottom-3/20 xl:w-6/12 ]">
-            <h2>
-            <span>
-              {`${hero.title} `}
-            </span>
-            </h2>
-          </div>
-        </div>
-      }
-      {
         hero.image &&
         <>
           <Helmet>
@@ -55,6 +43,18 @@ const Hero = () => {
                sizes="100vw"
                alt={hero.image.altText}/>
         </>
+      }
+      {
+        hero.title &&
+        <div className="[ tsw-container ]">
+          <div className="[ absolute w-9/12 bottom-2/20 sm:w-7/12 lg:bottom-3/20 xl:w-6/12 ]">
+            <h2>
+            <span>
+              {`${hero.title} `}
+            </span>
+            </h2>
+          </div>
+        </div>
       }
     </section>
   )
