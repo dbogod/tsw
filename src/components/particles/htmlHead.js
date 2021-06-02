@@ -12,6 +12,7 @@ const HtmlHead = ({ seo }) => {
     // cornerstone,
     // fullHead,
     // metaKeywords,
+    metaRobotsNoindex,
     opengraphDescription,
     opengraphImage,
     opengraphTitle,
@@ -42,6 +43,10 @@ return (
   <Helmet>
     <html lang={wp.generalSettings?.language ?? 'en-GB'}/>
 
+    {/* Robots */}
+    <meta name="robots"
+          content={metaRobotsNoindex === 'noindex' ? 'noindex' : 'all'}/>
+
     {/* Fonts */}
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <style type="text/css">
@@ -50,7 +55,6 @@ return (
 
     {/* SEO - General */}
     <title>{title ?? defaultTitle}</title>
-    <meta name="robots" content="noindex"/>
     <meta name="description"
           content={metaDescription}/>
 
