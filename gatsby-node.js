@@ -54,7 +54,8 @@ exports.createPages = async ({ actions, graphql }) => {
         path: page.uri,
         component: path.resolve('./src/components/templates/page.js'),
         context: {
-          ...page
+          ...page,
+          formspreeId: page.uri === '/contact/' ? process.env.FORMSPREE_ID_CONTACT_FORM : ''
         }
       })
     }

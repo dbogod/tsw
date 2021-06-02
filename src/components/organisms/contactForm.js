@@ -4,9 +4,8 @@ import { useForm } from "@formspree/react";
 import FormItemGroup from "../molecules/formItemGroup";
 import FormFieldset from "../molecules/formFieldset";
 
-const ContactForm = ({ formSuccessMessage, location }) => {
-  const formKey = process.env.FORMSPREE_ID_CONTACT_FORM || 'myylzojl';
-  const [state, updateState] = useForm(formKey);
+const ContactForm = ({ formspreeId, formSuccessMessage, location }) => {
+  const [state, updateState] = useForm(formspreeId);
   const [isHuman, updateIsHuman] = useState(true);
 
   const handleSubmit = e => {
