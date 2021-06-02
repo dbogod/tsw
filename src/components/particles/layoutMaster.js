@@ -89,7 +89,7 @@ const LayoutMaster = ({ props, children }) => {
         clickHandler={toggleMenu}/>
 
       <main id="main"
-            className="[ pt-16 sm:pt-18 md:pt-22 ]">
+            className="[ pt-16 sm:pt-18 md:pt-22 min-h-screen ]">
         {children}
 
         <section aria-hidden="true">

@@ -107,8 +107,16 @@ a {
 
   color: var(--link-color);
 
-  &:hover {
-    color: var(--link-hover-color);
+  @include nonTouchScreenOnly {
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+
+  @include touchScreenOnly {
+    &:active {
+      color: var(--link-hover-color);
+    }
   }
 }
 
@@ -152,12 +160,20 @@ details {
 
     @apply text-base list-none text-link-color underline cursor-pointer;
 
-    &:hover {
-      @apply text-link-hover-color;
+    @include nonTouchScreenOnly {
+      &:hover {
+        @apply text-link-hover-color;
+      }
+    }
+
+    @include touchScreenOnly {
+      &:active {
+        @apply text-link-hover-color;
+      }
     }
 
     &::marker {
-    @apply hidden;
+      @apply hidden;
     }
   }
 }

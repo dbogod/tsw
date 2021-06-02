@@ -20,13 +20,21 @@ const ContactForm = ({ formspreeId, formSuccessMessage, location }) => {
 
   if (state.succeeded || !isHuman) {
     return (
-      <p>
+      <>
         {
-          formSuccessMessage ?? 'Thank you for your message. It has been sent.'
+          formSuccessMessage &&
+          <div dangerouslySetInnerHTML={{ __html: formSuccessMessage }}/>
         }
-      </p>
+        {
+          !formSuccessMessage &&
+          <p>
+            Thank you for your message. It has been sent.
+          </p>
+        }
+      </>
     );
   }
+
   return (
     <form className="[ relative flex flex-col ]"
           onSubmit={handleSubmit}>

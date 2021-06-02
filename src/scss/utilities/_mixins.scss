@@ -82,8 +82,16 @@
     color: var(--section-link-color);
   }
 
-  a:not(.cta):hover {
-    color: var(--section-link-hover-color);
+  @include nonTouchScreenOnly {
+    a:not(.cta):hover {
+      color: var(--section-link-hover-color);
+    }
+  }
+
+  @include touchScreenOnly {
+    a:not(.cta):active {
+      color: var(--section-link-hover-color);
+    }
   }
 }
 
@@ -95,5 +103,17 @@
     animation-duration: 500ms;
     animation-delay: #{$delay}ms;
     animation-fill-mode: forwards;
+  }
+}
+
+@mixin nonTouchScreenOnly {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin touchScreenOnly {
+  @media (hover: none), (pointer: coarse) {
+    @content;
   }
 }
