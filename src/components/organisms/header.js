@@ -24,7 +24,13 @@ const Header = ({ isNavOpen, clickHandler }) => {
                 altText
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(breakpoints: [100, 150], sizes: "(min-width: 640px) 150px, 100px", width: 150)
+                    gatsbyImageData(
+                      breakpoints: [100, 150], 
+                      sizes: "(min-width: 640px) 150px, 100px", 
+                      width: 150,
+                      formats: [AUTO, WEBP],
+                      placeholder: TRACED_SVG
+                    )
                   }
                 } 
               }
@@ -48,7 +54,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
                   return (
                     <link rel="preload"
                           as="image"
-                          href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                          href="data:"
                           type={source.type}
                           imagesrcset={source.srcSet}
                           imagesizes="100vw"
@@ -58,7 +64,7 @@ const Header = ({ isNavOpen, clickHandler }) => {
               }
               <link rel="preload"
                     as="image"
-                    href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    href="data:"
                     imagesrcset={gatsbyImageData.images.fallback.srcSet}
                     imagesizes="100vw"/>
             </Helmet>
