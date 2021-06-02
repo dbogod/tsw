@@ -44,14 +44,15 @@ const Header = ({ isNavOpen, clickHandler }) => {
             <Helmet>
               {
                 gatsbyImageData.images.sources.length &&
-                gatsbyImageData.images.sources.map(source => {
+                gatsbyImageData.images.sources.map((source, i) => {
                   return (
                     <link rel="preload"
                           as="image"
                           href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                           type={source.type}
                           imagesrcset={source.srcSet}
-                          imagesizes="100vw"/>
+                          imagesizes="100vw"
+                          key={i}/>
                   )
                 })
               }
