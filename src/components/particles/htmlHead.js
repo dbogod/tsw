@@ -40,7 +40,7 @@ const defaultTitle = wp.generalSettings?.title
 
 return (
   <Helmet>
-    <html lang={wp.generalSettings?.language ?? 'en_GB'}/>
+    <html lang={wp.generalSettings?.language ?? 'en-GB'}/>
 
     {/* Fonts */}
     <link rel="preconnect" href="https://fonts.gstatic.com"/>

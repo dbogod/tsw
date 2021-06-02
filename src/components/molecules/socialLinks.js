@@ -28,13 +28,13 @@ const SocialLinks = () => {
   const renderSocialMediaIcon = socialNetwork => {
     switch (socialNetwork.toLowerCase()) {
       case 'facebook':
-        return <FacebookIcon />;
+        return <FacebookIcon/>;
       case 'instagram':
-        return <InstagramIcon />;
+        return <InstagramIcon/>;
       case 'pinterest':
-        return <PinterestIcon />;
+        return <PinterestIcon/>;
       case 'twitter':
-        return <TwitterIcon />;
+        return <TwitterIcon/>;
       default:
         return;
     }
@@ -49,6 +49,9 @@ const SocialLinks = () => {
               <a href={link.url}
                  className="[ social-link ]">
                 {renderSocialMediaIcon(link.socialNetwork)}
+                <span className="[ sr-only ]">
+                  Follow The Styling Works on {link.socialNetwork}
+                </span>
               </a>
             </li>
           )
