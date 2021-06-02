@@ -34,7 +34,7 @@ const MainNavigation = ({ isMenuOpen }) => {
     return () => window.removeEventListener('resize', resizeListener);
   }, [setIsMobileOrTablet]);
   return (
-    <div className="[ main-nav ]">
+    <div className="[ main-nav ]" style={{ height: isMenuOpen ? `${window.innerHeight}px` : ''}}>
       <ul className="[ lg:mt-0 ]">
         {
           nodes.map((menuItem, i) => {
