@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { Helmet } from 'react-helmet';
 
 import MainNavigation from "./mainNavigation";
 
@@ -33,14 +34,35 @@ const Header = ({ isNavOpen, clickHandler }) => {
       }
     }`);
   const { headerLogo } = data.wp.themeSettings.themeSettings.header;
+  const { gatsbyImageData } = headerLogo.localFile.childImageSharp;
 
   return (
     <header className="[ absolute left-0 right-0 flex flex-col justify-center h-16 sm:h-18 md:h-22 z-20 ]">
       <div className="[ tsw-container py-2 flex justify-between md:py-4 ]">
         <div className="[ flex items-center ]">
           <Link to="/" className="[ z-20 ]">
+            <Helmet>
+              {
+                gatsbyImageData.images.sources.length &&
+                gatsbyImageData.images.sources.map(source => {
+                  return (
+                    <link rel="preload"
+                          as="image"
+                          href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                          type={source.type}
+                          imagesrcset={source.srcSet}
+                          imagesizes="100vw"/>
+                  )
+                })
+              }
+              <link rel="preload"
+                    as="image"
+                    href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    imagesrcset={gatsbyImageData.images.fallback.srcSet}
+                    imagesizes="100vw"/>
+            </Helmet>
             <GatsbyImage
-              image={headerLogo.localFile.childImageSharp.gatsbyImageData}
+              image={gatsbyImageData}
               loading="eager"
               imgStyle={{ height: 'auto' }}
               alt={headerLogo.altText}/>
