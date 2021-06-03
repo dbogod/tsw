@@ -107,16 +107,9 @@ a {
 
   color: var(--link-color);
 
-  @include nonTouchScreenOnly {
-    &:hover {
-      color: var(--link-hover-color);
-    }
-  }
 
-  @include touchScreenOnly {
-    &:active {
-      color: var(--link-hover-color);
-    }
+  &:hover {
+    color: var(--link-hover-color);
   }
 }
 
