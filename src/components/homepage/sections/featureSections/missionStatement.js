@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import FadeIn from '../../../atoms/fadeIn';
 import Cta from '../../../molecules/cta';
 
 const FeatureSectionMissionStatement = () => {
@@ -53,15 +54,17 @@ const FeatureSectionMissionStatement = () => {
                     }
                     {
                       content &&
-                      <div className="[ mission-statement__body ]">
-                        {
-                          title &&
-                          <h2>{title}</h2>
-                        }
-                        <div className="[ mt-4 ]"
-                             dangerouslySetInnerHTML={{ __html: content }}/>
-                        <Cta data={cta}/>
-                      </div>
+                      <FadeIn threshold="0.25">
+                        <div className="[ mission-statement__body ]">
+                          {
+                            title &&
+                            <h2>{title}</h2>
+                          }
+                          <div className="[ mt-4 ]"
+                               dangerouslySetInnerHTML={{ __html: content }}/>
+                          <Cta data={cta}/>
+                        </div>
+                      </FadeIn>
                     }
                   </div>
                 </div>

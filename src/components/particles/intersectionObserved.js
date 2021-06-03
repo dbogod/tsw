@@ -10,6 +10,7 @@ const IntersectionObserved = (
     wrapperId,
     wrapperClasses,
     activeClass,
+    inactiveClasses,
     children
   }
 ) => {
@@ -35,7 +36,7 @@ const IntersectionObserved = (
 
   return (
     <div id={wrapperId}
-         className={`${wrapperClasses} ${isVisible ? activeClass ?? '' : ''}`}
+         className={`${wrapperClasses} ${isVisible ? activeClass ?? '' : inactiveClasses ?? ''}`}
          ref={ref}>
       {children}
     </div>

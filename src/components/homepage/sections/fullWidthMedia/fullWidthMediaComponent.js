@@ -1,6 +1,7 @@
 import React from "react";
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import FadeIn from '../../../atoms/fadeIn';
 import ColourWrapper from "../../../atoms/colourWrapper";
 import Video from '../../../molecules/video';
 
@@ -8,7 +9,7 @@ const FullWidthMediaComponent = ({ data }) => {
   const useWrapper = data.title || data.intro || data.mediaType === 'video';
 
   return (
-    <>
+    <FadeIn threshold="0.2">
       {
         useWrapper &&
         <ColourWrapper classNames="homepage-content homepage-content--fw-media"
@@ -70,7 +71,7 @@ const FullWidthMediaComponent = ({ data }) => {
           image={data.imageDesktop.localFile.childImageSharp.gatsbyImageData}
           alt={data.imageDesktop.altText}/>
       }
-    </>
+    </FadeIn>
   )
 };
 

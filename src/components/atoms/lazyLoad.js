@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import IntersectionObserved from "./intersectionObserved";
+import IntersectionObserved from "../particles/intersectionObserved";
 
 const LazyLoad = ({ width = 'auto', height = 'auto', children }) => {
   const [isInViewport, updateIsInViewport] = useState(false);

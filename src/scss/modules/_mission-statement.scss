@@ -30,8 +30,6 @@
 }
 
 .mission-statement__body {
-  @include delay-fade-up(500);
-
   @apply mt-16;
 
   max-width: 650px;
@@ -49,8 +47,6 @@
   @apply transform rotate-10;
 
   img {
-    @include delay-fade-up(500);
-
     @apply mt-6 mx-auto;
 
     border: 1rem solid var(--mission-statement-frame-color);

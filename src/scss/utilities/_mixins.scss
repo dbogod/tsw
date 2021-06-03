@@ -29,6 +29,18 @@
   }
 }
 
+@mixin nonTouchScreenOnly {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin touchScreenOnly {
+  @media (hover: none), (pointer: coarse) {
+    @content;
+  }
+}
+
 @mixin focus-style {
   &:focus {
     @apply outline-none;
@@ -92,28 +104,5 @@
     a:not(.cta):active {
       color: var(--section-link-hover-color);
     }
-  }
-}
-
-@mixin delay-fade-up($delay: 0) {
-  &:not(.error404 &) {
-    opacity: 0;
-    transform: translateY(20px);
-    animation-name: fade-up;
-    animation-duration: 500ms;
-    animation-delay: #{$delay}ms;
-    animation-fill-mode: forwards;
-  }
-}
-
-@mixin nonTouchScreenOnly {
-  @media (hover: hover) and (pointer: fine) {
-    @content;
-  }
-}
-
-@mixin touchScreenOnly {
-  @media (hover: none), (pointer: coarse) {
-    @content;
   }
 }
