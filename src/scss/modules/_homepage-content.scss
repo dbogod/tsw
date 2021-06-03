@@ -48,7 +48,7 @@
 }
 
 .homepage-content--testimonials {
-  @apply pt-10 pb-0;
+  @apply py-10;
 
   @include media-breakpoint-up(xl) {
     padding: 10vh 0;
