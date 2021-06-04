@@ -4,7 +4,6 @@ import FadeIn from '../../../atoms/fadeIn';
 import ColourWrapper from "../../../atoms/colourWrapper";
 
 const FlexiComponent = ({ data }) => {
-  console.log(data);
   return (
     <FadeIn threshold="0.1">
       <ColourWrapper
