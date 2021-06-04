@@ -11,7 +11,11 @@ const PreTestimonialFlexiComponent = ({ index }) => {
             section {
               ... on WpPage_Homepagesections_Section_Flexi {
                 content
-                fieldGroupName               
+                fieldGroupName
+                colours {
+                  bgColour
+                  whiteText
+                }               
               }
             }
           }

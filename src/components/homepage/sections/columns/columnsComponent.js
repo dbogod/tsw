@@ -6,6 +6,9 @@ import ColourWrapper from "../../../atoms/colourWrapper";
 
 const ColumnsComponent = ({ data }) => {
   const { fwTitle, column } = data;
+  const hasAtLeast3Cols = column.length >= 3;
+  const has2Cols = column.length === 2;
+  const hasAtLeast1Col = column.length > 0;
   return (
     <ColourWrapper
       classNames={`[ homepage-content homepage-content--media-text ${data.mediaSide === 'right' ? 'homepage-content--media-text-right' : ''} ]`}
@@ -21,13 +24,15 @@ const ColumnsComponent = ({ data }) => {
         }
         <div className="[ -mx-4 mt-2 md:mt-6 flex flex-wrap ]">
           {
-            column.length &&
+            hasAtLeast1Col &&
             column.map((col, i) => {
               const { title, text, image } = col;
               return (
                 <div
                   key={i}
-                  className="[ homepage-content__column ]">
+                  className={
+                    `[ homepage-content__column ${hasAtLeast3Cols ? 'md:w-6/12 lg:w-4/12': has2Cols ? 'md:w-6/12' : ''} ]`
+                  }>
                   {
                     image &&
                     <FadeIn threshold="0.75">

@@ -65,16 +65,8 @@
   }
 
   @include media-breakpoint-up(sm) {
-    @apply w-6/12;
-
     &::before {
       @apply hidden;
     }
   }
-
-  @include media-breakpoint-up(lg) {
-    @apply w-4/12;
-  }
-
-
 }

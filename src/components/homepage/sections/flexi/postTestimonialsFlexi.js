@@ -12,6 +12,10 @@ const PostTestimonialFlexiComponent = ({ index }) => {
               ... on WpPage_Homepagesections_SectionPostTestimonials_Flexi {
                 content
                 fieldGroupName
+                colours {
+                  bgColour
+                  whiteText
+                }
               }
             }
           }
