@@ -12,6 +12,10 @@ const PostTestimonialColumnsSection = ({ index }) => {
               ... on WpPage_Homepagesections_SectionPostTestimonials_Columns {
                 fieldGroupName
                 fwTitle
+                colours {
+                  bgColour
+                  whiteText
+                }
                 column {
                   title
                   text
