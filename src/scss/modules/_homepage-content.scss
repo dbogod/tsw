@@ -33,7 +33,7 @@
   }
 }
 
-.homepage__content--media-text {
+.homepage-content--media-text {
   @include media-breakpoint-up(md) {
     flex-direction: row;
 
@@ -53,4 +53,28 @@
   @include media-breakpoint-up(xl) {
     padding: 10vh 0;
   }
+}
+
+.homepage-content__column {
+  @apply relative flex flex-col py-8 px-4 w-full;
+
+  &:not(:first-child)::before {
+    @apply absolute top-0 left-1/4 w-1/2 border-t border-emperor opacity-20;
+
+    content: "";
+  }
+
+  @include media-breakpoint-up(sm) {
+    @apply w-6/12;
+
+    &::before {
+      @apply hidden;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    @apply w-4/12;
+  }
+
+
 }

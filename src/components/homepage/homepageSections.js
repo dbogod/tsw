@@ -7,6 +7,8 @@ import Testimonials from "./sections/featureSections/testimonials";
 import HomepageSectionFullWidth from "./sections/fullWidthMedia";
 import HomepageSectionText from "./sections/textOnly";
 import HomepageSectionMediaTextLr from "./sections/mediaTextLr";
+import HomepageSectionColumns from "./sections/columns";
+import HomepageSectionFlexi from "./sections/flexi";
 
 const HomepageSections = () => {
   const data = useStaticQuery(graphql`
@@ -66,6 +68,12 @@ const HomepageSections = () => {
       const endOfSectionStringIndex = firstItemFieldGroupName?.lastIndexOf("_");
       const sectionString = firstItemFieldGroupName?.substring(0, endOfSectionStringIndex);
 
+      obj[`${sectionString}_Columns`] = sectionsObj.filter(section => {
+        return section.fieldGroupName === `${sectionString}_Columns`;
+      });
+      obj[`${sectionString}_Flexi`] = sectionsObj.filter(section => {
+        return section.fieldGroupName === `${sectionString}_Flexi`;
+      });
       obj[`${sectionString}_FwMedia`] = sectionsObj.filter(section => {
         return section.fieldGroupName === `${sectionString}_FwMedia`;
       });
@@ -92,6 +100,20 @@ const HomepageSections = () => {
     const index = obj && obj[section.fieldGroupName]?.indexOf(section);
 
     switch (section.fieldGroupName) {
+      case 'page_Homepagesections_Section_Columns':
+      case 'page_Homepagesections_SectionPostTestimonials_Columns':
+        return (
+          <HomepageSectionColumns
+            isPreTestimonialsSection={isPreTestimonialsSection}
+            index={index}/>
+        );
+      case 'page_Homepagesections_Section_Flexi':
+      case 'page_Homepagesections_SectionPostTestimonials_Flexi':
+        return (
+          <HomepageSectionFlexi
+            isPreTestimonialsSection={isPreTestimonialsSection}
+            index={index}/>
+        );
       case 'page_Homepagesections_Section_FwMedia':
       case 'page_Homepagesections_SectionPostTestimonials_FwMedia':
         return (

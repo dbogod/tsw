@@ -11,7 +11,7 @@ const MediaTextLrSection = ({ data }) => {
 
   return (
     <ColourWrapper
-      classNames={`[ homepage-content homepage__content--media-text ${data.mediaSide === 'right' ? 'homepage__content--media-text-right' : ''} ]`}
+      classNames={`[ homepage-content homepage-content--media-text ${data.mediaSide === 'right' ? 'homepage-content--media-text-right' : ''} ]`}
       colours={data.colours}>
       <div className="[ tsw-container ]">
         {

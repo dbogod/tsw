@@ -39,7 +39,7 @@ const PostTestimonialFwMediaSection = ({ index }) => {
   const fullWidthSections = sections.filter(section => {
     return (
       section.fieldGroupName === 'page_Homepagesections_SectionPostTestimonials_FwMedia' ||
-      section.__typename === 'WpPage_Homepagesections_SectionPostTestimonialsFwMedia'
+      section.__typename === 'WpPage_Homepagesections_SectionPostTestimonials_FwMedia'
     );
   });
   const sectionToRender = fullWidthSections[index];
