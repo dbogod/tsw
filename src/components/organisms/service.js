@@ -52,8 +52,11 @@ const Service = ({ service, hasPageTitle }) => {
         {
           (serviceLongDesc || subService || servicePrice || servicePs) &&
           <div className="[ relative w-full flex flex-col ]">
-            <details className="[ mt-1 ]">
-              <summary onClick={() => setAreDetailsVisible(!areDetailsVisible)}>
+            <details
+              className="[ mt-1 ]"
+              onClick={() => setAreDetailsVisible(!areDetailsVisible)}
+              onKeyUp={e => e.key === 'Enter' && setAreDetailsVisible(!areDetailsVisible)}>
+              <summary>
                 {areDetailsVisible ? 'Show less' : 'Show more...'}
               </summary>
               {
