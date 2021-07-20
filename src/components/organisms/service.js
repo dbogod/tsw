@@ -52,57 +52,56 @@ const Service = ({ service, hasPageTitle }) => {
         {
           (serviceLongDesc || subService || servicePrice || servicePs) &&
           <div className="[ relative w-full flex flex-col ]">
-            <details
-              className="[ mt-1 ]"
-              onClick={() => setAreDetailsVisible(!areDetailsVisible)}
-              onKeyUp={e => e.key === 'Enter' && setAreDetailsVisible(!areDetailsVisible)}>
-              <summary>
+            <details className="[ mt-1 ]">
+              <summary onClick={() => setAreDetailsVisible(!areDetailsVisible)}>
                 {areDetailsVisible ? 'Show less' : 'Show more...'}
               </summary>
-              {
-                serviceLongDesc &&
-                parse(serviceLongDesc)
-              }
-              {
-                subService &&
-                subService.map((subServiceObj, i) => {
-                  return (
-                    <SubService
-                      key={i}
-                      subService={subServiceObj}
-                      hasPageTitle={hasPageTitle}/>
-                  )
-                })
-              }
-              {
-                serviceWyg &&
-                <div
-                  className="[ mt-4 ]"
-                  dangerouslySetInnerHTML={{ __html: serviceWyg }}/>
-              }
-              {
-                servicePrice &&
-                <div className="[ mt-4 ]">
-                  <strong dangerouslySetInnerHTML={{ __html: servicePrice }}/>
-                </div>
-              }
-              {
-                servicePs &&
-                <div className="[ mt-4 ]">
-                  <small
-                    className="[ block ]"
-                    dangerouslySetInnerHTML={{ __html: servicePs }}/>
-                </div>
-              }
-              {
-                ctaUrl && ctaText &&
-                <Link
-                  className="[ cta cta--secondary mt-4 ]"
-                  to={ctaUrl}
-                  state={{ serviceTitle }}>
-                  {ctaText}
-                </Link>
-              }
+              <div className={areDetailsVisible ? '' : 'hidden'}>
+                {
+                  serviceLongDesc &&
+                  parse(serviceLongDesc)
+                }
+                {
+                  subService &&
+                  subService.map((subServiceObj, i) => {
+                    return (
+                      <SubService
+                        key={i}
+                        subService={subServiceObj}
+                        hasPageTitle={hasPageTitle}/>
+                    )
+                  })
+                }
+                {
+                  serviceWyg &&
+                  <div
+                    className="[ mt-4 ]"
+                    dangerouslySetInnerHTML={{ __html: serviceWyg }}/>
+                }
+                {
+                  servicePrice &&
+                  <div className="[ mt-4 ]">
+                    <strong dangerouslySetInnerHTML={{ __html: servicePrice }}/>
+                  </div>
+                }
+                {
+                  servicePs &&
+                  <div className="[ mt-4 ]">
+                    <small
+                      className="[ block ]"
+                      dangerouslySetInnerHTML={{ __html: servicePs }}/>
+                  </div>
+                }
+                {
+                  ctaUrl && ctaText &&
+                  <Link
+                    className="[ cta cta--secondary mt-4 ]"
+                    to={ctaUrl}
+                    state={{ serviceTitle }}>
+                    {ctaText}
+                  </Link>
+                }
+              </div>
             </details>
           </div>
         }
