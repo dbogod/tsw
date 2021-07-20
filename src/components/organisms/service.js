@@ -61,7 +61,7 @@ const Service = ({ service, hasPageTitle }) => {
               </button>
               <div
                 id={`${serviceId}-details-wrapper`}
-                className={areDetailsVisible ? '' : 'hidden'}>
+                className={`mt-4 ${areDetailsVisible ? '' : 'hidden'}`}>
                 {
                   serviceLongDesc &&
                   parse(serviceLongDesc)
