@@ -32,7 +32,7 @@
   > button {
     @include focus-style;
 
-    @apply text-base list-none text-link-color underline cursor-pointer;
+    @apply text-base list-none text-link-color underline cursor-pointer font-light;
 
     @include nonTouchScreenOnly {
       &:hover {
