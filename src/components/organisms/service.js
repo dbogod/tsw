@@ -52,11 +52,16 @@ const Service = ({ service, hasPageTitle }) => {
         {
           (serviceLongDesc || subService || servicePrice || servicePs) &&
           <div className="[ relative w-full flex flex-col ]">
-            <details className="[ mt-1 ]">
-              <summary onClick={() => setAreDetailsVisible(!areDetailsVisible)}>
+            <div className="[ service__details ]">
+              <button
+                aria-controls={`${serviceId}-details-wrapper`}
+                aria-expanded={`${areDetailsVisible}`}
+                onClick={() => setAreDetailsVisible(!areDetailsVisible)}>
                 {areDetailsVisible ? 'Show less' : 'Show more...'}
-              </summary>
-              <div className={areDetailsVisible ? '' : 'hidden'}>
+              </button>
+              <div
+                id={`${serviceId}-details-wrapper`}
+                className={areDetailsVisible ? '' : 'hidden'}>
                 {
                   serviceLongDesc &&
                   parse(serviceLongDesc)
@@ -102,7 +107,7 @@ const Service = ({ service, hasPageTitle }) => {
                   </Link>
                 }
               </div>
-            </details>
+            </div>
           </div>
         }
       </div>

@@ -21,3 +21,33 @@
     @apply pl-1;
   }
 }
+
+.service__details {
+  @apply relative mt-1;
+
+  > p:first-of-type {
+    @apply mt-2;
+  }
+
+  > button {
+    @include focus-style;
+
+    @apply text-base list-none text-link-color underline cursor-pointer;
+
+    @include nonTouchScreenOnly {
+      &:hover {
+        @apply text-link-hover-color;
+      }
+    }
+
+    @include touchScreenOnly {
+      &:active {
+        @apply text-link-hover-color;
+      }
+    }
+
+    &::marker {
+      @apply hidden;
+    }
+  }
+}
