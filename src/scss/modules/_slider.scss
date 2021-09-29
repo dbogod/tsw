@@ -99,7 +99,7 @@
   }
 
   @include media-breakpoint-up(md) {
-    @apply -top-20 w-auto;
+    @apply -top-20;
   }
 }
 
