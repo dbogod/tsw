@@ -15,6 +15,8 @@ module.exports = {
       colors: {
         'hot-pink': 'var(--color-hot-pink)',
         'emperor': 'var(--color-emperor)',
+        'jelly-bean': 'var(--color-jelly-bean)',
+        'broom': 'var(--color-broom)',
         'body': 'var(--body-color)',
         'cta-fill': 'var(--cta-primary-fill)',
         'cta-fill-hover': 'var(--cta-primary-fill-hover)',
@@ -67,7 +69,8 @@ module.exports = {
         4: '1rem'
       },
       rotate: {
-        10: '10deg'
+        10: '10deg',
+        356: '356deg',
       },
       transitionTimingFunction: {
         'ease-out': 'ease-out'

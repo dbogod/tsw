@@ -1,105 +1,104 @@
-import React, { useState, useRef, useEffect } from "react";
-import debounce from 'lodash/debounce';
-import Particles from "react-tsparticles";
+import React, { useState, useRef, useEffect } from 'react'
+import debounce from 'lodash/debounce'
+import Particles from 'react-tsparticles'
 
-import particlesConfig from '../../../static/particles.json';
+import particlesConfig from '../../../static/particles.json'
 
-import HtmlHead from "./htmlHead";
+import HtmlHead from './htmlHead'
 
-import Header from '../organisms/header';
-import Footer from '../organisms/footer';
-
+import Header from '../organisms/header'
+import BannerAd from '../organisms/BannerAd'
+import Footer from '../organisms/footer'
 
 const LayoutMaster = ({ props, children }) => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isTab, setIsTab] = useState(false);
-  const toggleMenu = useRef(null);
+  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isTab, setIsTab] = useState(false)
+  const toggleMenu = useRef(null)
 
   useEffect(() => {
     if (toggleMenu.current) {
-      toggleMenu.current = null;
+      toggleMenu.current = null
     }
 
-    toggleMenu.current = e => {
-      const isEscKeyEvent = e?.key && e.key === 'Escape';
-      const isMenuOpen = isNavOpen;
+    toggleMenu.current = (e) => {
+      const isEscKeyEvent = e?.key && e.key === 'Escape'
+      const isMenuOpen = isNavOpen
 
       setIsNavOpen(isEscKeyEvent ? false : !isMenuOpen)
 
       // Give body overflow-hidden
-      document.body.setAttribute('data-nav-open', `${!isMenuOpen}`);
+      document.body.setAttribute('data-nav-open', `${!isMenuOpen}`)
     }
 
-    const clickHandler = e => {
-      setIsTab(false);
+    const clickHandler = (e) => {
+      setIsTab(false)
 
       if (
         e.target.hasAttribute('data-main-nav-link') &&
         e.target.classList.contains('active') &&
         isNavOpen &&
-        toggleMenu.current) {
+        toggleMenu.current
+      ) {
         toggleMenu.current(e)
       }
-    };
+    }
 
-    const keydownHandler = e => {
-      e.key === 'Tab' && setIsTab(true);
+    const keydownHandler = (e) => {
+      e.key === 'Tab' && setIsTab(true)
 
       if (e.key === 'Escape' && isNavOpen && toggleMenu.current) {
-        toggleMenu.current(e);
+        toggleMenu.current(e)
       }
-    };
+    }
 
-    const resizeHandler = debounce(e => {
+    const resizeHandler = debounce((e) => {
       if (isNavOpen && toggleMenu.current) {
         toggleMenu.current(e)
       }
-    }, 100);
+    }, 100)
 
-    document.body.setAttribute('data-nav-open', `${isNavOpen}`);
+    document.body.setAttribute('data-nav-open', `${isNavOpen}`)
 
-    window.addEventListener('keydown', keydownHandler);
-    window.addEventListener('resize', resizeHandler);
-    window.addEventListener('click', clickHandler);
+    window.addEventListener('keydown', keydownHandler)
+    window.addEventListener('resize', resizeHandler)
+    window.addEventListener('click', clickHandler)
 
     return () => {
-      window.removeEventListener('keydown', keydownHandler);
-      window.removeEventListener('resize', resizeHandler);
-      window.removeEventListener('click', clickHandler);
+      window.removeEventListener('keydown', keydownHandler)
+      window.removeEventListener('resize', resizeHandler)
+      window.removeEventListener('click', clickHandler)
     }
   }, [isNavOpen, toggleMenu, isTab])
 
   return (
-    <div className={`
+    <div
+      className={`
       [ overflow-hidden font-body font-light ] 
       ${isNavOpen ? 'is-nav-open' : ''}
       ${isTab ? 'is-tab' : ''}
-      `}>
+      `}
+    >
+      <HtmlHead seo={props?.pageContext?.seo} />
 
-      <HtmlHead seo={props?.pageContext?.seo}/>
-
-      <a
-        className="[ skip-link ]"
-        href="#main">
+      <a className="[ skip-link ]" href="#main">
         Skip to main content
       </a>
 
-      <Header
-        isNavOpen={isNavOpen}
-        clickHandler={toggleMenu}/>
+      <BannerAd />
 
-      <main id="main"
-            className="[ pt-16 sm:pt-18 md:pt-22 min-h-screen ]">
+      <Header isNavOpen={isNavOpen} clickHandler={toggleMenu} />
+
+      <main id="main" className="[ pt-16 sm:pt-18 md:pt-22 min-h-screen ]">
         {children}
 
         <section aria-hidden="true">
-          <Particles options={particlesConfig}/>
+          <Particles options={particlesConfig} />
         </section>
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   )
-};
+}
 
-export default LayoutMaster;
+export default LayoutMaster

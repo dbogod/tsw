@@ -40,4 +40,17 @@
   .is-tab &:focus {
     @apply bg-cta-secondary-fill-hover text-cta-text-color-hover shadow-none -translate-y-0.5;
   }
+
+  .banner-ad & {
+    --cta-secondary-fill: var(--color-jelly-bean);
+    --cta-secondary-border-color: var(--color-jelly-bean);
+    --cta-secondary-fill-hover: var(--color-blue-chill);
+
+    @apply transition-none shadow-none mt-1 md:mt-0;
+
+    &:hover,
+    .is-tab &:focus {
+      @apply bg-cta-secondary-fill-hover text-cta-text-color-hover transform-none shadow-none;
+    }
+  }
 }
