@@ -64,11 +64,10 @@ const ContactForm = ({ formspreeId, formSuccessMessage, location }) => {
         descriptionPostScript="(Tick all that apply)"
         inputs={[
           { value: 'Style, Shape and Shades' },
-          { value: 'Colour Confidence' },
-          { value: 'Edit My Wardrobe' },
-          { value: 'Personal Shopping' },
-          { value: 'The Full Works' },
-          { value: 'Style Socials' }
+          { value: 'Speaking Opportunity' },
+          { value: 'Masterclasses' },
+          { value: 'Join Mailing List' },
+          { value: 'Book' },
         ]}
         checkedValue={location?.state?.serviceTitle}/>
       <FormItemGroup

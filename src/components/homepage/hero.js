@@ -35,6 +35,7 @@ const Hero = () => {
   `)
 
   const { hero } = allWpPage?.nodes[0]
+
   return (
     <section className="[ hero ]">
       {hero.image && (
@@ -49,7 +50,7 @@ const Hero = () => {
             />
           </Helmet>
           <img
-            className="[ w-full h-full object-cover ]"
+            className="[ w-full h-full object-cover lg:mx-auto ]"
             src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             srcSet={hero.image.localFile.childImageSharp.fluid.srcSet}
             sizes="100vw"
@@ -59,14 +60,16 @@ const Hero = () => {
       )}
       {hero.title && (
         <div className="[ tsw-container ]">
-          <div className="[ absolute w-9/12 bottom-2/20 sm:w-7/12 lg:bottom-3/20 xl:w-6/12 ]">
+          <div className="[ hero__text-wrapper absolute w-9/12 bottom-2/20 sm:w-7/12 lg:bottom-3/20 xl:w-6/12 ]">
             <FadeIn>
               <h2>
                 <span>{hero.title}</span>
               </h2>
               {hero.subtitle && (
-                <div className="mt-8">
-                  <p className="h2">{hero.subtitle}</p>
+                <div className="hidden md:block mt-8">
+                  <p className="h2">
+                    <span>{hero.subtitle}</span>
+                  </p>
                 </div>
               )}
               {hero.cta && (
