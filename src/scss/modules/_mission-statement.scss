@@ -19,7 +19,7 @@
 .mission-statement__body-image-wrapper::before {
   @apply absolute top-36 -mx-4;
 
-  content: "";
+  content: '';
   width: calc(100% + 2rem);
   height: calc(100% - 9rem);
   background-color: var(--mission-statement-frame-color);
@@ -84,5 +84,11 @@
     @include media-breakpoint-up(sm) {
       max-width: 470px;
     }
+  }
+}
+
+.mission-statement__image-wrapper--left {
+  @include media-breakpoint-up(md) {
+    @apply rotate-356;
   }
 }

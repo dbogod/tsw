@@ -17,7 +17,8 @@
     height: calc(100vh - 5.5rem);
   }
 
-  h2 {
+  h2,
+  .h2 {
     @apply relative mt-0 text-hot-pink inline whitespace-pre-wrap;
 
     border-color: var(--hero-title-bg-colour);
@@ -44,5 +45,9 @@
     @include media-breakpoint-up(xl) {
       @apply text-hero-title-size-xl;
     }
+  }
+
+  p.h2 {
+    @apply text-lg md:text-2xl;
   }
 }

@@ -1,0 +1,19 @@
+.banner-ad {
+  .is-nav-open & {
+    display: none;
+  }
+
+  .banner-ad__img-wrapper {
+    transform: rotate(6deg);
+  }
+
+  img {
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    max-height: 150px;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 9rem;
+  }
+}
